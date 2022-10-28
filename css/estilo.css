@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'titulo';
+    src: url('../_fonts/bubblegum-sans-regular.otf');
+}
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#container{
+    width: 100%;
+    margin: auto;
+   margin-top: 10px;
+   padding: 10px;
+}
+
+header{
+    background-color: #ffcc01;
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+
+    min-width: 700px;
+}
+.icon-login{
+    color: white;
+}
+
+#ul-rigth{
+    position: absolute;
+    right: 40px;
+    top: 10px;
+}
+#ul-login{
+    position: absolute;
+    right: 200px;
+    top:10px;
+}
+i{
+   color:rgb(247, 58, 58);
+   font-size: 1.3em;
+   opacity: 1;
+
+}
+h1 {
+    font-size: 2.3em;
+    font-family: titulo;
+    color: #606060;
+    text-align: center;
+    padding: 10px;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+ul li{
+    list-style-type: none;
+    padding: 10px;
+    font-size: 1.5em;
+    
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-weight:bold ;
+}
+a:hover{
+    color: rgb(247, 230, 230);
+   
+}
+a:hover i {
+    
+    opacity: 0.5;
+}
+
+
+.teste{
+    background: rgb(141,194,111);
+    background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
+    font-family: "Roboto", sans-serif;
+}
+
+.dia_da_carne{
+    display: flex;
+    flex-direction: row;
+   
+    padding: 10px;
+}
+.conteudo_menu{
+    display: flex;
+    flex-direction: column;
+    padding: 10px; 
+}
+.menu_passa_imagem{
+
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+p{
+    text-align: justify;
+    text-indent: 25px;
+    font-size: 1.2em;
+}
