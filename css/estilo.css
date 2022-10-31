@@ -7,6 +7,11 @@
     border: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+
+}
+body{
+    /* overflow-x: hidden; */
+    background-color: #f0f0f0;
 }
 #container{
     width: 100%;
@@ -67,39 +72,42 @@ a{
     font-weight:bold ;
 }
 a:hover{
+    transition: 0.3s;
     color: rgb(247, 230, 230);
    
 }
 a:hover i {
-    
+    transition: 0.3s;
     opacity: 0.5;
 }
 
-
-.teste{
-    background: rgb(141,194,111);
-    background: linear-gradient(90deg, rgba(141,194,111,1) 0%, rgba(118,184,82,1) 50%);
-    font-family: "Roboto", sans-serif;
-}
-
-.dia_da_carne{
-    display: flex;
-    flex-direction: row;
-   
-    padding: 10px;
-}
-.conteudo_menu{
-    display: flex;
-    flex-direction: column;
-    padding: 10px; 
-}
-.menu_passa_imagem{
-
+/* container produto */ 
+.sombra{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
-p{
-    text-align: justify;
-    text-indent: 25px;
-    font-size: 1.2em;
+.row{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin-top: 25px;
+}
+.container-produto{
+ 
+    width: 230px;
+    height: 300px;
+    font-size: 0.8em;
+    background-color: white;
+    padding: 10px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.container-produto img{
+    width: 80%;
+    margin-bottom: 15px;
+}
+.container-produto h3{
+ text-align:left;
+ font-size: 1.5em;
 }

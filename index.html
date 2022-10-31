@@ -5,9 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/script.js"></script>
+        <!-- script carousel -->
+        <script src="js/carousel.js" defer></script>
         <!-- FONT AWESOME -->
         <script src="https://kit.fontawesome.com/f29238e7e8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="css/carousel.css">
+    
         <link rel="shortcut icon" href="img/icone_titulo.jpg" type="image/x-icon">
         <title>Super Nunes</title>
     </head>
@@ -55,70 +59,130 @@
                 </section>
             </header>
             <section id="container">
-                <section class="menu_passa_imagem">
-                    <section class="dia_da_carne">
-                        <section class="lado-img">
-                            <img src="img/dia_da_carne.jpg" width="500px" height="350px" alt="">
-                        </section>
-                        
-                        <section class="conteudo_menu">
-                            <h1> Dia da carne</h1>
 
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
-                            Loree laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
+                <!-- inicio do conteudo do menu carousel -->
 
-                            <h1>Promoões</h1>
+                <section class="slider sombra">
+                    <section class="slides">
+                            <!-- botões do slide -->
+           
+                        <input type="radio" name="radio-btn" id="radio1" onclick="resgataIndece(1)">
+                        <input type="radio" name="radio-btn" id="radio2" onclick="resgataIndece(2)">
+                        <input type="radio" name="radio-btn" id="radio3" onclick="resgataIndece(3)">
+                        <input type="radio" name="radio-btn" id="radio4" onclick="resgataIndece(4)">
+                        <div class="slide first">
+                            <section>
+                                <img src="img/dia_da_carne.jpg" width="500px" height="350px" alt="">
+                            </section>
+                            <section class="conteudo_menu">
+                                <h1> Dia da carne</h1>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
+                                    Loree laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
+                                <h1>Promoões</h1>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste doloremque optio id quaerat dolorem impedit, delectus necessitatibus amet cumque laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
+                            </section>
+                        </div>
+                        <div class="slide">
+                            <section>
+                                <img src="img/dia_verde.jpg" width="500px" height="350px" alt="">
+                            </section>
+                            <section class="conteudo_menu">
+                                <h1> Dia da Verdura</h1>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
+                                    Loree laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
+                                <h1>Promoões</h1>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste doloremque optio id quaerat dolorem impedit, delectus necessitatibus amet cumque laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
+                            </section>
+                        </div>
+                        <div class="slide">
+                                <section>
+                                    <img src="img/natal.jpg" width="500px" height="350px" alt="">
+                                </section>
+                                <section class="conteudo_menu">
+                                    <h1> O Natal já chegou para o Super Nunes</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
+                                        Loree laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
+                                    <h1>Promoões Natalinas</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste doloremque optio id quaerat dolorem impedit, delectus necessitatibus amet cumque laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p> 
+                        </div>
+                        <div class="slide">
+                            <section>
+                                <img src="img/trocar-moedas.jpg" width="500px" height="350px" alt="">
+                            </section>
+                            <section class="conteudo_menu">
+                                <h1> Venha trocar suas moedas</h1>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
+                                    Loree laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
+                                <h1> Mega Promoção</h1>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste doloremque optio id quaerat dolorem impedit, delectus necessitatibus amet cumque laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
+                            </section>
+                        </div>
+                         <!-- NAVIGATION AUTO    -->
+                            <div class="navigation-auto">
+                                <div class="auto-btn1"></div>
+                                <div class="auto-btn2"></div>
+                                <div class="auto-btn3"></div>
+                                <div class="auto-btn4"></div>
+                            </div>
+                    </section>
+                            <!-- LABEL DOS INPUT -->
+                        <div class="manual-navigation">
+                            <label for="radio1" class="manual-btn"></label>
+                            <label for="radio2" class="manual-btn"></label>
+                            <label for="radio3" class="manual-btn"></label>
+                            <label for="radio4" class="manual-btn"></label>
+                        </div>
+                </section>
 
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste doloremque optio id quaerat dolorem impedit, delectus necessitatibus amet cumque laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
-
-                        </section>
+                <!-- fim do conteudo do menu carousel -->
+                
+                <section class="row">
+                    <section class="container-produto sombra">
+                       <img src="img/arroz.jpg"  alt="">
+                        <h4>Arroz Parboilizado Tipo 1 Chinês Pacote 1kg</h4>
+                        <br><br>
+                        <h3>R$ 3,99</h3>
+                    </section>
+                    <section class="container-produto sombra">
+                        <h1>produto-2</h1>
+                        <h4>foto</h4>
+                        <hr><br>
+                        <br><hr>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, veritatis! Quisquam, impedit aspernatur nobis ea explicabo, tempora odit eveniet iure voluptate delectus ab similique voluptatum nemo fugiat. Error, quam voluptates.</p>
+                    </section>
+    
+                    <section class="container-produto sombra">
+                        <h1>produto-3</h1>
+                        <h4>foto</h4>
+                        <hr><br>
+                        <br><hr>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, veritatis! Quisquam, impedit aspernatur nobis ea explicabo, tempora odit eveniet iure voluptate delectus ab similique voluptatum nemo fugiat. Error, quam voluptates.</p>
+                    </section>
+                    <section>
+    
+                    </section>
+                    <section class="container-produto sombra">
+                        <h1>produto-4</h1>
+                        <h4>foto</h4>
+                        <hr><br>
+                        <br><hr>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, veritatis! Quisquam, impedit aspernatur nobis ea explicabo, tempora odit eveniet iure voluptate delectus ab similique voluptatum nemo fugiat. Error, quam voluptates.</p>
+                    </section>
+                    <section class="container-produto sombra">
+                        <h1>produto-5</h1>
+                        <h4>foto</h4>
+                        <hr><br>
+                        <br><hr>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, veritatis! Quisquam, impedit aspernatur nobis ea explicabo, tempora odit eveniet iure voluptate delectus ab similique voluptatum nemo fugiat. Error, quam voluptates.</p>
                     </section>
                 </section>
-                <section class="menu_passa_imagem">
-                    <section class="dia_da_carne">
-                        <section class="lado-img">
-                            <img src="img/dia_verde.jpg" width="500px" height="350px" alt="">
-                        </section>
-                        
-                        <section class="conteudo_menu">
-                            <h1> Dia da Verdura</h1>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste doloremque optio id quaerat dolorem impedit, delectus necessitatibus amet cumque laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
-
-                            <h1>Promoões</h1>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste doloremque optio id quaerat dolorem impedit, delectus necessitatibus amet cumque laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
-
-                        </section>
-                    </section>
-                </section>
-                <section class="menu_passa_imagem">
-                    <section class="dia_da_carne">
-                        <section class="lado-img">
-                            <img src="img/natal.jpg" width="500px" height="350px" alt="">
-                        </section>
-                        
-                        <section class="conteudo_menu">
-                            <h1> O Natal já chegou para o Super Nunes</h1>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste doloremque optio id quaerat dolorem impedit, delectus necessitatibus amet cumque laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p>
-
-                            <h1>Promoões Natalinas</h1>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ipsam saepe culpa officia corrupti accusamus! Quae, voluptates quas officia repudiandae quaerat eligendi at nemo nam magni, neque atque ut.
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste doloremque optio id quaerat dolorem impedit, delectus necessitatibus amet cumque laboriosam placeat perferendis iusto libero quia veniam quos explicabo omnis dolores?</p> 
-
-                        </section>
-                    </section>
-                </section>
+               
             </section>
             
         </main>
-
-       
     </body>                                         
 </html>
