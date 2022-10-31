@@ -2,7 +2,7 @@ let count = 1;
 document.querySelector('#radio1').checked = true;
 setInterval(function(){
     nextSlide();
-},5000)
+},10000)
 function nextSlide(){
     count++
     if(count > 4 ){
