@@ -57,6 +57,10 @@
                         </li>
                     </ul>
                 </section>
+                <section class="input_header">
+                    <input type="text" placeholder="Pesquisar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </section>
             </header>
             <section id="container">
 
@@ -65,7 +69,6 @@
                 <section class="slider sombra">
                     <section class="slides">
                             <!-- botões do slide -->
-           
                         <input type="radio" name="radio-btn" id="radio1" onclick="resgataIndece(1)">
                         <input type="radio" name="radio-btn" id="radio2" onclick="resgataIndece(2)">
                         <input type="radio" name="radio-btn" id="radio3" onclick="resgataIndece(3)">
@@ -138,27 +141,44 @@
                         </div>
                 </section>
 
+                  <!-- inicio conteudo imagens -->
+                  <section class="img row ">
+                    <section class="area_img">
+                        <img src="img/bem_vindo.jpg"  alt="">
+                    </section>
+                    <section class="conteudo_da_img sombra">
+                        <h1>Olá, seja muito bem vindo ao nosso site</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ab dolor hic veritatis debitis, iusto modi minima animi placeat, inventore quisquam sequi excepturi suscipit aspernatur ullam enim quia labore blanditiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam reiciendis consectetur, dolore eos atque voluptate ipsam repellat ab sint. Nostrum alias voluptate iste soluta suscipit totam, qui unde velit beatae.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere quidem expedita voluptates ipsa obcaecati, non corporis optio magnam et molestiae consectetur eaque facilis nam illo? Distinctio iure laborum dolor nostrum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate libero, tenetur et atque praesentium quos harum deserunt reprehenderit quia quas. Ipsa hic earum corporis asperiores pariatur voluptatibus animi repudiandae officia?</p>
+                        <!-- <h3>Olá, Sejá muito bem vindo ao nosso site</h3> -->
+                    </section>
+                </section>
+
                 <!-- fim do conteudo do menu carousel -->
+                
                 <h1 class="titulos-produtos">Confira</h1>
                 <section class="row">
                     <section class="container-produto sombra">
                        <img src="img/arroz_unico.png"  alt="">
                         <h4>Arroz Parboilizado Tipo 1 Chinês Pacote 1kg</h4>
                         <h3>R$ 3,99</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
                     <section class="container-produto sombra">
                         <img src="img/biscoito_fortaleza.jfif"  alt="">
                         <h4>Bolacha Cracker Mini Fortaleza 400g</h4>
                         <h3>R$ 5,99</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
     
                     <section class="container-produto sombra">
                         <img src="img/biscoito_maria.webp"  alt="">
                         <h4>Biscoito Doce Maria Fortaleza 400g </h4>
                         <h3>R$ 6,99</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
                     <section>
     
@@ -167,15 +187,20 @@
                         <img src="img/maria_chocolate.jpeg"  alt="">
                         <h4>Biscoito Maria Chocolate Fortaleza Pacote 400g</h4>
                         <h3>R$ 7,99</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
                     <section class="container-produto sombra">
                         <img src="img/acucar.jpeg"  alt="">
                         <h4>Açúcar Cristal Agrovale 1kg</h4>
                         <h3>R$ 3,99</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
                 </section>
+
+              
+                
                 <!-- SEÇÃO NOVIDADES -->
                 <h1 class="titulos-produtos">Novidades</h1>
 
@@ -184,20 +209,23 @@
                        <img src="img/bauducco.webp"  alt="">
                         <h4>Biscoito Bauducco Cereale Maçã Uva 141g</h4>
                         <h3>R$ 2,99</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
                     <section class="container-produto sombra">
                         <img src="img/rexona.webp"  alt="">
                         <h4>Desodorante Aerosol Rexona Cotton Dry 250ml</h4>
                         <h3>R$ 8,99</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
     
                     <section class="container-produto sombra">
                         <img src="img/sandalias.webp"  alt="">
                         <h4>Sandália Havaianas Brasil Branco 35/36</h4>
                         <h3>R$ 6,99</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
                     <section>
     
@@ -206,57 +234,111 @@
                         <img src="img/biscoito_wafle.jfif"  alt="">
                         <h4>Biscoito Wafer Chocolate Bauducco 140g</h4>
                         <h3>R$ 1,99</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
                     <section class="container-produto sombra">
                         <img src="img/bombril.jpg"  alt="">
                         <h4>Lã de Aço 60g com 8 Unidades BomBril</h4>
                         <h3>R$ 4,80</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
                 </section>
-
                 <h1 class="titulos-produtos">Tudo de limpeza</h1>
-
+                
                 <section class="row">
                     <section class="container-produto sombra">
                        <img src="img/sabonete.webp"  alt="">
                         <h4>Sabonete palmolive suave mantega cacau E karite 90G</h4>
                         <h3>R$ 3,15</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
                     <section class="container-produto sombra">
                         <img src="img/detergente.jpg"  alt="">
                         <h4>Detergente Ypê Neutro 500ml</h4>
                         <h3>R$ 2,35</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
     
                     <section class="container-produto sombra">
                         <img src="img/agua_sanitaria.webp"  alt="">
                         <h4>Água Sanitária Ypê Cloro Ativo 321000 - 1L</h4>
                         <h3>R$ 10,60</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
                     <section>
-    
+                        
                     </section>
                     <section class="container-produto sombra">
                         <img src="img/shamppo.webp"  alt="">
                         <h4>Shampoo Pantene Hidratação 175ml</h4>
                         <h3>R$ 12,99</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
                     </section>
                     <section class="container-produto sombra">
                         <img src="img/condicionador.jpg"  alt="">
                         <h4>Condicionador Cachos Definidos 325 Ml, Seda</h4>
                         <h3>R$ 4,80</h3>
-                        <i class="fa-solid fa-cart-plus"></i>
+                        <i class="fa-solid fa-star icon-star"></i>
+                        <i class="fa-solid fa-cart-plus icon-buy"></i>
+                    </section>
+                </section>
+
+                
+                <!-- inicio conteudo imagens -->
+                <section class="img row ">
+                    <section class="area_img">
+                        <img src="img/pagar_contas.jpg"  alt="">
+                    </section>
+                    <section class="conteudo_da_img sombra">
+                        <h1>Venha pagar suas contas em nosso estabelecimento</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias ab dolor hic veritatis debitis, iusto modi minima animi placeat, inventore quisquam sequi excepturi suscipit aspernatur ullam enim quia labore blanditiis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam reiciendis consectetur, dolore eos atque voluptate ipsam repellat ab sint. Nostrum alias voluptate iste soluta suscipit totam, qui unde velit beatae.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere quidem expedita voluptates ipsa obcaecati, non corporis optio magnam et molestiae consectetur eaque facilis nam illo? Distinctio iure laborum dolor nostrum. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate libero, tenetur et atque praesentium quos harum deserunt reprehenderit quia quas. Ipsa hic earum corporis asperiores pariatur voluptatibus animi repudiandae officia?</p>
+                        <!-- <h3>Olá, Sejá muito bem vindo ao nosso site</h3> -->
                     </section>
                 </section>
                
                
             </section>
+            <footer class="sombra">
+                <section class="row voltar-inicio">
+                    <h2><a href="index.html">voltar ao inicio</a></h2>
+                </section>
+                <section class="row">
+                     <section class="conteudo-footer">
+                        <h1>Sobre Nós</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos doloremque accusamus sunt non doloribus in at dicta, temporibus, iste aliquam minus harum, t inventore?</p>
+                     </section>
+                     <section class="conteudo-footer">
+                        <h1>Nossas redes sociais</h1>
+                        <section class="row">
+                            <i class="fa-brands fa-youtube"></i>
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-brands fa-twitter"></i>
+                            <i class="fa-brands fa-instagram"></i>
+                        </section>
+                    </section>
+                    <section class="conteudo-footer">
+                       <h1>Pagamentos</h1>
+                       <section class="row">
+                            <i class="fa-brands fa-pix"></i>
+                            <i class="fa-regular fa-credit-card"></i>
+                            <i class="fa-regular fa-money-bill-1"></i>
+                       </section>
+                    </section>
+                    <sec class="conteudo-footer">
+                        <img src="img/logo_2.png" alt="">
+                    </sec>
+                    
+                 
+                </section>
+                
+            </footer>
             
         </main>
     </body>                                         
