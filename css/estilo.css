@@ -25,7 +25,7 @@ header{
     display: flex;
     align-items: center;
     flex-direction:column;
-
+    position: relative;
     min-width: 700px;
 }
 .icon-login{
@@ -36,11 +36,13 @@ header{
     position: absolute;
     right: 40px;
     top: 10px;
+
 }
 #ul-login{
     position: absolute;
     right: 200px;
     top:10px;
+
 }
 i{
    color:rgb(247, 58, 58);
@@ -146,6 +148,7 @@ i.icon-star{
     top: 0px;
     padding: 5px;
     color:rgb(212, 201, 201);
+    transition: 0.8s;
 } 
 i.icon-star:hover {
  color: rgb(231, 231, 13);
@@ -215,26 +218,39 @@ footer{
 .area_img{
     width: 30%;
 }
-.input_header{
-    width: 100%;
+.form-pesquisa{
     position: relative;
+    left: 0;
+    bottom: 0;
+    width: 30%;
+    display: inline;
+    font-size: 1em;
 }
-.input_header i {
+.form-pesquisa button{
     position: absolute;
-    left: 28%;
-    top: 25%;
+    right: 4.3%;
+    bottom: 5%;
+    background-color: #fff;
+    padding: 8px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #606060;
 }
-
+.form-pesquisa button:hover{
+ border: 1px solid #ccc;
+ padding: 7px 9px;
+ border-radius: 8px;
+}
 input{
-    margin-left: 5%;
-    width: 25%;
+    margin-left: 25px;
+    width: 90%;
     padding: 10px 30px 10px 10px;
     background-color: white;
     border-radius: 5px;
+    border-color: white;
     font-size: 1em;
+
 }
-input:focus{
-    border-color: red;
-}
+
 
 

@@ -1,0 +1,78 @@
+.carrinho-caixa{
+    padding: 20px;
+    background-color: white;
+}
+.borda-bottom{
+    border-bottom: 1px solid rgb(172, 170, 170);
+    padding: 10px;
+}
+h2{
+    font-size: 2em;
+    color: #ffcc01;
+}
+.img-carrinho{
+    width: 25%;
+    /* border: 1px solid red; */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+.img-carrinho img{
+    width: 90%;
+}
+.descricao-produto{
+    width: 60%;
+}
+.quantidade-produto{
+    width: 40%;
+    display: flex;
+    /* border: 1px solid red; */
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+.valor-produto{
+    width: 20%;
+    display: flex;
+    /* border: 1px solid yellow; */
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    
+}
+.quantidade-produto select{
+    width: 30%;
+    color: #606060;
+    padding: 10px;
+    border: 1px solid gray;
+    text-align: center;
+}
+.descricao-carrinho{
+    width: 80%;
+    /* border: 1px solid black; */
+    padding: 10px;
+    display: flex;
+}
+.descricao-carrinho h2{
+    color: #ffcc01;
+    margin-bottom: 2%;
+}
+
+.descricao-carrinho p.estoque{
+   color: rgb(7, 175, 7);
+   padding: 10px 0;
+   font-weight: bold;
+}
+/* .info-precos-carrinho{
+    width: 20%;
+    border: 1px solid blue;
+    padding: 10px;
+}
+.info-precos-carrinho h2{
+    color: #ffcc01;
+    font-size: 1.5em;
+} */
+h4{
+    padding: 10px;
+    color: #474646;
+}

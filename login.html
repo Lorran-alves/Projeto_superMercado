@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/script.js"></script>
+        <!-- script carousel -->
+        <script src="js/senha.js" defer></script>
+        <!-- FONT AWESOME -->
+        <script src="https://kit.fontawesome.com/f29238e7e8.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/login.css">
+    
+    
+        <link rel="shortcut icon" href="img/icone_titulo.jpg" type="image/x-icon">
+        <title>Super Nunes</title>
+    </head>
+<body>
+    <section class="caixa-formulario">
+        <section>
+            <img src="img/logo_2.png " width="250px" alt="">
+        </section>
+        <form action="verifica_login.php" method="post">
+            <h1>Login</h1>
+            <section class="secao-inputs">
+                <input type="text" placeholder="Digite o seu email" name="email">
+                <i class="fa-solid fa-envelope"></i>
+            </section>
+            <section class="secao-inputs">
+                <input type="password" placeholder="Digite a sua senha" id="senhalogin" name="senha">
+                <i class="fa-solid fa-eye" id="iconLogin" onclick="verSenha()"></i>
+            </section>
+            <p>É novo por aqui?<a href="">Criar conta</a></p>
+            <button>Entrar</button>
+        </form>
+    </section>
+    <!-- SEÇÃO DO NOVA CONTA 
+    <section class="caixa-formulario" style="margin-top: 400px; margin-bottom: 100px;">
+        <section>
+            <img src="img/logo_2.png " width="250px" alt="">
+        </section>
+        <form action="verifica_cadastro.php" method="post">
+            <h1>Cadastro</h1>
+            <section class="secao-inputs">
+                <input type="text" placeholder="Digite o seu nome" name="nome">
+                <i class="fa-solid fa-user"></i>
+            </section>
+            <section class="secao-inputs">
+                <input type="text" placeholder="Digite o seu email" name="email">
+                <i class="fa-solid fa-envelope"></i>
+            </section>
+            <section class="secao-inputs">
+                <input type="password" placeholder="Digite a sua senha" id="senhaCadastro" name="senha">
+                <i class="fa-solid fa-eye" id="iconCadastro" onclick="verSenha()"></i>
+            </section>
+            <p>Já possui uma conta?<a href="">Entrar</a></p>
+            <button>Cadastrar</button>
+        </form>
+    </section> -->
+</body>
+</html>

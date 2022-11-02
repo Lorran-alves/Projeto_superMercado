@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f0f0f0;
+}
+
+.caixa-formulario{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 610px;
+    height: 370px;
+    position: absolute;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    padding: 10px;
+    width: 50%;
+    height: 90%;
+    margin: auto;
+    font-size: 1em;
+    text-align: center;
+    align-items: center;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+
+}
+input,button{
+    padding:15px;
+    color: #606060;
+    margin:10px 0px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f0f0f0;
+    font-size: 1.1em;
+    width: 100%;
+}
+button{
+    background-color:  #ffcc01;
+    color: black;
+    cursor: pointer;
+    margin-top: 10px;
+}
+p{
+    font-size: 1.1em;
+
+}
+a{
+    text-decoration: none;
+    color:orange;
+}
+a:hover{
+    color:rgb(206, 136, 6);
+}
+button:hover{
+background-color: rgb(231, 154, 10);
+}
+i{
+    position: absolute;
+    top: 35%;
+    right: 1%;
+    font-size: 1.5em;
+    color: #606060;
+}
+section.secao-inputs{
+    position: relative;
+    width: 100%;
+}
+h1{
+    color: #ffcc01 ;
+    font-size: 2em;
+}
+#iconCadastro:hover, #iconLogin:hover{
+    color: #ccc;
+    cursor: pointer;
+ }
+
