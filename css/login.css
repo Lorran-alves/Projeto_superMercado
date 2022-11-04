@@ -29,7 +29,7 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: baseline;
-    padding: 10px;
+    padding: 5px;
     width: 50%;
     height: 90%;
     margin: auto;
@@ -38,7 +38,7 @@ form{
     align-items: center;
 }
 input,button{
-    padding:15px;
+    padding:12px;
     color: #606060;
     margin:10px 0px;
     border-radius: 10px;
@@ -85,5 +85,13 @@ h1{
 #iconCadastro:hover, #iconLogin:hover{
     color: #ccc;
     cursor: pointer;
+ }
+ .dados-errados{
+    color: red;
+    font-weight: bold;
+ }
+ .dados-corretos{
+    color: green;
+    font-weight: bold;
  }
 

@@ -10,8 +10,6 @@
         <!-- FONT AWESOME -->
         <script src="https://kit.fontawesome.com/f29238e7e8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/login.css">
-    
-    
         <link rel="shortcut icon" href="img/icone_titulo.jpg" type="image/x-icon">
         <title>Super Nunes</title>
     </head>
@@ -21,21 +19,15 @@
             <img src="img/logo_2.png " width="250px" alt="">
         </section>
         <section id="conteudo-form">
-            <form action="area_controle.php?acao=login" method="post">
-                <h1>Login</h1>
-                <section class="secao-inputs">
-                    <input type="text" placeholder="Digite o seu email" name="email">
-                    <i class="fa-solid fa-envelope"></i>
-                </section>
-                <section class="secao-inputs">
-                    <input type="password" placeholder="Digite a sua senha" id="senhalogin" name="senha">
-                    <i class="fa-solid fa-eye" id="iconLogin" onclick="verSenha('senhalogin','iconLogin')"></i>
-                </section>
-                <p>É novo por aqui?<a href="#" onclick="requisitarPagina('conteudo-cadastro.html')">Criar conta</a></p>
-                <button>Entrar</button>
-            </form>
+
         </section>
-        
+        <br><br>
+        <?php if(isset($_GET) && $_GET['pagina'] == 'cadastro'){?>
+            <script>requisitarPagina('conteudo-cadastro.php')</script>
+        <?}?>
+        <?php if(isset($_GET) && $_GET['pagina'] == 'login'){?>
+            <script>requisitarPagina('conteudo-login.php')</script>
+        <?}?>
     </section>
 </body>
 </html>

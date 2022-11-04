@@ -8,6 +8,6 @@
         <input type="password" placeholder="Digite a sua senha" id="senhalogin" name="senha">
         <i class="fa-solid fa-eye" id="iconLogin" onclick="verSenha('senhalogin','iconLogin')"></i>
     </section>
-    <p>É novo por aqui?<a href="#" onclick="requisitarPagina('conteudo-cadastro.html')">Criar conta</a></p>
+    <p>É novo por aqui?<a href="#" onclick="requisitarPagina('conteudo-cadastro.php')">Criar conta</a></p>
     <button>Entrar</button>
 </form>
