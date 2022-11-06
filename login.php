@@ -19,14 +19,13 @@
             <img src="img/logo_2.png " width="250px" alt="">
         </section>
         <section id="conteudo-form">
-
         </section>
         <br><br>
         <?php if(isset($_GET) && $_GET['pagina'] == 'cadastro'){?>
-            <script>requisitarPagina('conteudo-cadastro.php')</script>
+            <script>requisitarPagina("conteudo-form", 'conteudo-cadastro.php')</script>
         <?}?>
         <?php if(isset($_GET) && $_GET['pagina'] == 'login'){?>
-            <script>requisitarPagina('conteudo-login.php')</script>
+            <script>requisitarPagina("conteudo-form", 'conteudo-login.php')</script>
         <?}?>
     </section>
 </body>
