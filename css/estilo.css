@@ -251,6 +251,66 @@ input{
     font-size: 1em;
 
 }
+ .form-admin form{
+    width: 90%;
+    border: 1px solid black;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-admin input{
+    width: 90%;
+    padding: 12px;
+    font-size: 1.1em;
+    color: black;
+    background-color: rgb(216, 216, 216);
+    margin: 10px auto;
+    border: 1px solid #ccc;
+}
+.form-admin input::placeholder{
+    color: rgb(133, 122, 122);
+}
+
+label{
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #241d1d;
+    margin-bottom: 10px
+} 
+.coluna{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form-campo1{
+    width: 30%;
+    /* border: 1px solid red; */
+    text-align: center;
+}
+.form-campo2{
+    width: 40%;
+    /* border: 1px solid black; */
+   
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.form-campo3{
+    width: 30%;
+    text-align: center;
+    /* border: 1px solid yellow; */
+}
+h4{
+    font-size: 1.3em;
+}
+input.botao-salvar{
+    background-color: #ffcc01;
+    cursor: pointer;
+}
 
 
 

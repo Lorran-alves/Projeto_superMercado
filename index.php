@@ -21,7 +21,7 @@ session_start();
         <link rel="shortcut icon" href="img/icone_titulo.jpg" type="image/x-icon">
         <title>Super Nunes</title>
     </head>
-    <body onload="requisitarPagina('container', 'conteudo_principal.php')">
+    <body onload="requisitarPagina('container', 'admin.php')">
         <main>
             <header>  
                 <a><img src="img/logo_2.jpg" width="500px" alt=""></a>
@@ -36,13 +36,13 @@ session_start();
                         <a href="#">Higiene</a>
                     </li>
                     <li>
-                        <a href="#">Saúde</a>
-                    </li>
-                    <li>
                         <a href="#">Gelados</a>
                     </li>
                     <li>
                         <a href="#">Outros</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="requisitarPagina('container', 'admin.php')">Admin</a>
                     </li>
                 </ul>
 
