@@ -1,5 +1,8 @@
 
-
+<?php
+$acao = 'recuperar';
+require "area_controle.php"; 
+?>
 
 
 
@@ -7,6 +10,12 @@
     <section class="borda-bottom">
     <h2>Cadastrar novo produto</h2>
     </section>
+    <?php if(isset($_SESSION['produto-salvo']) && $_SESSION['produto-salvo'] == 'sim'){?>
+        <h2 class="produto-salvo">Produto salvo com sucesso</h2>
+    <?}?>
+    <?php if(isset($_SESSION['produto-salvo']) && $_SESSION['produto-salvo'] == 'nao'){?>
+        <h2 class="produto-erro">Verifique se os dados foram preenchidos corretamente e tente novamente</h2>
+    <?}?>
     <section class="row">
         <form action="area_controle.php?acao=salvar-produto" method="POST" class="row form-admin" enctype="multipart/form-data">
             <section class="form-campo1 coluna">
@@ -49,8 +58,9 @@
             </section>
             
         </form>
+       
         
     </section>
-
+ 
     
 </section>

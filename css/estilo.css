@@ -92,15 +92,16 @@ a:hover i {
     display: flex;
     flex-direction: row;
     padding: 10px;
+    position: relative;
 }
 .container-produto{
  
-    width: 230px;
-    height: 300px;
+    width: 210px;
+    height: 280px;
     font-size: 0.8em;
     background-color: white;
     padding: 10px;
-    margin: 0 20px;
+    margin: 0 auto ;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -316,6 +317,47 @@ textarea{
     font-size: 1.1em;
     padding: 10px;
 }
+.produto-erro, .produto-salvo{
+    font-size: 1.5em;
+    text-align: center;
+    padding: 10px;
+}
+.produto-salvo{
+    color: green;    
+}
+.produto-erro{
+    color: red;
+}
+/* .produto-no-wrap{
+    display: flex;
+    flex-flow: row nowrap;
+} */
 
+/* ESTILO DO CAROUSEL DO PRODUTO SLIDE */
 
+i.left{
+    left: 5px;
+}
+i.right{                
+    right: 5px; 
+}
+i.right, i.left{
+    display: none;
+    position: absolute;
+    z-index: 23;
+    background-color: rgb(231, 229, 229);
+    font-size: 2em;
+    padding: 15px 20px;
+    border-radius:50%;
+    color: orange;
+    top:40%;
+    cursor: pointer;
+}
+.row:hover i.right, .row:hover i.left{
+    display: block;
+}
+i.left:hover, i.right:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
+    color: rgb(216, 142, 5);
+}
 

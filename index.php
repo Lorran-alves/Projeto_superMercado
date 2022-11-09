@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php 
-
 session_start();
 // $_SESSION['login'] = '';//para que a mensagem de erro de login não seja exibido
 ?>
@@ -21,7 +20,7 @@ session_start();
         <link rel="shortcut icon" href="img/icone_titulo.jpg" type="image/x-icon">
         <title>Super Nunes</title>
     </head>
-    <body onload="requisitarPagina('container', 'admin.php')">
+    <body onload="requisitarPagina('container', 'conteudo_principal.php')">
         <main>
             <header>  
                 <a><img src="img/logo_2.jpg" width="500px" alt=""></a>

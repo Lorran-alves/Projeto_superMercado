@@ -1,5 +1,8 @@
+<?php
+    $acao = 'recuperarProdutos';
+    require "area_controle.php"
+?>
 <!-- inicio do conteudo do menu carousel -->
-
 <section class="slider sombra">
                     <section class="slides">
                             <!-- botões do slide -->
@@ -92,53 +95,26 @@
                 
                 <h1 class="titulos-produtos">Confira</h1>
                 <section class="row">
-                    <section class="container-produto sombra">
-                       <img src="img/arroz_unico.png"  alt="">
-                        <h4>Arroz Parboilizado Tipo 1 Chinês Pacote 1kg</h4>
-                        <h3>R$ 3,99</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
+                    <i class="fa-solid fa-caret-left left"></i>
+                    <i class="fa-solid fa-caret-right right"></i>
+                <?php 
+                    foreach($produtos as $indece => $produto){?>
+                        <section class="container-produto sombra">
+                            <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
+                            <h4><?= $produto['nome']?></h4>
+                            <h3><?= $produto['preco']?></h3>
+                            <i class="fa-solid fa-star icon-star"></i>
+                            <i class="fa-solid fa-cart-plus icon-buy"></i>
+                        </section>
+                    <?}?>
                     </section>
-                    <section class="container-produto sombra">
-                        <img src="img/biscoito_fortaleza.jfif"  alt="">
-                        <h4>Bolacha Cracker Mini Fortaleza 400g</h4>
-                        <h3>R$ 5,99</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-    
-                    <section class="container-produto sombra">
-                        <img src="img/biscoito_maria.webp"  alt="">
-                        <h4>Biscoito Doce Maria Fortaleza 400g </h4>
-                        <h3>R$ 6,99</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-                    <section>
-    
-                    </section>
-                    <section class="container-produto sombra">
-                        <img src="img/maria_chocolate.jpeg"  alt="">
-                        <h4>Biscoito Maria Chocolate Fortaleza Pacote 400g</h4>
-                        <h3>R$ 7,99</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-                    <section class="container-produto sombra">
-                        <img src="img/acucar.jpeg"  alt="">
-                        <h4>Açúcar Cristal Agrovale 1kg</h4>
-                        <h3>R$ 3,99</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-                </section>
 
-              
-                
                 <!-- SEÇÃO NOVIDADES -->
                 <h1 class="titulos-produtos">Novidades</h1>
 
-                <section class="row">
+                <section class="row produto-no-wrap">
+                    <i class="fa-solid fa-caret-left left"></i>
+                    <i class="fa-solid fa-caret-right right"></i>
                     <section class="container-produto sombra">
                        <img src="img/bauducco.webp"  alt="">
                         <h4>Biscoito Bauducco Cereale Maçã Uva 141g</h4>
@@ -182,6 +158,8 @@
                 <h1 class="titulos-produtos">Tudo de limpeza</h1>
                 
                 <section class="row">
+                    <i class="fa-solid fa-caret-left left"></i>
+                    <i class="fa-solid fa-caret-right right"></i>
                     <section class="container-produto sombra">
                        <img src="img/sabonete.webp"  alt="">
                         <h4>Sabonete palmolive suave mantega cacau E karite 90G</h4>
@@ -226,6 +204,7 @@
                 
                 <!-- inicio conteudo imagens -->
                 <section class="img row ">
+
                     <section class="area_img">
                         <img src="img/pagar_contas.jpg"  alt="">
                     </section>
