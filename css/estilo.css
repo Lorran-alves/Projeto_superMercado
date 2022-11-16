@@ -316,6 +316,10 @@ textarea{
     background-color: rgb(216, 216, 216);
     font-size: 1.1em;
     padding: 10px;
+    width: 90%;
+    
+    max-width: 95%;
+    max-height: 25%;
 }
 .produto-erro, .produto-salvo{
     font-size: 1.5em;
@@ -360,4 +364,35 @@ i.left:hover, i.right:hover{
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
     color: rgb(216, 142, 5);
 }
+.row-produtos{
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.categoria-nova form  button{
+    background-color: orange;
+    color: black;
+    padding:10px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 10px;
+    cursor: pointer;
+}
+.categoria-nova form  input,select#remover{
+    
+    color: black;
+    padding:10px;
+    border-radius: 10px;
+    width: 800px;
+    margin: 10px;
+}
+.categoria-nova input{
+    padding: 15px;
+    width: 100%;
+    
+}
+.categoria-nova button{
+    
+}
+
 

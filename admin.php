@@ -1,7 +1,8 @@
 
 <?php
-$acao = 'recuperar';
+$acao = 'recuperarCategorias';
 require "area_controle.php"; 
+
 ?>
 
 
@@ -37,10 +38,9 @@ require "area_controle.php";
                     <select name="categoria" id="" >
                         <optgroup>
                             <option value="vazio" disabled selected>Selecione a categoria</option>
-                            <option value="Limpeza">Limpeza</option>
-                            <option value="Higiente">Higiente</option>
-                            <option value="Gelados">Gelados</option>
-                            <option value="Alimentos">Alimentos</option>
+                            <?php foreach($categorias as $indece => $categoria){?>
+                            <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
+                            <?}?>
                         </optgroup>
                     </select>
 
@@ -61,6 +61,58 @@ require "area_controle.php";
        
         
     </section>
+    
  
     
 </section>
+<section class="carrinho-caixa sombra">
+    <section class="borda-bottom">
+    <h2>Cadastrar nova Categoria</h2>
+    </section>
+    <?php if(isset($_SESSION['categoria-salva']) && $_SESSION['categoria-salva'] == 'sim'){?>
+        <h2 class="produto-salvo">Categoria salva com sucesso</h2>
+    <?}?>
+    <?php if(isset($_SESSION['categoria-salva']) && $_SESSION['categoria-salva'] == 'nao'){?>
+        <h2 class="produto-erro">Verifique se os dados foram preenchidos corretamente e tente novamente</h2>
+    <?}?>
+    <section class="row ">
+        <section class="categoria-nova">
+            <form action="area_controle.php?acao=salvar-categoria" method="POST" class="row form-admin" enctype="multipart/
+            form-data" >
+                <input type="text" placeholder="Digite a nova categoria que deseja adicionar" name="categoria">
+                <button>Salvar</button>
+            </form>
+        </section>
+    </section>
+            
+</section>
+
+<section class="carrinho-caixa sombra">
+    <section class="borda-bottom">
+    <h2>Remover Categoria</h2>
+    </section>
+    <?php if(isset($_SESSION['categoria-removida']) && $_SESSION['categoria-removida'] == 'sim'){?>
+        <h2 class="produto-salvo">Categoria removida com sucesso</h2>
+    <?}?>
+    <?php if(isset($_SESSION['categoria-removida']) && $_SESSION['categoria-removida'] == 'nao'){?>
+        <h2 class="produto-erro">Verifique se os dados foram preenchidos corretamente e tente novamente</h2>
+    <?}?>
+    <section class="row ">
+        <section class="categoria-nova">
+            <form action="area_controle.php?acao=remover-categoria" method="POST" class="row form-admin" enctype="multipart/
+            form-data" >
+                <select name="categoria" id="remover">
+                    <optgroup>
+                        <option value="vazio" disabled selected>Selecione a categoria</option>
+                        <?php foreach($categorias as $indece => $categoria){?>
+                        <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
+                        <?}?>
+                    </optgroup>
+                </select>
+                <button>Remover</button>
+            </form>
+        </section>
+    </section>
+            
+</section>
+

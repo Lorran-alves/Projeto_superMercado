@@ -1,8 +1,10 @@
 let count = 1;
+
 document.querySelector('#radio1').checked = true;
 setInterval(function(){
     nextSlide();
-},10000)
+    console.log('teste')
+},1000)
 function nextSlide(){
     count++
     if(count > 4 ){
