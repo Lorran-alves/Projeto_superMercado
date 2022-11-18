@@ -109,9 +109,23 @@ a:hover i {
     transition: 0.4s;
 
 }
-.container-produto img{
+.container-resultado{
+    width: 310px;
+    height: 400px;
+    font-size: 0.8em;
+    background-color: white;
+    padding: 10px;
+    margin: 20px auto ;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    transition: 0.4s;
+}
+.container-produto img, .container-resultado img{
     width: 80%;
     margin-bottom: 15px;
+    max-height: 60%;
 }
 h3{
  font-size: 2em;
@@ -134,13 +148,26 @@ h1.titulos-produtos{
     color:#9c7b65;
     padding: 5px;
 }
-.container-produto i:hover{
+.container-produto i:hover, .container-resultado i:hover{
     color: #606060;
 }
-.container-produto:hover {
+.container-produto:hover, .container-resultado:hover {
     transform: scale(1.17);
     transition: all 0.4s ease-in;
     z-index: 2;
+}
+.container-resultado:hover{
+height: 420px;
+}
+.container-resultado:hover p{
+    display: block;
+    transition: all 1s ease-in;
+}
+.container-resultado p {
+    color: #606060;
+    padding: 10px;
+    display: none;
+    
 }
 i.icon-star{
     font-size: 2em;
@@ -304,9 +331,9 @@ label{
     width: 30%;
     text-align: center;
     /* border: 1px solid yellow; */
-}
-h4{
-    font-size: 1.3em;
+} 
+.container-resultado h4{
+    font-size: 1.5em;
 }
 input.botao-salvar{
     background-color: #ffcc01;
@@ -366,6 +393,8 @@ i.left:hover, i.right:hover{
 }
 .row-produtos{
     width: 100%;
+    display: flex;
+    flex-flow: wrap;
     /* border: 1px solid red; */
 }
 
@@ -391,7 +420,12 @@ i.left:hover, i.right:hover{
     width: 100%;
     
 }
-.categoria-nova button{
+.busca{
+    display: none;
+}
+.coluna{
+    display: flex;
+    flex-direction: column;
     
 }
 

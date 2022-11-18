@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <?php 
  
-// $acao = 'recuperarProdutos';
-$acao = '';
 
+$acao = '';
+if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){
+    $acao = 'busca';
+}
 require "area_controle.php";
 
 $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
@@ -26,7 +28,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
         <link rel="shortcut icon" href="img/icone_titulo.jpg" type="image/x-icon">
         <title>Super Nunes</title>
     </head>
-    <body onload="requisitarPagina('container', 'admin.php')">
+    <body ><!-- onload="requisitarPagina('container', 'conteudo_principal.php')" -->
         <main>
             <header>  
                 <a><img src="img/logo_2.jpg" width="500px" alt=""></a>
@@ -78,14 +80,34 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                     </ul>
                 </section>
                
-                    <form action="" class="form-pesquisa">
-                        <input type="text" placeholder="Pesquisar">
+                    <form action="index.php" method="GET" class="form-pesquisa">
+                        <input type="text" name="acao" value="busca" class="busca">
+                        <input type="text" placeholder="Pesquisar" name='pesquisa'>
                         <button><i class="fa-solid fa-magnifying-glass"></i></button>    
                     </form>
            
             </header>
+            
             <section id="container">
-
+               <?php 
+                if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){?>
+                    <h1 class="titulos-produtos">Resultado da pesquisa</h1>
+                    <section class="row" >
+                      
+                        <section id='produtos-confira' class="row row-produtos">
+                        <?php foreach($resultado_pesquisa as $indece => $produto){?>
+                            <section class="container-resultado sombra">
+                                <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
+                                <h4><?= $produto['nome']?></h4>
+                                <p><?= $produto['descricao']?></p>
+                                <h3><?= $produto['preco']?></h3>
+                                <i class="fa-solid fa-star icon-star"></i>
+                                <i class="fa-solid fa-cart-plus icon-buy"></i>
+                            </section>
+                        <?}?>
+                        </section>
+                    </section>
+               <?}?>
             </section>
             <footer class="sombra">
                 <section class="row voltar-inicio">

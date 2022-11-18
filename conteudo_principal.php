@@ -1,6 +1,8 @@
 <?php
     $acao = 'recuperarProdutos';
+    
     require "area_controle.php";
+
 ?>
 <script src="js/carousel.js" defer></script>
 <!-- inicio do conteudo do menu carousel -->
@@ -109,99 +111,42 @@
                         </section>
                     <?}?>
                     </section>
-
-                    
                 </section>
 
                 <!-- SEÇÃO NOVIDADES -->
                 <h1 class="titulos-produtos">Novidades</h1>
 
-                <section class="row produto-no-wrap" id="produtos-novidades" >
-                    <i class="fa-solid fa-caret-left left" onclick="requisitarProdutos('produtos-novidades', 'produtos-carregados.php?teste=teste', 'left',<?= $_SESSION['pagina']?>, <?= $_SESSION['total_paginas']?>)"></i>
-                    <i class="fa-solid fa-caret-right right" onclick="requisitarProdutos('produtos-novidades', 'produtos-carregados.php?teste=teste', 'right',<?= $_SESSION['pagina']?>, <?= $_SESSION['total_paginas']?>)"></i>
-                    <section class="container-produto sombra teste">
-                       <img src="img/bauducco.webp"  alt="">
-                        <h4>Biscoito Bauducco Cereale Maçã Uva 141g</h4>
-                        <h3>R$ 2,99</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-                    <section class="container-produto sombra">
-                        <img src="img/rexona.webp"  alt="">
-                        <h4>Desodorante Aerosol Rexona Cotton Dry 250ml</h4>
-                        <h3>R$ 8,99</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-    
-                    <section class="container-produto sombra">
-                        <img src="img/sandalias.webp"  alt="">
-                        <h4>Sandália Havaianas Brasil Branco 35/36</h4>
-                        <h3>R$ 6,99</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-                    <section>
-    
-                    </section>
-                    <section class="container-produto sombra">
-                        <img src="img/biscoito_wafle.jfif"  alt="">
-                        <h4>Biscoito Wafer Chocolate Bauducco 140g</h4>
-                        <h3>R$ 1,99</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-                    <section class="container-produto sombra">
-                        <img src="img/bombril.jpg"  alt="">
-                        <h4>Lã de Aço 60g com 8 Unidades BomBril</h4>
-                        <h3>R$ 4,80</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
+                <section class="row" >
+                    <i class="fa-solid fa-caret-left left"  onclick="requisitarProdutos('produtos-confira', 'produtos-carregados.php?lado=left', 'gif_produtos.php')"></i>
+                    <i class="fa-solid fa-caret-right right" onclick="requisitarProdutos('produtos-confira', 'produtos-carregados.php?lado=right', 'gif_produtos.php')"></i>
+                    <section id='produtos-confira' class="row row-produtos">
+                    <?php foreach($produtos as $indece => $produto){?>
+                        <section class="container-produto sombra">
+                            <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
+                            <h4><?= $produto['nome']?></h4>
+                            <h3><?= $produto['preco']?></h3>
+                            <i class="fa-solid fa-star icon-star"></i>
+                            <i class="fa-solid fa-cart-plus icon-buy"></i>
+                        </section>
+                    <?}?>
                     </section>
                 </section>
+                
                 <h1 class="titulos-produtos">Tudo de limpeza</h1>
                 
-                <section class="row" id="limpeza">
-                <i class="fa-solid fa-caret-left left"  onclick="requisitarProdutos('limpeza', 'produtos-carregados.php', 'left',<?= $_SESSION['pagina']?>, <?= $_SESSION['total_paginas']?>)"></i>
-                    <i class="fa-solid fa-caret-right right" onclick="requisitarProdutos('limpeza', 'produtos-carregados.php', 'right',<?= $_SESSION['pagina']?>, <?= $_SESSION['total_paginas']?>)"></i>
-                    <section class="container-produto sombra"id='1'>
-                       <img src="img/sabonete.webp"  alt="">
-                        <h4>Sabonete palmolive suave mantega cacau E karite 90G</h4>
-                        <h3>R$ 3,15</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-                    <section class="container-produto sombra" id='2'>
-                        <img src="img/detergente.jpg"  alt="">
-                        <h4>Detergente Ypê Neutro 500ml</h4>
-                        <h3>R$ 2,35</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-    
-                    <section class="container-produto sombra" id='3'>
-                        <img src="img/agua_sanitaria.webp"  alt="">
-                        <h4>Água Sanitária Ypê Cloro Ativo 321000 - 1L</h4>
-                        <h3>R$ 10,60</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-                    <section>
-                        
-                    </section>
-                    <section class="container-produto sombra" id='4'>
-                        <img src="img/shamppo.webp"  alt="">
-                        <h4>Shampoo Pantene Hidratação 175ml</h4>
-                        <h3>R$ 12,99</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
-                    </section>
-                    <section class="container-produto sombra" id='5'>
-                        <img src="img/condicionador.jpg"  alt="" >
-                        <h4>Condicionador Cachos Definidos 325 Ml, Seda</h4>
-                        <h3>R$ 4,80</h3>
-                        <i class="fa-solid fa-star icon-star"></i>
-                        <i class="fa-solid fa-cart-plus icon-buy"></i>
+                <section class="row" >
+                    <i class="fa-solid fa-caret-left left"  onclick="requisitarProdutos('produtos-confira', 'produtos-carregados.php?lado=left', 'gif_produtos.php')"></i>
+                    <i class="fa-solid fa-caret-right right" onclick="requisitarProdutos('produtos-confira', 'produtos-carregados.php?lado=right', 'gif_produtos.php')"></i>
+                    <section id='produtos-confira' class="row row-produtos">
+                    <?php foreach($produtos as $indece => $produto){?>
+                        <section class="container-produto sombra">
+                            <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
+                            <h4><?= $produto['nome']?></h4>
+                            <h3><?= $produto['preco']?></h3>
+                            <i class="fa-solid fa-star icon-star"></i>
+                            <i class="fa-solid fa-cart-plus icon-buy"></i>
+                        </section>
+                    <?}?>
                     </section>
                 </section>
 
