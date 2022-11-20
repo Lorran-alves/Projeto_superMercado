@@ -37,6 +37,6 @@ require "area_controle.php";
         <h4><?= $produto['nome']?></h4>
         <h3><?= $produto['preco']?></h3>
         <i class="fa-solid fa-star icon-star"></i>
-        <i class="fa-solid fa-cart-plus icon-buy"></i>
+        <i class="fa-solid fa-cart-plus icon-buy" onclick="adicionarCarrinho(<?=$dadosUsuario['id_usuario']?>, <?=$produto['id_produto']?>)"></i>
     </section>
 <?}?>

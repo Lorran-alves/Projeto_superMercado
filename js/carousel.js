@@ -3,10 +3,11 @@ let count = 1;
 document.querySelector('#radio1').checked = true;
 setInterval(function(){
     nextSlide();
-    console.log('teste')
-},1000)
+    
+},10000)
 function nextSlide(){
     count++
+    // alert("caiu aqui")
     if(count > 4 ){
         count = 1
     }
@@ -15,3 +16,6 @@ function nextSlide(){
 function resgataIndece(indece){
     count = indece
 }
+
+//////////////
+

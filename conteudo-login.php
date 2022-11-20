@@ -4,7 +4,7 @@
 ?>
 <form action="area_controle.php?acao=login" method="post">
     <h1>Login</h1>
-    <?if(isset($_SESSION) && $_SESSION['login'] == 'negado'){?>
+    <?if(isset($_SESSION['login']) && $_SESSION['login'] == 'negado'){?>
         <p class="dados-errados">Email ou senha inválidos!</p>
     <? }?>
     <section class="secao-inputs">

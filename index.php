@@ -2,10 +2,13 @@
 <?php 
  
 
-$acao = '';
+$acao = 'recuperarDados';
+
 if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){
     $acao = 'busca';
 }
+
+
 require "area_controle.php";
 
 $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
@@ -28,14 +31,21 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
         <link rel="shortcut icon" href="img/icone_titulo.jpg" type="image/x-icon">
         <title>Super Nunes</title>
     </head>
-    <body ><!-- onload="requisitarPagina('container', 'conteudo_principal.php')" -->
+    <body > 
+        
         <main>
             <header>  
                 <a><img src="img/logo_2.jpg" width="500px" alt=""></a>
                 <ul>
-                    <li>
-                        <a href="#" onclick="requisitarPagina('container', 'conteudo_principal.php')">Home</a>
-                    </li>
+                    <?php if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){?>
+                        <li>
+                            <a href="index.php">Home</a>
+                        </li>    
+                    <?}else{?>
+                        <li>
+                            <a href="#" onclick="requisitarPagina('container', 'conteudo_principal.php')">Home</a>
+                        </li>
+                    <?}?>
                     <li>
                         <a href="#">Alimentos</a>
                     </li>
@@ -48,9 +58,15 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                     <li>
                         <a href="#">Outros</a>
                     </li>
-                    <li>
-                        <a href="#" onclick="requisitarPagina('container', 'admin.php')">Admin</a>
-                    </li>
+                    <?php if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){?>
+                        <li>
+                            <a href="admin.php">Admin</a>
+                        </li>
+                    <?}else{?>
+                        <li>
+                            <a href="#" onclick="requisitarPagina('container', 'admin.php')">Admin</a>
+                        </li>
+                    <?}?>
                 </ul>
 
                 <section>
@@ -68,9 +84,9 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                 </section>
                 <section>
                     <ul id="ul-login">
-                    <?php if(isset($_SESSION['login']) && isset($_GET['login']) && $_SESSION['login'] == 'aceito'){?>
+                    <?php if(isset($_SESSION['login']) && $_SESSION['login'] == 'aceito' && isset($dadosUsuario)){?>
                         <li>
-                            <a href="login.php?pagina=login">Olá Lorran<i class="fa-solid fa-user icon-login"></i></a>
+                            <a href="login.php?pagina=login">Olá, <?=$dadosUsuario['nome']?><i class="fa-solid fa-user icon-login"></i></a>
                         </li>       
                     <?}else{?>
                         <li>
@@ -89,10 +105,19 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
             </header>
             
             <section id="container">
+            <?php if(!isset($_GET['acao']) && $_GET['acao'] != 'busca'){?>?>
+                <script>requisitarPagina('container', 'conteudo_principal.php')</script>
+                <script src="js/carousel.js" defer></script>
+            <?}?>
+                
                <?php 
                 if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){?>
                     <h1 class="titulos-produtos">Resultado da pesquisa</h1>
-                    <section class="row" >
+                    <section class="row"  >
+                    
+                        <?php if(sizeof($resultado_pesquisa) == 0 ){?>
+                            <h4>Nenhum resultado decorrente da sua pesquisa</h4>                                    
+                        <?} ?>
                       
                         <section id='produtos-confira' class="row row-produtos">
                         <?php foreach($resultado_pesquisa as $indece => $produto){?>

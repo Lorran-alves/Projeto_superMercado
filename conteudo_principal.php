@@ -2,9 +2,9 @@
     $acao = 'recuperarProdutos';
     
     require "area_controle.php";
-
+  
 ?>
-<script src="js/carousel.js" defer></script>
+
 <!-- inicio do conteudo do menu carousel -->
 <section class="slider sombra">
                     <section class="slides">
@@ -107,7 +107,8 @@
                             <h4><?= $produto['nome']?></h4>
                             <h3><?= $produto['preco']?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
-                            <i class="fa-solid fa-cart-plus icon-buy"></i>
+                            
+                            <i class="fa-solid fa-cart-plus icon-buy" onclick="adicionarCarrinho(<?=$dadosUsuario['id_usuario']?>, <?=$produto['id_produto']?>)"></i>
                         </section>
                     <?}?>
                     </section>
@@ -117,16 +118,16 @@
                 <h1 class="titulos-produtos">Novidades</h1>
 
                 <section class="row" >
-                    <i class="fa-solid fa-caret-left left"  onclick="requisitarProdutos('produtos-confira', 'produtos-carregados.php?lado=left', 'gif_produtos.php')"></i>
-                    <i class="fa-solid fa-caret-right right" onclick="requisitarProdutos('produtos-confira', 'produtos-carregados.php?lado=right', 'gif_produtos.php')"></i>
-                    <section id='produtos-confira' class="row row-produtos">
+                    <i class="fa-solid fa-caret-left left"  onclick="requisitarProdutos('produtos-novidades', 'produtos-carregados.php?lado=left', 'gif_produtos.php')"></i>
+                    <i class="fa-solid fa-caret-right right" onclick="requisitarProdutos('produtos-novidades', 'produtos-carregados.php?lado=right', 'gif_produtos.php')"></i>
+                    <section id='produtos-novidades' class="row row-produtos">
                     <?php foreach($produtos as $indece => $produto){?>
                         <section class="container-produto sombra">
                             <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
                             <h4><?= $produto['nome']?></h4>
                             <h3><?= $produto['preco']?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
-                            <i class="fa-solid fa-cart-plus icon-buy"></i>
+                            <i class="fa-solid fa-cart-plus icon-buy" onclick="adicionarCarrinho(<?=$dadosUsuario['id_usuario']?>, <?=$produto['id_produto']?>)"></i>
                         </section>
                     <?}?>
                     </section>
@@ -135,16 +136,16 @@
                 <h1 class="titulos-produtos">Tudo de limpeza</h1>
                 
                 <section class="row" >
-                    <i class="fa-solid fa-caret-left left"  onclick="requisitarProdutos('produtos-confira', 'produtos-carregados.php?lado=left', 'gif_produtos.php')"></i>
-                    <i class="fa-solid fa-caret-right right" onclick="requisitarProdutos('produtos-confira', 'produtos-carregados.php?lado=right', 'gif_produtos.php')"></i>
-                    <section id='produtos-confira' class="row row-produtos">
+                    <i class="fa-solid fa-caret-left left"  onclick="requisitarProdutos('produtos-limpeza', 'produtos-carregados.php?lado=left', 'gif_produtos.php')"></i>
+                    <i class="fa-solid fa-caret-right right" onclick="requisitarProdutos('produtos-limpeza', 'produtos-carregados.php?lado=right', 'gif_produtos.php')"></i>
+                    <section id='produtos-limpeza' class="row row-produtos">
                     <?php foreach($produtos as $indece => $produto){?>
                         <section class="container-produto sombra">
                             <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
                             <h4><?= $produto['nome']?></h4>
                             <h3><?= $produto['preco']?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
-                            <i class="fa-solid fa-cart-plus icon-buy"></i>
+                            <i class="fa-solid fa-cart-plus icon-buy" onclick="adicionarCarrinho(<?=$dadosUsuario['id_usuario']?>, <?=$produto['id_produto']?>)"></i>
                         </section>
                     <?}?>
                     </section>

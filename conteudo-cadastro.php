@@ -4,7 +4,7 @@
 ?>
 <form action="area_controle.php?acao=cadastro" method="post">
     <h1>Cadastro</h1>
-    <?php if(isset($_SESSION) && $_SESSION['cadastro'] == 'true'){?>
+    <?php if(isset($_SESSION['cadastro']) && $_SESSION['cadastro'] == 'true'){?>
         <p class="dados-corretos">Usuario cadastrado com sucesso!</p>
     <?}else if(isset($_SESSION) && $_SESSION['cadastro'] == 'false'){?>
         <p class="dados-errados">usuario já existente ou dados inválidos!</p>

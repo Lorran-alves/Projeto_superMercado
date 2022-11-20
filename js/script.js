@@ -71,3 +71,6 @@ function produtosLeft(pagina, total_paginas){
     }
     return pagina
 }
+function adicionarCarrinho(id_usuario, id_produto){
+    alert ('id Usuario: '+ id_usuario +', '+ 'id produto: ' + id_produto);
+}
