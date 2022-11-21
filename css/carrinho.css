@@ -14,7 +14,7 @@ h2{
 }
 .img-carrinho{
     width: 25%;
-    /* border: 1px solid red; */
+    border: 1px solid red;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -51,7 +51,7 @@ h2{
 }
 .descricao-carrinho{
     width: 50%;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     padding: 10px;
     display: flex;  
 }
@@ -67,7 +67,7 @@ h2{
 }
 .info-precos-carrinho{
     width: 25%;
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
     padding-left: 3%;
 }
 .info-precos-carrinho h2{

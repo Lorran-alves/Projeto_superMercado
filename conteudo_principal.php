@@ -108,7 +108,7 @@
                             <h3><?= $produto['preco']?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
                             
-                            <i class="fa-solid fa-cart-plus icon-buy" onclick="adicionarCarrinho(<?=$dadosUsuario['id_usuario']?>, <?=$produto['id_produto']?>)"></i>
+                            <a href="area_controle.php?acao=adicionarCarrinho&id_produto= <?=$produto['id_produto']?>"><i class="fa-solid fa-cart-plus icon-buy"></i></a>
                         </section>
                     <?}?>
                     </section>
@@ -127,7 +127,7 @@
                             <h4><?= $produto['nome']?></h4>
                             <h3><?= $produto['preco']?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
-                            <i class="fa-solid fa-cart-plus icon-buy" onclick="adicionarCarrinho(<?=$dadosUsuario['id_usuario']?>, <?=$produto['id_produto']?>)"></i>
+                            <a href="area_controle.php?acao=adicionarCarrinho&id_produto= <?=$produto['id_produto']?>"><i class="fa-solid fa-cart-plus icon-buy"></i></a>
                         </section>
                     <?}?>
                     </section>
@@ -145,7 +145,7 @@
                             <h4><?= $produto['nome']?></h4>
                             <h3><?= $produto['preco']?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
-                            <i class="fa-solid fa-cart-plus icon-buy" onclick="adicionarCarrinho(<?=$dadosUsuario['id_usuario']?>, <?=$produto['id_produto']?>)"></i>
+                            <a href="area_controle.php?acao=adicionarCarrinho&id_produto= <?=$produto['id_produto']?>"><i class="fa-solid fa-cart-plus icon-buy"></i></a>
                         </section>
                     <?}?>
                     </section>

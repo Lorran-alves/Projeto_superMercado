@@ -10,7 +10,6 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){
 
 
 require "area_controle.php";
-
 $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
 // $_SESSION['login'] = '';//para que a mensagem de erro de login não seja exibido
 ?>
@@ -37,7 +36,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
             <header>  
                 <a><img src="img/logo_2.jpg" width="500px" alt=""></a>
                 <ul>
-                    <?php if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){?>
+                    <?php if(isset($_GET['acao']) && $_GET['acao'] == 'busca' || isset($_GET['pagina'])){?>
                         <li>
                             <a href="index.php">Home</a>
                         </li>    
@@ -78,7 +77,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                             <a href=""><i class="fa-solid fa-phone"></i></a>
                         </li>
                         <li>
-                            <a onclick= "requisitarPagina('container', 'carrinho.html')"><i class="fa-solid fa-basket-shopping"></i></a>
+                            <a onclick= "requisitarPagina('container', 'carrinho.php')"><i class="fa-solid fa-basket-shopping"></i></a>
                         </li>
                     </ul>
                 </section>
@@ -96,18 +95,22 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                     </ul>
                 </section>
                
-                    <form action="index.php" method="GET" class="form-pesquisa">
-                        <input type="text" name="acao" value="busca" class="busca">
-                        <input type="text" placeholder="Pesquisar" name='pesquisa'>
-                        <button><i class="fa-solid fa-magnifying-glass"></i></button>    
-                    </form>
+                <form action="index.php" method="GET" class="form-pesquisa">
+                    <input type="text" name="acao" value="busca" class="busca">
+                    <input type="text" placeholder="Pesquisar" name='pesquisa'>
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>    
+                </form>
            
             </header>
             
             <section id="container">
-            <?php if(!isset($_GET['acao']) && $_GET['acao'] != 'busca'){?>?>
+            <?php if(!isset($_GET['acao']) && $_GET['acao'] != 'busca' && $_GET['acao'] != 'carrinho'){?>?>
                 <script>requisitarPagina('container', 'conteudo_principal.php')</script>
                 <script src="js/carousel.js" defer></script>
+            <?} if(isset($_GET['pagina']) && $_GET['pagina'] == 'carrinho'){?>
+                
+                <script>requisitarPagina('container', 'carrinho.php')</script>
+               
             <?}?>
                 
                <?php 
