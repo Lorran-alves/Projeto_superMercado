@@ -73,8 +73,13 @@ function produtosLeft(pagina, total_paginas){
 }
 function adicionarCarrinho(id_usuario, id_produto){
     alert ('id Usuario: '+ id_usuario +', '+ 'id produto: ' + id_produto);
-    
-    
-    
+}
+function calculaPedido(estoque, idProduto, indece){
+    let qtd = document.querySelector("#qtd"+indece).value; //com o indece eu pego o elemento correto de cada id e assim modifico o input correto
+    console.log('quantidade: '+qtd , 'estoque: '+ estoque)
+    if(qtd > estoque ){
+        qtd = estoque
+    }
+    window.location = "area_controle.php?acao=verificarQuantidadePedido&id_produto="+idProduto+"&quantidade="+ qtd
 }
 

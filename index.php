@@ -128,7 +128,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                                 <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
                                 <h4><?= $produto['nome']?></h4>
                                 <p><?= $produto['descricao']?></p>
-                                <h3><?= $produto['preco']?></h3>
+                                <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
                                 <i class="fa-solid fa-star icon-star"></i>
                                 <i class="fa-solid fa-cart-plus icon-buy"></i>
                             </section>

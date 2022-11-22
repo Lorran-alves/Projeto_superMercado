@@ -105,7 +105,8 @@
                         <section class="container-produto sombra">
                             <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
                             <h4><?= $produto['nome']?></h4>
-                            <h3><?= $produto['preco']?></h3>
+                            
+                            <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
                             
                             <a href="area_controle.php?acao=adicionarCarrinho&id_produto= <?=$produto['id_produto']?>"><i class="fa-solid fa-cart-plus icon-buy"></i></a>
@@ -125,7 +126,7 @@
                         <section class="container-produto sombra">
                             <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
                             <h4><?= $produto['nome']?></h4>
-                            <h3><?= $produto['preco']?></h3>
+                            <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
                             <a href="area_controle.php?acao=adicionarCarrinho&id_produto= <?=$produto['id_produto']?>"><i class="fa-solid fa-cart-plus icon-buy"></i></a>
                         </section>
@@ -143,7 +144,7 @@
                         <section class="container-produto sombra">
                             <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
                             <h4><?= $produto['nome']?></h4>
-                            <h3><?= $produto['preco']?></h3>
+                            <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
                             <a href="area_controle.php?acao=adicionarCarrinho&id_produto= <?=$produto['id_produto']?>"><i class="fa-solid fa-cart-plus icon-buy"></i></a>
                         </section>

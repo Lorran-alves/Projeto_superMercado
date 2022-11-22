@@ -159,7 +159,7 @@ h1.titulos-produtos{
 .container-resultado:hover{
 height: 420px;
 }
-.container-resultado:hover p{
+.container-resultado:hover{
     display: block;
     transition: all 1s ease-in;
 }
