@@ -82,4 +82,9 @@ function calculaPedido(estoque, idProduto, indece){
     }
     window.location = "area_controle.php?acao=verificarQuantidadePedido&id_produto="+idProduto+"&quantidade="+ qtd
 }
+function editarProduto(){
+    console.log('alterou o valor');
+    let valorEscolhido = document.querySelectorAll('.teste').value
+    console.log(valorEscolhido);
+}
 

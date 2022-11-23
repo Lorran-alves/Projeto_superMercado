@@ -1,7 +1,15 @@
 
 <?php
+
 $acao = 'recuperarCategorias';
+
+
 require "area_controle.php"; 
+
+print_r($_SESSION['id_produto_editar']);
+
+
+
 
 ?>
 
@@ -18,7 +26,7 @@ require "area_controle.php";
         <h2 class="produto-erro">Verifique se os dados foram preenchidos corretamente e tente novamente</h2>
     <?}?>
     <section class="row">
-        <form action="area_controle.php?acao=salvar-produto" method="POST" class="row form-admin" enctype="multipart/form-data">
+    <form action="area_controle.php?acao=salvar-produto" method="POST" class="row form-admin" enctype="multipart/form-data">
             <section class="form-campo1 coluna">
 
                 <label for="">Escolha a imagem do produto:</label>
@@ -27,22 +35,22 @@ require "area_controle.php";
             </section>
             <section class="form-campo2 coluna">  
         
-                    <label for="">Digite o nome do produto:</label>
-                    <input type="text" placeholder="nome do produto" name="nome">
+                <label for="">Digite o nome do produto:</label>
+                <input type="text" placeholder="nome do produto" name="nome">
 
-                    <label for="">Digite a descrição do produto:</label>
-                    <textarea name="descricao" cols="45" rows="5" placeholder="Digite a descrição do produto"></textarea>
+                <label for="">Digite a descrição do produto:</label>
+                <textarea name="descricao" cols="45" rows="5" placeholder="Digite a descrição do produto"></textarea>
 
-                    <label for="">Digite a categoria do produto:</label>
-                    
-                    <select name="categoria" id="" >
-                        <optgroup>
-                            <option value="vazio" disabled selected>Selecione a categoria</option>
-                            <?php foreach($categorias as $indece => $categoria){?>
-                            <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
-                            <?}?>
-                        </optgroup>
-                    </select>
+                <label for="">Digite a categoria do produto:</label>
+                
+                <select name="categoria" id="" >
+                    <optgroup>
+                        <option value="vazio" disabled selected>Selecione a categoria</option>
+                        <?php foreach($categorias as $indece => $categoria){?>
+                        <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
+                        <?}?>
+                    </optgroup>
+                </select>
 
             </section>
             <section class="form-campo3">
@@ -65,6 +73,8 @@ require "area_controle.php";
  
     
 </section>
+
+<!-- cadastrar nova categoria -->
 <section class="carrinho-caixa sombra">
     <section class="borda-bottom">
     <h2>Cadastrar nova Categoria</h2>
@@ -86,6 +96,7 @@ require "area_controle.php";
     </section>
             
 </section>
+<!-- remover categoria -->
 
 <section class="carrinho-caixa sombra">
     <section class="borda-bottom">
@@ -113,6 +124,76 @@ require "area_controle.php";
             </form>
         </section>
     </section>
+
+    
             
 </section>
+<!-- Editar Produtos -->
 
+<section class="carrinho-caixa sombra">
+    <section class="borda-bottom">
+    <h2>Editar Produto</h2>
+    </section>
+    <?php if(isset($produtoEditar)){?>
+        <form action="area_controle.php?acao=salvar-produto" method="POST" class="row form-admin" enctype="multipart/form-data">
+            <section class="form-campo1 coluna">
+
+                <label for="">Escolha a imagem do produto:</label>
+                <input type="file" name="arquivo">
+
+            </section>
+            <section class="form-campo2 coluna">  
+        
+                <label for="">Digite o nome do produto:</label>
+                <input type="text" placeholder="nome do produto" name="nome" value="<?=$produtoEditar[0]['nome']?>">
+
+                <label for="">Digite a descrição do produto:</label>
+                <textarea name="descricao" cols="45" rows="5"  placeholder="<?=$produtoEditar[0]['descricao']?>"></textarea>
+
+                <label for="">Digite a categoria do produto:</label>
+                <p>Categoria atual: <?=$produtoEditar[0]['categoria']?></p>
+                <select name="categoria" id="" >
+                    <optgroup>
+                        <option value="vazio" disabled selected>Selecione a categoria</option>
+                        <?php foreach($categorias as $indece => $categoria){?>
+                            <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
+                        <?}?>
+                    </optgroup>
+                </select>
+
+            </section>
+            <section class="form-campo3">
+
+                <label for="">Digite a quantidade em estoque do produto:</label>
+                <input type="number" placeholder="Quantidade do estoque" name="estoque" min="1" value="<?=$produtoEditar[0]['estoque']?>"> 
+
+                <label for="">Digite a valor do produto:</label>
+                <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="Digite o valor do produto" name="preco" value="<?=$produtoEditar[0]['preco']?>">
+
+                <input type="submit" value="Salvar" class="botao-salvar" >
+                <input type="submit" value="Remover" class="botao-remover" >
+
+            </section>
+            
+        </form>
+    <?}else{?>
+        <section class="row ">
+            <section class="categoria-nova">
+                <form action="area_controle.php?acao=editarProduto" method="POST" class="row form-admin" enctype="multipart/
+                form-data" >
+                    <select name="id_produto" id="remover" oninput="editarProduto()">
+                        <optgroup>
+                            <option value="vazio" disabled >Selecione o produto que quer editar ou remover</option>
+                            <?php foreach($produtosCadastrados as $indece => $produto){?>
+                                <option value="<?=$produto['id_produto']?>" class="teste"><?=$produto['nome']?></option>
+                            <?}?>
+                        </optgroup>
+                    </select>
+                    <button>Editar</button>
+                </form>
+            </section>
+        </section>
+    <?}?>
+    
+            
+</section>
