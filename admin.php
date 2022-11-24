@@ -6,7 +6,6 @@ $acao = 'recuperarCategorias';
 
 require "area_controle.php"; 
 
-print_r($_SESSION['id_produto_editar']);
 
 
 
@@ -133,9 +132,17 @@ print_r($_SESSION['id_produto_editar']);
 <section class="carrinho-caixa sombra">
     <section class="borda-bottom">
     <h2>Editar Produto</h2>
+    <?php if(isset($_SESSION['id_valido']) && $_SESSION['id_valido'] == 'nao'){?>
+            
+            <h2 class="produto-erro">Verifique se voce selecionou um produto</h2>
+    <?}?>
+    <?php if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'sucesso'){?>
+            
+            <h2 class="produto-salvo">Alteração realizada com sucesso!</h2>
+    <?}?>
     </section>
     <?php if(isset($produtoEditar)){?>
-        <form action="area_controle.php?acao=salvar-produto" method="POST" class="row form-admin" enctype="multipart/form-data">
+         <form action="area_controle.php?acao=removerProduto" method="POST" class="row form-admin" enctype="multipart/form-data">
             <section class="form-campo1 coluna">
 
                 <label for="">Escolha a imagem do produto:</label>
@@ -150,13 +157,16 @@ print_r($_SESSION['id_produto_editar']);
                 <label for="">Digite a descrição do produto:</label>
                 <textarea name="descricao" cols="45" rows="5"  placeholder="<?=$produtoEditar[0]['descricao']?>"></textarea>
 
-                <label for="">Digite a categoria do produto:</label>
-                <p>Categoria atual: <?=$produtoEditar[0]['categoria']?></p>
+                <label for="">Digite a categoria do produto:</label>              
                 <select name="categoria" id="" >
                     <optgroup>
                         <option value="vazio" disabled selected>Selecione a categoria</option>
                         <?php foreach($categorias as $indece => $categoria){?>
-                            <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
+                            <?if($categoria['nome_categoria'] == $produtoEditar[0]['categoria']){?>
+                                <option value="<?=$categoria['nome_categoria']?>" selected><?=$categoria['nome_categoria']?></option>
+                            <?}else{?>
+                                <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
+                            <?}?>
                         <?}?>
                     </optgroup>
                 </select>
@@ -170,20 +180,21 @@ print_r($_SESSION['id_produto_editar']);
                 <label for="">Digite a valor do produto:</label>
                 <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="Digite o valor do produto" name="preco" value="<?=$produtoEditar[0]['preco']?>">
 
-                <input type="submit" value="Salvar" class="botao-salvar" >
-                <input type="submit" value="Remover" class="botao-remover" >
+                <input type="submit" value="Salvar" class="botao-salvar" name= 'button' >
+                <input type="submit" value="Remover" class="botao-remover" name= 'button' >
 
             </section>
             
         </form>
     <?}else{?>
+      
         <section class="row ">
             <section class="categoria-nova">
                 <form action="area_controle.php?acao=editarProduto" method="POST" class="row form-admin" enctype="multipart/
                 form-data" >
                     <select name="id_produto" id="remover" oninput="editarProduto()">
                         <optgroup>
-                            <option value="vazio" disabled >Selecione o produto que quer editar ou remover</option>
+                            <option value="vazio" disabled selected>Selecione o produto que deseja editar</option>
                             <?php foreach($produtosCadastrados as $indece => $produto){?>
                                 <option value="<?=$produto['id_produto']?>" class="teste"><?=$produto['nome']?></option>
                             <?}?>
