@@ -1,19 +1,14 @@
-
+<!-- 
+     criar uma area que mostre todos os detalhes dos produtos cadatrados tipo
+total produtos
+total produtos por categoria
+quantiade de estoque
+para que o admim possa estar por dentro de todos os detalhes 
+-->
 <?php
-
 $acao = 'recuperarCategorias';
-
-
 require "area_controle.php"; 
-
-
-
-
-
 ?>
-
-
-
 <section class="carrinho-caixa sombra">
     <section class="borda-bottom">
     <h2>Cadastrar novo produto</h2>
@@ -53,13 +48,11 @@ require "area_controle.php";
 
             </section>
             <section class="form-campo3">
-
                 <label for="">Digite a quantidade em estoque do produto:</label>
                 <input type="number" placeholder="Quantidade do estoque" name="estoque" min="1" > 
 
                 <label for="">Digite a valor do produto:</label>
                 <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="Digite o valor do produto" name="preco"/>
-
                 <input type="submit" value="Salvar" class="botao-salvar" >
 
             </section>
@@ -100,6 +93,7 @@ require "area_controle.php";
 <section class="carrinho-caixa sombra">
     <section class="borda-bottom">
     <h2>Remover Categoria</h2>
+    <p>Obs: se  voce remover alguma categoria todos os produtos que possuirem essa categoria seram removidos juntamente</p>
     </section>
     <?php if(isset($_SESSION['categoria-removida']) && $_SESSION['categoria-removida'] == 'sim'){?>
         <h2 class="produto-salvo">Categoria removida com sucesso</h2>
