@@ -3,7 +3,12 @@
     background-color: white;
     margin: 5% 1% 8% 1%;
     position: relative;
-    
+}
+.caixa{
+    padding: 20px;
+    background-color: white;
+    margin: 2% 2% 0 2%;
+    position: relative;
 }
 .borda-bottom{
     border-bottom: 1px solid rgb(172, 170, 170);

@@ -8,6 +8,7 @@ para que o admim possa estar por dentro de todos os detalhes
 <?php
 $acao = 'recuperarCategorias';
 require "area_controle.php"; 
+print_r($_SESSION);
 ?>
 <section class="carrinho-caixa sombra">
     <section class="borda-bottom">
@@ -19,8 +20,8 @@ require "area_controle.php";
     <?php if(isset($_SESSION['produto-salvo']) && $_SESSION['produto-salvo'] == 'nao'){?>
         <h2 class="produto-erro">Verifique se os dados foram preenchidos corretamente e tente novamente</h2>
     <?}?>
-    <section class="row">
-    <form action="area_controle.php?acao=salvar-produto" method="POST" class="row form-admin" enctype="multipart/form-data">
+   
+    <form action="area_controle.php?acao=salvar-produto" method="POST"   enctype="multipart/form-data" class="row form-admin">
             <section class="form-campo1 coluna">
 
                 <label for="">Escolha a imagem do produto:</label>
@@ -53,14 +54,14 @@ require "area_controle.php";
 
                 <label for="">Digite a valor do produto:</label>
                 <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="Digite o valor do produto" name="preco"/>
-                <input type="submit" value="Salvar" class="botao-salvar" >
+                <input type="submit" value="Salvar" class="botao-salvar-cadastro" >
 
             </section>
             
         </form>
        
         
-    </section>
+    
     
  
     
@@ -176,6 +177,7 @@ require "area_controle.php";
 
                 <input type="submit" value="Salvar" class="botao-salvar" name= 'button' >
                 <input type="submit" value="Remover" class="botao-remover" name= 'button' >
+                <input type="submit" value="Cancelar" class="botao-cancelar" name= 'button' >
 
             </section>
             
@@ -200,5 +202,64 @@ require "area_controle.php";
         </section>
     <?}?>
     
+    
             
 </section>
+
+
+
+<section class="caixa sombra">
+    <section class="borda-bottom">
+        <h2>Detalhes Produtos cadastrados</h2>
+    </section>
+    <section class="row">
+        <section style="width:35% ;border:1px solid red;">
+            <h4>total Produtos cadastrados: 34</h4>
+            <h4>total Categorias cadstradas: 4</h4>
+            <h4>total Produtos cadastrados: 34</h4>
+        </section>
+        <section style="width:35% ;border:1px solid blue;">
+            <h4>filtro por categoria</h4>
+            <form action="area_controle.php?acao=pesquisa-admin" class="form-admin align-form" method="POST">
+            <select name="categoria">
+                <optgroup>
+                    <option value="vazio" disabled selected>Selecione a categoria</option>
+                    <?php foreach($categorias as $indece => $categoria){?>
+                    <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
+                    <?}?>
+                </optgroup>
+            </select>
+                <button>Verificar</button>
+            </form>
+        </section>
+        <section style="width:35% ;border:1px solid black;">
+        <h4>filtro por nome/descrição (pesquisa)</h4>
+            <form action="area_controle.php?acao=pesquisa-admin" class="form-admin align-form" method="POST">
+                <input type="text" placeholder="Digite o que deseja pesquisar!" name="busca">
+                <button>Verificar</button>
+            </form>
+        </section>
+    </section>
+
+</section>
+        <?if(isset($_SESSION['categoria']) || isset($_SESSION['busca'])){?>
+            <section class="row"  >
+            
+                <?php if(isset($_SESSION['resultado'])){?>
+                    <h4>Nenhum resultado decorrente da sua pesquisa</h4>                                    
+                <?} ?>
+                
+                <section id='produtos-confira' class="row row-produtos">
+                <?php foreach($resultado as $indece => $produto){?>
+                        <section class="container-produto sombra margin">
+                            <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
+                            <h4><?= $produto['nome']?></h4>
+                            
+                            <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
+                            <a href="area_controle.php?acao=editarProduto&id_produto=<?=$produto['id_produto']?>"><i class="fa-solid fa-pen-to-square icon-edit"></i></a> 
+        
+                        </section>
+                    <?}?>
+                </section>
+            </section>
+        <?}?>

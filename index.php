@@ -6,10 +6,14 @@ $acao = 'recuperarDados';
 
 if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){
     $acao = 'busca';
+    
 }
 
 
+
+
 require "area_controle.php";
+
 $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
 // $_SESSION['login'] = '';//para que a mensagem de erro de login não seja exibido
 ?>
