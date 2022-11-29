@@ -14,6 +14,7 @@ if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){
 
 require "area_controle.php";
 
+
 $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
 // $_SESSION['login'] = '';//para que a mensagem de erro de login não seja exibido
 ?>
@@ -122,7 +123,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                     <h1 class="titulos-produtos">Resultado da pesquisa</h1>
                     <section class="row"  >
                     
-                        <?php if(sizeof($resultado_pesquisa) == 0 ){?>
+                        <?php if(sizeof($resultado_pesquisa) == 0){?>
                             <h4>Nenhum resultado decorrente da sua pesquisa</h4>                                    
                         <?} ?>
                       

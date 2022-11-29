@@ -94,6 +94,10 @@ a:hover i {
     padding: 10px;
     position: relative;
 }
+.row-button-unico{
+    display: flex;
+    flex-direction: row;
+}
 .container-produto{
  
     width: 210px;
@@ -281,7 +285,7 @@ input{
     font-size: 1em;
 
 }
- .form-admin form{
+ /* .form-admin form{
     width: 90%;
     border: 1px solid black;
     margin: auto;
@@ -289,21 +293,40 @@ input{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+} */
+.form-config{
+    width: 100%;
 }
-
-.form-admin input,select{
-    width: 90%;
+.categoria{
+    width: 60%;
     padding: 12px;
     font-size: 1.1em;
     color: black;
     background-color: rgb(216, 216, 216);
-    margin: 10px auto;
+    margin: 10px 0;
     border: 1px solid #ccc;
 }
+.form-config button{
+    background-color: orange;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    width: 20%;
+    margin: 15px auto;
+    cursor: pointer;
+}
+
+
+
 input.botao-salvar-cadastro{
     background-color: #ffcc01;
     cursor: pointer;
+    width: 30%;
+    text-align: center;
+    margin: 0 0 0 auto;
+    
 }
+
 .form-admin input::placeholder{
     color: rgb(133, 122, 122);
 }
@@ -328,9 +351,7 @@ label{
 .form-campo2{
     width: 40%;
     /* border: 1px solid black; */
-   
     display: flex;
-    justify-content: center;
     align-items:center;
 }
 .form-campo3{
@@ -341,28 +362,37 @@ label{
 .container-resultado h4{
     font-size: 1.5em;
 }
-input.botao-salvar, input.botao-remover{
+.form-admin select, input{
+    width: 90%;
+    padding: 12px;
+    font-size: 1.1em;
+    color: black;
+    background-color: rgb(216, 216, 216);
+    margin: 10px auto;
+    border: 1px solid #ccc;
+}
+input.botao-salvar, input.botao-remover, input.botao-cancelar{
     background-color: rgb(107, 212, 107);
     cursor: pointer;
     opacity: 1;
+    margin: 10px;
 }
 input.botao-remover{
     background-color: rgb(247, 58, 58);
 }
 input.botao-cancelar{
-    background-color: #606060;
+    background-color: orange;
 }
-input.botao-salvar:hover, input.botao-remover:hover{
+input.botao-salvar:hover, input.botao-remover:hover, input.botao-cancelar:hover{
     opacity: 0.9;
 }
 textarea{
     background-color: rgb(216, 216, 216);
     font-size: 1.1em;
-    padding: 10px;
-    width: 90%;
+    padding: 10px;    
+    max-width: 90%;
+    max-height:130px;
     
-    max-width: 95%;
-    max-height: 25%;
 }
 .produto-erro, .produto-salvo{
     font-size: 1.5em;
@@ -423,8 +453,7 @@ i.left:hover, i.right:hover{
     margin: 10px;
     cursor: pointer;
 }
-.categoria-nova form  input,select#remover{
-    
+.categoria-nova form select#remover{
     color: black;
     padding:10px;
     border-radius: 10px;
@@ -470,3 +499,12 @@ i.left:hover, i.right:hover{
 button{
     cursor: pointer;
 }
+.form-edit{
+    box-shadow: 0 0 40px 0 rgba(2, 204, 255, 0.2), 0 10px 10px 0 rgba(2, 214, 252, 0.24);
+    padding: 10px;
+}
+textarea:focus, input:focus, select:focus {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    outline: 0;
+    }
+
