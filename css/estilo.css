@@ -93,6 +93,7 @@ a:hover i {
     flex-direction: row;
     padding: 10px;
     position: relative;
+    
 }
 .row-button-unico{
     display: flex;
@@ -340,9 +341,26 @@ label{
 .coluna{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     /* justify-content: center; */
 }
+.itens-left{
+        display: flex;
+        
+    text-align: left;
+}
+.padding{
+    padding: 5px 10px;
+    margin: 10px 20px;
+    font-weight: bold;
+}
+.conteudo-produto-span{
+    color: #ffcc01;
+}
+.border-top{
+    border-top: 1px solid #ccc;
+}
+
 .form-campo1{
     width: 30%;
     /* border: 1px solid red; */

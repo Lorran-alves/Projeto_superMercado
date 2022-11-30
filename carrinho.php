@@ -3,6 +3,7 @@
 $acao = 'recuperarCarrinho';
 
 require "area_controle.php";
+
 $precoTotal = 0;
 $total_itens = 0;
 

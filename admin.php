@@ -16,6 +16,11 @@ para que o admim possa estar por dentro de todos os detalhes
 <?php
 $acao = 'recuperarCategorias';
 require "area_controle.php"; 
+if(isset( $resultado)){
+    echo '<pre>';
+    //print_r( $resultado);
+    echo '</pre>';
+}
 
 ?>
 <section class="carrinho-caixa sombra">
@@ -216,7 +221,7 @@ require "area_controle.php";
                             <?}?>
                         </optgroup>
                     </select>
-                    <button class='categoria'>Editar</button>
+                    <button class='categoria' onclick='requisitarPagina("containerTeste", "editar_produto_admin.php")'>Editar</button>
                 </form>
            
         </section>
@@ -237,7 +242,7 @@ require "area_controle.php";
             <h4>total Produtos cadastrados:<?=$totalProdutos['total_produtos']?></h4>
             <h4>total Categorias cadastradas: <?=$totalCategorias['total_categorias_cadastradas'];?></h4>
             <h4>total Usuarios cadastradas: <?=$totalUsuarios['total_usuarios'];?></h4>
-            <button class="categoria">Ver Todos os Produtos</button>
+            <a href="area_controle.php?acao=recuperarTodosProdutos"><button class="categoria">Ver Todos os Produtos</button></a>
         </section>
         <section style="width:35%;"><!-- estilo 2 -->
             <h4>filtro por categoria</h4>
@@ -260,10 +265,13 @@ require "area_controle.php";
                 <button>Verificar</button>
             </form>
         </section>
+        
     </section>
-
+    <section id='dados_produto'>
+        <!-- area dos dados dos produtos -->
+    </section>
 </section>
-        <?if(isset($_SESSION['categoria']) || isset($_SESSION['busca'])){?>
+        <?if(isset($_SESSION['categoria']) || isset($_SESSION['busca']) || isset($_SESSION['todos'])){?>
             <section class="row"  >
             
                 <?php if(isset($_SESSION['resultado'])){?>
@@ -273,7 +281,7 @@ require "area_controle.php";
                 <section id='produtos-confira' class="row row-produtos">
                 <?php foreach($resultado as $indece => $produto){?>
                     
-                        <section class="container-produto sombra margin">
+                        <section class="container-produto sombra margin" onclick="requisitarPagina('dados_produto', 'dados_produtos.php?id_produto=<?=$produto['id_produto']?>')">
                             <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
                             <h4><?= $produto['nome']?></h4>
                             

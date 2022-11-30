@@ -87,4 +87,8 @@ function editarProduto(){
     let valorEscolhido = document.querySelectorAll('.teste').value
     console.log(valorEscolhido);
 }
+function clickProduto(id){
+alert("Id atual: "+ id)
+window.location = 'area_controle.php?acao=retornaDadosProduto&id_produto='+id;
+}
 

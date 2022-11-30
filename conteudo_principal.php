@@ -109,7 +109,7 @@
                             <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
                             
-                            <a href="area_controle.php?acao=adicionarCarrinho&id_produto= <?=$produto['id_produto']?>"><i class="fa-solid fa-cart-plus icon-buy"></i></a>
+                            <i class="fa-solid fa-cart-plus icon-buy" onclick="requisitarPagina('container', 'carrinho.php?id_produto=<?=$produto['id_produto']?>')" ></i>
                         </section>
                     <?}?>
                     </section>
@@ -128,7 +128,7 @@
                             <h4><?= $produto['nome']?></h4>
                             <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
-                            <a href="area_controle.php?acao=adicionarCarrinho&id_produto= <?=$produto['id_produto']?>"><i class="fa-solid fa-cart-plus icon-buy"></i></a>
+                            <i class="fa-solid fa-cart-plus icon-buy" onclick="requisitarPagina('container', 'carrinho.php?id_produto=<?=$produto['id_produto']?>')" ></i>
                         </section>
                     <?}?>
                     </section>
@@ -146,7 +146,7 @@
                             <h4><?= $produto['nome']?></h4>
                             <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
                             <i class="fa-solid fa-star icon-star"></i>
-                            <a href="area_controle.php?acao=adicionarCarrinho&id_produto= <?=$produto['id_produto']?>"><i class="fa-solid fa-cart-plus icon-buy"></i></a>
+                            <i class="fa-solid fa-cart-plus icon-buy" onclick="requisitarPagina('container', 'carrinho.php?id_produto=<?=$produto['id_produto']?>')" ></i>
                         </section>
                     <?}?>
                     </section>
