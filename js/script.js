@@ -13,7 +13,11 @@ function requisitarPagina(id, url){
     }
     ajax.send()
 }
-
+function teste(teste){
+    let nomeCategoria = document.querySelector('#categoria').value
+    // alert(nomeCategoria)
+    requisitarPagina("pesquisa_admin", "pesquisa_admin.php?acao=pesquisa-admin&categoria="+nomeCategoria)
+}
 
 
 

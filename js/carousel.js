@@ -1,5 +1,7 @@
 let count = 1;
 
+
+alert('ja estamos aqui')
 document.querySelector('#radio1').checked = true;
 setInterval(function(){
     nextSlide();

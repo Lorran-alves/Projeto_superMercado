@@ -246,21 +246,22 @@ if(isset( $resultado)){
         </section>
         <section style="width:35%;"><!-- estilo 2 -->
             <h4>filtro por categoria</h4>
-            <form action="area_controle.php?acao=pesquisa-admin" class="form-admin align-form" method="POST">
-            <select name="categoria">
+            <form  class="form-admin align-form">
+            <select name="categoria" id="categoria">
                 <optgroup>
                     <option value="vazio" disabled selected>Selecione a categoria</option>
                     <?php foreach($categorias as $indece => $categoria){?>
-                    <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
+                    <option value="<?=$categoria['nome_categoria']?>" onclick="teste('teste')" id="<?=$categoria['nome_categoria']?>" ><?=$categoria['nome_categoria']?></option>
                     <?}?>
                 </optgroup>
             </select>
-                <button>Verificar</button>
+            <button onclick="teste('teste')">Verificar</button>
             </form>
+           
         </section>
         <section style="width:35%;"><!-- estilo 3 -->
         <h4>filtro por nome/descrição (pesquisa)</h4>
-            <form action="area_controle.php?acao=pesquisa-admin" class="form-admin align-form" method="POST">
+            <form action="area_controle.php?" class="form-admin align-form" method="POST">
                 <input type="text" placeholder="Digite o que deseja pesquisar!" name="busca">
                 <button>Verificar</button>
             </form>
@@ -272,25 +273,8 @@ if(isset( $resultado)){
     </section>
 </section>
         <?if(isset($_SESSION['categoria']) || isset($_SESSION['busca']) || isset($_SESSION['todos'])){?>
-            <section class="row"  >
-            
-                <?php if(isset($_SESSION['resultado'])){?>
-                    <h4>Nenhum resultado decorrente da sua pesquisa</h4>                                    
-                <?} ?>
-                
-                <section id='produtos-confira' class="row row-produtos">
-                <?php foreach($resultado as $indece => $produto){?>
-                    
-                        <section class="container-produto sombra margin" onclick="requisitarPagina('dados_produto', 'dados_produtos.php?id_produto=<?=$produto['id_produto']?>')">
-                            <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
-                            <h4><?= $produto['nome']?></h4>
-                            
-                            <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
-                            <a href="area_controle.php?acao=editarProduto&id_produto=<?=$produto['id_produto']?>"><i class="fa-solid fa-pen-to-square icon-edit"></i></a> 
-        
-                        </section>
-                    <?}?>
-                </section>
+            <section class="row" id="pesquisa_admin" >            
+                <!-- CONTEUDO PESQUISA ADMIN -->
             </section>
         <?}?>
 

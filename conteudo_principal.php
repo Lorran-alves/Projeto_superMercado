@@ -4,7 +4,7 @@
     require "area_controle.php";
   
 ?>
-
+<!-- <script src="js/carousel.js" defer></script> -->
 <!-- inicio do conteudo do menu carousel -->
 <section class="slider sombra">
                     <section class="slides">
