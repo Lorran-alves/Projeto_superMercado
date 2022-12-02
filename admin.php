@@ -242,7 +242,7 @@ if(isset( $resultado)){
             <h4>total Produtos cadastrados:<?=$totalProdutos['total_produtos']?></h4>
             <h4>total Categorias cadastradas: <?=$totalCategorias['total_categorias_cadastradas'];?></h4>
             <h4>total Usuarios cadastradas: <?=$totalUsuarios['total_usuarios'];?></h4>
-            <a href="area_controle.php?acao=recuperarTodosProdutos"><button class="categoria">Ver Todos os Produtos</button></a>
+            <button class="categoria" onclick="requisitarPagina('pesquisa_admin', 'pesquisa_admin.php?filtro=todos')">Ver Todos os Produtos</button>
         </section>
         <section style="width:35%;"><!-- estilo 2 -->
             <h4>filtro por categoria</h4>
@@ -254,17 +254,17 @@ if(isset( $resultado)){
                     <option value="<?=$categoria['nome_categoria']?>" onclick="teste('teste')" id="<?=$categoria['nome_categoria']?>" ><?=$categoria['nome_categoria']?></option>
                     <?}?>
                 </optgroup>
-            </select>
-            <button onclick="teste('teste')">Verificar</button>
+            </select>            
             </form>
+            <button class="button-estilo" onclick="verificaFiltro('categoria')" >Verificar</button>
            
         </section>
         <section style="width:35%;"><!-- estilo 3 -->
         <h4>filtro por nome/descrição (pesquisa)</h4>
-            <form action="area_controle.php?" class="form-admin align-form" method="POST">
-                <input type="text" placeholder="Digite o que deseja pesquisar!" name="busca">
-                <button>Verificar</button>
+            <form class="form-admin align-form">
+                <input type="text" placeholder="Digite o que deseja pesquisar!" name="busca" id="busca">
             </form>
+            <button class="button-estilo" onclick="verificaFiltro('busca')">Verificar</button>
         </section>
         
     </section>

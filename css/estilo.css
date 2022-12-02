@@ -462,7 +462,7 @@ i.left:hover, i.right:hover{
     /* border: 1px solid red; */
 }
 
-.categoria-nova form  button{
+.categoria-nova button{
     background-color: orange;
     color: black;
     padding:10px;
@@ -497,7 +497,7 @@ i.left:hover, i.right:hover{
     justify-content: center;
     flex-direction: column;
 }
-.align-form button{
+.button-estilo{
     background-color: #ffcc01;
     width: 35%;
     font-weight: bold;

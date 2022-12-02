@@ -13,10 +13,19 @@ function requisitarPagina(id, url){
     }
     ajax.send()
 }
-function teste(teste){
-    let nomeCategoria = document.querySelector('#categoria').value
-    // alert(nomeCategoria)
-    requisitarPagina("pesquisa_admin", "pesquisa_admin.php?acao=pesquisa-admin&categoria="+nomeCategoria)
+function verificaFiltro(id){ // pesquisa admin
+    let parametro = document.querySelector('#'+id)
+    console.log(parametro)
+    if(id == 'categoria'){
+        requisitarPagina("pesquisa_admin", `pesquisa_admin.php?filtro=categoria&categoria=${parametro.value}`)
+        parametro.value= 'vazio'; // fica no inicio depois de clicado
+    }else{
+        requisitarPagina("pesquisa_admin", `pesquisa_admin.php?filtro=busca&busca=${parametro.value}`)
+        parametro.value = '';// fica no inicio depois de clicado
+    }
+   
+    // 
+    // 
 }
 
 
