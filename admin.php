@@ -209,11 +209,9 @@ if(isset( $resultado)){
         </form>
     <?}else{?>
       
-        <section class="row ">
-            
-                <form action="area_controle.php?acao=editarProduto" method="POST" class="row form-config" enctype="multipart/
-                form-data" >
-                    <select name="id_produto" id="remover" oninput="editarProduto()" class='categoria'>
+        <section class="row" id="containerEdicao">
+                <form  class="row form-config" >
+                    <select name="id_produto"  class='categoria' id="editar">
                         <optgroup>
                             <option value="vazio" disabled selected>Selecione o produto que deseja editar</option>
                             <?php foreach($produtosCadastrados as $indece => $produto){?>
@@ -221,9 +219,8 @@ if(isset( $resultado)){
                             <?}?>
                         </optgroup>
                     </select>
-                    <button class='categoria' onclick='requisitarPagina("containerTeste", "editar_produto_admin.php")'>Editar</button>
                 </form>
-           
+                <button class='button-editar' onclick='editarProduto("editar")'>Editar</button>           
         </section>
     <?}?>
     
@@ -272,10 +269,8 @@ if(isset( $resultado)){
         <!-- area dos dados dos produtos -->
     </section>
 </section>
-        <?if(isset($_SESSION['categoria']) || isset($_SESSION['busca']) || isset($_SESSION['todos'])){?>
-            <section class="row" id="pesquisa_admin" >            
-                <!-- CONTEUDO PESQUISA ADMIN -->
-            </section>
-        <?}?>
+        <section class="row" id="pesquisa_admin" >            
+            <!-- CONTEUDO PESQUISA ADMIN -->
+        </section>
 
         <!-- criar aqui uma area em que ficará em alerta todos os pedidos que estiverem com o estoque a baixo de 20 -->

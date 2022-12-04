@@ -307,7 +307,7 @@ input{
     margin: 10px 0;
     border: 1px solid #ccc;
 }
-.form-config button{
+.form-config button, button.button-editar{
     background-color: orange;
     color: black;
     padding: 10px;
@@ -510,6 +510,11 @@ i.left:hover, i.right:hover{
     width: 90%;
     border-radius: 10px;
     /* background-color: red; */
+}
+.titulo_pesquisa{
+    font-size: 1.2em;
+    color: #b19524;
+    font-weight: bold;
 }
 .margin{
     margin: 20px;

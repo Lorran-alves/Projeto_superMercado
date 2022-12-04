@@ -1,7 +1,10 @@
 <?php 
 
-$acao = 'recuperarCategorias';
-require "area_controle.php"; 
+// $acao = 'editarProduto';
+// require "area_controle.php"; 
+// echo $_GET['id_produto']
+//parei aqui pra fzer a requisção e recarrecar o produto que ira ser editado
+echo 'deu certo';
 
 ?>
 

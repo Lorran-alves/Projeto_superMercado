@@ -6,6 +6,7 @@ function requisitarPagina(id, url){
     ajax.onreadystatechange = () =>{
         if(ajax.readyState == 4 && ajax.status == 200){
             conteudo_form.innerHTML = ajax.responseText
+            
             // console.log(ajax.responseText)
         }else if(ajax.readyState == 4 && ajax.status == 404){
             alert("ocorreu algum erro, por favor recarregue")
@@ -13,9 +14,10 @@ function requisitarPagina(id, url){
     }
     ajax.send()
 }
-function verificaFiltro(id){ // pesquisa admin
+function verificaFiltro(id){ // pesquisa admin 
     let parametro = document.querySelector('#'+id)
-    console.log(parametro)
+    console.log(parametro.value)
+
     if(id == 'categoria'){
         requisitarPagina("pesquisa_admin", `pesquisa_admin.php?filtro=categoria&categoria=${parametro.value}`)
         parametro.value= 'vazio'; // fica no inicio depois de clicado
@@ -27,9 +29,6 @@ function verificaFiltro(id){ // pesquisa admin
     // 
     // 
 }
-
-
-
 function requisitarProdutos(id, url, url2){
     let conteudo_form = document.querySelector(`#${id}`)
     let img = document.createElement('img')
@@ -95,10 +94,14 @@ function calculaPedido(estoque, idProduto, indece){
     }
     window.location = "area_controle.php?acao=verificarQuantidadePedido&id_produto="+idProduto+"&quantidade="+ qtd
 }
-function editarProduto(){
+function editarProduto(id){
     console.log('alterou o valor');
-    let valorEscolhido = document.querySelectorAll('.teste').value
-    console.log(valorEscolhido);
+    let valorEscolhido = document.querySelector(`#${id}`)
+    console.log(valorEscolhido.value);
+    if(id != ''){
+        requisitarPagina("containerEdicao", "editar_produto_admin.php?id_produto="+ valorEscolhido)
+    }
+    
 }
 function clickProduto(id){
 alert("Id atual: "+ id)

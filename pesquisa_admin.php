@@ -2,17 +2,28 @@
    $acao = 'pesquisa-admin';
    
    require "area_controle.php";
-//    echo 'chegou aqui';
-//    echo '<pre>';
-//     print_r($_GET);
-//     echo '</pre>';
 ?>
 
 <?php if(isset($_SESSION['resultado']) && sizeof($resultado) == 0 ){?>
-    <h4>Nenhum resultado decorrente da sua pesquisa</h4>                                    
-<?}else {?>
-
-    <section id='produtos-confira' class="row row-produtos">
+        
+     
+    
+        <section class="coluna">
+        <h4>Nenhum resultado decorrente da sua pesquisa</h4>
+            <?if(isset($busca)){?>
+                <h4 class='titulo_pesquisa'>Palavra chave ultilizada: <?=$busca?></h4>
+            <?}else if($filtro == "categoria"){?>
+                <h4 class='titulo_pesquisa'>Categoria escolhida: <?=$categoria?></h4>
+            <?}?>     
+        </section>                                  
+<?}else if(isset($resultado) && sizeof($resultado) != 0 ) {?>
+    <section class="coluna">
+        <?if(isset($busca)){?>
+            <h4 class='titulo_pesquisa'>Palavra chave ultilizada: <?=$busca?></h1>
+        <?}else if($filtro == "categoria"){?>
+            <h4 class='titulo_pesquisa'>Categoria escolhida: <?=$categoria?></h4>
+        <?}?>     
+        <section id='produtos-confira' class="row row-produtos">
         <?php foreach($resultado as $indece => $produto){?>
         
             <section class="container-produto sombra margin" onclick="requisitarPagina('dados_produto', 'dados_produtos.php?id_produto=<?=$produto['id_produto']?>')">
@@ -24,5 +35,7 @@
 
             </section>
         <?}?>
+    </section>
+
     </section>
 <?}?>
