@@ -15,14 +15,9 @@ para que o admim possa estar por dentro de todos os detalhes
 -->
 <?php
 $acao = 'recuperarCategorias';
-require "area_controle.php"; 
-if(isset( $resultado)){
-    echo '<pre>';
-    //print_r( $resultado);
-    echo '</pre>';
-}
-
+require "area_controle.php";
 ?>
+
 <section class="carrinho-caixa sombra">
     <section class="borda-bottom">
     <h2>Cadastrar novo produto</h2>
@@ -143,73 +138,26 @@ if(isset( $resultado)){
 </section>
 <!-- Editar Produtos -->
 
-<section class="carrinho-caixa sombra form-edit">
+<section class="carrinho-caixa sombra" >
     <section class="borda-bottom">
     <h2>Editar Produto</h2>
-    <?php if(isset($_SESSION['id_valido']) && $_SESSION['id_valido'] == 'nao'){?>
+   
+        <?php if(isset($_SESSION['id_valido']) && $_SESSION['id_valido'] == 'nao'){?>
             
             <h2 class="produto-erro">Verifique se voce selecionou um produto</h2>
-    <?}?>
-    <?php if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'sucesso'){?>
-            
+        <?}?>
+        <?php if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'sucesso'){?>
             <h2 class="produto-salvo">Alteração realizada com sucesso!</h2>
-    <?}?>
-    </section>
-    <!-- proximo passo também será dar um foco maior na seção de edição do produto -->
-    <?php if(isset($produtoEditar)){?>
-        
-        <form action="area_controle.php?acao=removerProduto" method="POST" class="form-admin" enctype="multipart/form-data">
-        <section class="row">
-            <section class="form-campo1 coluna">
-
-                    <label for="">Escolha a imagem do produto:</label>
-                    <input type="file" name="arquivo">
-                    <label for="">Digite a descrição do produto:</label>
-                    <textarea name="descricao" cols="45" rows="10"  placeholder="<?=$produtoEditar[0]['descricao']?>"></textarea>
-
-                </section>
-                <section class="form-campo2 coluna">  
+        <?}?>
+        <?php if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'falso'){?>            
+            <h2 class="produto-erro">Verifique se você preencheu os dados corretamente e tente novamente</h2>
             
-                    <label for="">Digite o nome do produto:</label>
-                    <input type="text" placeholder="nome do produto" name="nome" value="<?=$produtoEditar[0]['nome']?>">
-
-
-                    <label for="">Digite a categoria do produto:</label>              
-                    <select name="categoria" id="" >
-                        <optgroup>
-                            <option value="vazio" disabled selected>Selecione a categoria</option>
-                            <?php foreach($categorias as $indece => $categoria){?>
-                                <?if($categoria['nome_categoria'] == $produtoEditar[0]['categoria']){?>
-                                    <option value="<?=$categoria['nome_categoria']?>" selected><?=$categoria['nome_categoria']?></option>
-                                <?}else{?>
-                                    <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
-                                <?}?>
-                            <?}?>
-                        </optgroup>
-                    </select>
-
-                </section>
-                <section class="form-campo3">
-
-                    <label for="">Digite a quantidade em estoque do produto:</label>
-                    <input type="number" placeholder="Quantidade do estoque" name="estoque" min="1" value="<?=$produtoEditar[0]['estoque']?>"> 
-
-                    <label for="">Digite a valor do produto:</label>
-                    <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="Digite o valor do produto" name="preco" value="<?=$produtoEditar[0]['preco']?>">
-
-
-                </section>
+        <?}?>
         </section>
-            <section class="row">
-                <input type="submit" value="Salvar" class="botao-salvar" name= 'button' >
-                <input type="submit" value="Remover" class="botao-remover" name= 'button' >
-                <input type="submit" value="Cancelar" class="botao-cancelar" name= 'button' >
-            </section>
-            
-        </form>
-    <?}else{?>
-      
+    
+    <!-- proximo passo também será dar um foco maior na seção de edição do produto -->
         <section class="row" id="containerEdicao">
+        
                 <form  class="row form-config" >
                     <select name="id_produto"  class='categoria' id="editar">
                         <optgroup>
@@ -222,7 +170,7 @@ if(isset( $resultado)){
                 </form>
                 <button class='button-editar' onclick='editarProduto("editar")'>Editar</button>           
         </section>
-    <?}?>
+ 
     
     
             

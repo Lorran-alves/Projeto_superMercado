@@ -522,10 +522,7 @@ i.left:hover, i.right:hover{
 button{
     cursor: pointer;
 }
-.form-edit{
-    box-shadow: 0 0 40px 0 rgba(2, 204, 255, 0.2), 0 10px 10px 0 rgba(2, 214, 252, 0.24);
-    padding: 10px;
-}
+
 textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     outline: 0;

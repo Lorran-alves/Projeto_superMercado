@@ -94,17 +94,22 @@ function calculaPedido(estoque, idProduto, indece){
     }
     window.location = "area_controle.php?acao=verificarQuantidadePedido&id_produto="+idProduto+"&quantidade="+ qtd
 }
-function editarProduto(id){
+function editarProduto(id = ''){
     console.log('alterou o valor');
     let valorEscolhido = document.querySelector(`#${id}`)
     console.log(valorEscolhido.value);
     if(id != ''){
-        requisitarPagina("containerEdicao", "editar_produto_admin.php?id_produto="+ valorEscolhido)
+        requisitarPagina("containerEdicao", "editar_produto_admin.php?acao=editarProduto&area=editar&id_produto="+ valorEscolhido.value)
     }
     
 }
+
 function clickProduto(id){
 alert("Id atual: "+ id)
 window.location = 'area_controle.php?acao=retornaDadosProduto&id_produto='+id;
+}
+function verificaMetodo(id, metodo){
+    console.log(id)
+    console.log(metodo)
 }
 
