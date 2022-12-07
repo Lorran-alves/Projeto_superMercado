@@ -99,23 +99,6 @@ function resgatarProdutoEditar(id = ''){
         requisitarPagina("containerEdicao", "editar_produto_admin.php?acao=recuperarProdutoEditar&area=editar&id_produto="+ valorEscolhido.value)
     }
 }
-function verificaMetodo(metodo, id){
-    
-    let  inputArquivo = document.getElementById("inputArquivo");
-    let descricao = document.querySelector("#descricao").value
-    let nome = document.querySelector("#nome").value
-    let categoria = document.querySelector("#categoria").value
-    let valor = document.querySelector("#valor").value
-    let quantidade = document.querySelector("#quantidade").value
-    console.log(inputArquivo.files)
-    
-    if(inputArquivo.files[0]['name'] != '' && descricao != '' && nome != '' && categoria != 'vazio' && valor != 'vazio' && quantidade != 'vazio' ){
-        requisitarPagina("containerEdicao", `editar_produto_admin.php`)
-
-    }
-    // METODO DE VERIFICAÇÃO SIMPLES PARA SABER SE OS CAMPOS FORAM PREENCHIDOS
-
-}
 function requisitarPaginaEdicao(metodo, id_produto, id_container){ // PRECISO VER ESSA QUESTÃO DOS DADOS VIM PRA CA PARA QUE EU POSSA TRATAR CORRETAMENTE FIZ NA PRESSA E FICOU CONFUSO
 
     let  inputArquivo = document.getElementById("inputArquivo"); //ARQUIVO IMAGEM DO PRODUTO
@@ -150,5 +133,21 @@ function requisitarPaginaEdicao(metodo, id_produto, id_container){ // PRECISO VE
         }   
     }
     ajax.send(fd)
+}
+
+
+ 
+function editarCategoria(id, metodo){
+    
+    let categoria = ''
+    if(metodo == 'salvar'){
+        categoria = document.querySelector("#categoria-nova").value
+    }else if(metodo == 'remover'){
+        categoria = document.querySelector("#categoria_remover").value
+        
+    }
+    console.log(categoria)
+    // 
+   requisitarPagina(`${id}`, `categorias.php?acao=salvar-categoria&categoria=${categoria}&metodo=${metodo}`)
 }
 

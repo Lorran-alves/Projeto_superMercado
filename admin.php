@@ -85,21 +85,18 @@ require "area_controle.php";
 <section class="carrinho-caixa sombra">
     <section class="borda-bottom">
     <h2>Cadastrar nova Categoria</h2>
+        <section id='categoria-salva'>
+          <!-- AQUI É ONDE IRÁ FICAR O CONTEUDO DE FEEDBACK PARA O USUARIO  -->
+        </section>
     </section>
-    <?php if(isset($_SESSION['categoria-salva']) && $_SESSION['categoria-salva'] == 'sim'){?>
-        <h2 class="produto-salvo">Categoria salva com sucesso</h2>
-    <?}?>
-    <?php if(isset($_SESSION['categoria-salva']) && $_SESSION['categoria-salva'] == 'nao'){?>
-        <h2 class="produto-erro">Verifique se os dados foram preenchidos corretamente e tente novamente</h2>
-    <?}?>
+
+    
     <section class="row ">
-       
             <form action="area_controle.php?acao=salvar-categoria" method="POST" class="row form-config" enctype="multipart/
             form-data" >
-                <input type="text" placeholder="Digite a nova categoria que deseja adicionar" name="categoria" class='categoria'>
-                <button>Salvar</button>
+                <input type="text" placeholder="Digite a nova categoria que deseja adicionar" name="categoria" class='categoria' id='categoria-nova'>
             </form>
-        
+            <button class='button-editar' onclick="editarCategoria('categoria-salva', 'salvar')">Salvar</button>
     </section>
             
 </section>
@@ -107,30 +104,32 @@ require "area_controle.php";
 
 <section class="carrinho-caixa sombra">
     <section class="borda-bottom">
-    <h2>Remover Categoria</h2>
-    <p>Obs: se  voce remover alguma categoria todos os produtos que possuirem essa categoria seram removidos juntamente</p>
+        <h2>Remover Categoria</h2>
+        <p>Obs: se  voce remover alguma categoria todos os produtos que possuirem essa categoria seram removidos juntamente</p>
+        <section id='categoria-remover'>
+            <!-- AQUI É ONDE IRÁ FICAR O CONTEUDO DE FEEDBACK PARA O USUARIO  -->
+        </section>
     </section>
-    <?php if(isset($_SESSION['categoria-removida']) && $_SESSION['categoria-removida'] == 'sim'){?>
-        <h2 class="produto-salvo">Categoria removida com sucesso</h2>
-    <?}?>
-    <?php if(isset($_SESSION['categoria-removida']) && $_SESSION['categoria-removida'] == 'nao'){?>
-        <h2 class="produto-erro">Verifique se os dados foram preenchidos corretamente e tente novamente</h2>
-    <?}?>
-    <section class="row ">
-        
+    
+
+    <section class="coluna" id='form-remover-categoria'>
+        g
+        <section class='row'>
+            <!-- AQUI É ONDE IRÁ FICAR O CONTEUDO DE FEEDBACK PARA O USUARIO  -->
             <form action="area_controle.php?acao=remover-categoria" method="POST" class="row form-config" enctype="multipart/
-            form-data" >
-                <select name="categoria" id="remover" class='categoria'>
+                form-data" >
+                <select name="categoria" id="categoria_remover" class='categoria'>
                     <optgroup>
                         <option value="vazio" disabled selected>Selecione a categoria</option>
                         <?php foreach($categorias as $indece => $categoria){?>
                         <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
                         <?}?>
                     </optgroup>
-                </select>
-                <button>Remover</button>
+                </select>             
             </form>
-        
+                <button class='button-editar' onclick="editarCategoria('form-remover-categoria', 'remover')">Remover</button>
+        </section>
+       
     </section>
 
     
@@ -139,34 +138,25 @@ require "area_controle.php";
 <!-- Editar Produtos -->
 
 <section class="carrinho-caixa sombra" >
-    <section class="borda-bottom">
-    <h2>Editar Produto</h2>
-   
-        <?php if(isset($_SESSION['id_valido']) && $_SESSION['id_valido'] == 'nao'){?>
-            
-            <h2 class="produto-erro">Verifique se voce selecionou um produto</h2>
-        <?}?>
-        <?php if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'sucesso'){?>
-            <h2 class="produto-salvo">Alteração realizada com sucesso!</h2>
-        <?}?>
-        <?php if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'falso'){?>            
-            <h2 class="produto-erro">Verifique se você preencheu os dados corretamente e tente novamente</h2>
-        <?}?>
-        </section>
-    
-    <!-- proximo passo também será dar um foco maior na seção de edição do produto -->
-        <section class="row" id="containerEdicao">
-            
-                <?if(isset($_SESSION['area']) && isset($_SESSION['area']) == 'escolher'){?>
-                    <!-- preciso consertar essa parte em que a pagina admin é apresentada para ser escolher o produto para edição -->
-                    <script>requisitarPagina('containerEdicao', 'editar_produto_admin.php')</script>
-                <?}?>
-                  
-        </section>
- 
-    
-    
-            
+    <section class="">
+        <h2>Editar Produto</h2>
+    </section>
+    <!-- proximo passo também será dar um foco maior na seção de edição do produto -->                 
+    <section class="coluna" id="containerEdicao">   <!-- AREA DA ESCOLHA DO PRODUTO A SER EDITADO -->
+       <section class='row'>
+           <form  class="form-config" >
+               <select name="id_produto"  class='categoria' id="editar">
+                   <optgroup>
+                       <option value="vazio" disabled selected>Selecione o produto que deseja editar</option>
+                       <?php foreach($produtosCadastrados as $indece => $produto){?>
+                           <option value="<?=$produto['id_produto']?>" class="teste"><?=$produto['nome']?></option>
+                       <?}?>
+                   </optgroup>
+               </select>
+           </form>
+           <button class='button-editar' onclick='resgatarProdutoEditar("editar")'>Editar</button>    
+       </section>
+    </section>                            
 </section>
 
 
