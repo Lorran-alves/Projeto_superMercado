@@ -93,13 +93,11 @@ function calculaPedido(estoque, idProduto, indece){
     }
     window.location = "area_controle.php?acao=verificarQuantidadePedido&id_produto="+idProduto+"&quantidade="+ qtd
 }
-function editarProduto(id = ''){
+function resgatarProdutoEditar(id = ''){
     let valorEscolhido = document.querySelector(`#${id}`)
-    console.log(valorEscolhido.value);
     if(id != ''){
-        requisitarPagina("containerEdicao", "editar_produto_admin.php?acao=editarProduto&area=editar&id_produto="+ valorEscolhido.value)
+        requisitarPagina("containerEdicao", "editar_produto_admin.php?acao=recuperarProdutoEditar&area=editar&id_produto="+ valorEscolhido.value)
     }
-    
 }
 function verificaMetodo(metodo, id){
     
@@ -118,7 +116,7 @@ function verificaMetodo(metodo, id){
     // METODO DE VERIFICAÇÃO SIMPLES PARA SABER SE OS CAMPOS FORAM PREENCHIDOS
 
 }
-function requisitarPaginaEdicao(metodo, id){ // PRECISO VER ESSA QUESTÃO DOS DADOS VIM PRA CA PARA QUE EU POSSA TRATAR CORRETAMENTE FIZ NA PRESSA E FICOU CONFUSO
+function requisitarPaginaEdicao(metodo, id_produto, id_container){ // PRECISO VER ESSA QUESTÃO DOS DADOS VIM PRA CA PARA QUE EU POSSA TRATAR CORRETAMENTE FIZ NA PRESSA E FICOU CONFUSO
 
     let  inputArquivo = document.getElementById("inputArquivo"); //ARQUIVO IMAGEM DO PRODUTO
     let descricao = document.querySelector("#descricao").value // DESCRIÇÃO DO PRODUTO
@@ -128,23 +126,23 @@ function requisitarPaginaEdicao(metodo, id){ // PRECISO VER ESSA QUESTÃO DOS DA
     let quantidade = document.querySelector("#quantidade").value //QUANTIDADE DO PRODUTO
     let arquivo = inputArquivo.files[0]; //AQUI JA É O ARQUIVO TIPO ( FILES )
     
-    url = "editar_produto_admin.php?acao=editarProduto&id_produto="+id
+    url = "editar_produto_admin.php?acao=editarProduto&id_produto="+id_produto
     
     let fd = new FormData();
-    fd.append("fotografia", arquivo)
+    fd.append("arquivo", arquivo)
     fd.append("descricao", descricao)
     fd.append("nome", nome)
     fd.append("categoria", categoria)
-    fd.append("valor", valor)
-    fd.append("quantidade", quantidade)
+    fd.append("preco", valor)
+    fd.append("estoque", quantidade)
     fd.append("metodo", metodo)
-    fd.append("id_produto", id)
-    let conteudo_form = document.querySelector(`#${id}`)
+    fd.append("id_produto", id_produto)
+    let conteudo = document.querySelector(`#${id_container}`)
     let ajax = new XMLHttpRequest();
     ajax.open('POST', url)
     ajax.onreadystatechange = () =>{
         if(ajax.readyState == 4 && ajax.status == 200){
-            conteudo_form.innerHTML = ajax.responseText
+            conteudo.innerHTML = ajax.responseText
             
             // console.log(ajax.responseText)
         }else if(ajax.readyState == 4 && ajax.status == 404){

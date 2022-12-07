@@ -151,24 +151,17 @@ require "area_controle.php";
         <?}?>
         <?php if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'falso'){?>            
             <h2 class="produto-erro">Verifique se você preencheu os dados corretamente e tente novamente</h2>
-            
         <?}?>
         </section>
     
     <!-- proximo passo também será dar um foco maior na seção de edição do produto -->
         <section class="row" id="containerEdicao">
-        
-                <form  class="row form-config" >
-                    <select name="id_produto"  class='categoria' id="editar">
-                        <optgroup>
-                            <option value="vazio" disabled selected>Selecione o produto que deseja editar</option>
-                            <?php foreach($produtosCadastrados as $indece => $produto){?>
-                                <option value="<?=$produto['id_produto']?>" class="teste"><?=$produto['nome']?></option>
-                            <?}?>
-                        </optgroup>
-                    </select>
-                </form>
-                <button class='button-editar' onclick='editarProduto("editar")'>Editar</button>           
+            
+                <?if(isset($_SESSION['area']) && isset($_SESSION['area']) == 'escolher'){?>
+                    <!-- preciso consertar essa parte em que a pagina admin é apresentada para ser escolher o produto para edição -->
+                    <script>requisitarPagina('containerEdicao', 'editar_produto_admin.php')</script>
+                <?}?>
+                  
         </section>
  
     
