@@ -20,28 +20,30 @@ require "area_controle.php";
 
 <!-- MELHORARA AQUI A QUESTÃO DE ADICIONAR UM PRODUTO -->
 <section class="carrinho-caixa sombra">
-    <section class="">
+    <section class="borda-bottom">
     <h2>Cadastrar novo produto</h2>
     </section>
-   <section id='feedback-resultado'>
-        <h4>teste</h4>
+    <!-- aqui é onde o feedback ao usuario é exibido -->
+   <section id='feedback-resultado'> 
+        
    </section>
    
-    <section class="row borda-top">
-        <form class="form-admin" enctype="multipart/form-data" method="POST">
+    <section class="row">
+        <form class="form-admin" enctype="multipart/form-data" method="POST" >
             <section class="row">
                 <section class="form-campo1 coluna">
-                    <label for="">Escolha a imagem do produto:</label>
-                    <input type="file" name="arquivo" id="inputArquivo">
+                    <h4>Escolha a imagem do produto:</h4>
+                    <label for="inputArquivoSalvar" class='files' id='labelCadastro'>escolher arquivo</label>
+                    <input type="file" name="arquivo" id="inputArquivoSalvar" oninput="verificaImagem('inputArquivoSalvar', 'labelCadastro')">
                     <label for="">Digite a descrição do produto:</label>
-                    <textarea id="descricao" name="descricao" cols="45" rows="10" placeholder="Digite a descrição do produto"></textarea>
+                    <textarea id="descricaoSalvar" name="descricao" cols="45" rows="10" placeholder="Digite a descrição do produto"></textarea>
                 </section>
                     <section class="form-campo2 coluna">  
                         <label for="">Digite o nome do produto:</label>
-                        <input id='nome' type="text" placeholder="nome do produto" name="nome">
+                        <input id='nomeSalvar' type="text" placeholder="nome do produto" name="nome">
 
                         <label for="">Digite a categoria do produto:</label>              
-                        <select name="categoria" id="categoria" >
+                        <select name="categoria" id="categoriaSalvar" >
                             <optgroup>
                                 <option value="vazio" disabled selected>Selecione a categoria</option>
                                 <?php foreach($categorias as $indece => $categoria){?>
@@ -57,18 +59,17 @@ require "area_controle.php";
                     <section class="form-campo3">
 
                         <label for="">Digite a quantidade em estoque do produto:</label>
-                        <input id='quantidade' type="number" placeholder="Quantidade do estoque" name="estoque" min="1"> 
+                        <input id='quantidadeSalvar' type="number" placeholder="Quantidade do estoque" name="estoque" min="1"> 
 
                         <label for="">Digite a valor do produto:</label>
-                        <input id='valor' type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="Digite o valor do produto" name="preco">
+                        <input id='valorSalvar' type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="Digite o valor do produto" name="preco">
                     </section>
             </section>
         </form> 
     </section>
     <section class="row">
-            <input type="submit" value="Salvar" class="botao-salvar" name= 'button'>
-            <input type="submit" value="Remover" class="botao-remover" name= 'button'>
-             <input type="submit" value="Cancelar" class="botao-cancelar" name= 'button'onclick="requisitarPaginaEdicao('Cancelar', '10', 'feedback-resultado', 'salvarProduto')">
+        
+            <input type="submit" value="Salvar" class="botao-salvar-cadastro" name= 'button' onclick="salvarProduto('Salvar', 'feedback-resultado', 'cadastrarProduto', 'labelCadastro')">
     </section>    
 </section>
 
@@ -97,7 +98,7 @@ require "area_controle.php";
 
 <section class="carrinho-caixa sombra">
        
-            <button class="atualizar" onclick="atualizarCategorias('form-remover-categoria')">Atualizar</button>
+        
        
     <section class="borda-bottom">
         <h2>Remover Categoria</h2>
@@ -136,7 +137,7 @@ require "area_controle.php";
 <!-- Editar Produtos -->
 
 <section class="carrinho-caixa sombra" >
-    <section class="">
+    <section class="borda-bottom">
         <h2>Editar Produto</h2>
     </section>
     <!-- proximo passo também será dar um foco maior na seção de edição do produto -->                 
@@ -182,7 +183,10 @@ require "area_controle.php";
                 </optgroup>
             </select>            
             </form>
-            <button class="button-estilo" onclick="verificaFiltro('categoria')" >Verificar</button>
+            <section class ='row'>
+                <button class="button-filtro" onclick="verificaFiltro('categoria')" >Verificar</button>
+            </section>
+            
            
         </section>
         <section style="width:35%;"><!-- estilo 3 -->
@@ -190,7 +194,10 @@ require "area_controle.php";
             <form class="form-admin align-form">
                 <input type="text" placeholder="Digite o que deseja pesquisar!" name="busca" id="busca">
             </form>
-            <button class="button-estilo" onclick="verificaFiltro('busca')">Verificar</button>
+            <section class='row'>
+                <button class="button-filtro" onclick="verificaFiltro('busca')">Verificar</button>
+            </section>
+            
         </section>
         
     </section>

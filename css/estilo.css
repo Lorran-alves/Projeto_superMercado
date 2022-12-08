@@ -7,8 +7,8 @@
     border: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-
 }
+
 body{
     overflow-x: hidden;
     background-color: #f0f0f0;
@@ -308,24 +308,37 @@ input{
     border: 1px solid #ccc;
 }
 .form-config button, button.button-editar{
-    background-color: orange;
+    background-color: #ffcc01;
+    border: 1px solid #ffcc01;
     color: black;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
     width: 20%;
-    margin: 15px auto;
+    margin: auto;
     cursor: pointer;
+    transition: 0.5s;
+}
+.button-editar:hover{
+    background-color: white;
+    color: #ffcc01;
+    border: 1px solid #ffcc01;
 }
 
 
 
-input.botao-salvar-cadastro{
+
+.botao-salvar-cadastro{
     background-color: #ffcc01;
     cursor: pointer;
-    width: 30%;
-    text-align: center;
-    margin: 0 0 0 auto;
-    
+    border: 1px solid rgb(126, 121, 121);
+    opacity: 1;
+    margin: auto;
+    transition: 0.5s;
+}
+.botao-salvar-cadastro:hover{
+    background-color: white;
+    color: #ffcc01;
+    border: 1px solid #ffcc01;
 }
 
 .form-admin input::placeholder{
@@ -337,7 +350,37 @@ label{
     font-size: 1.2em;
     color: #241d1d;
     margin-bottom: 10px
+}
+label.files, .escolhido{
+    margin: 5px auto;
+    font-size: 1em;
+    width: 70%;
+    padding: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: #ffcc01;
+    color: #333;
+    border: 1px solid rgb(216, 216, 216);
+}
+label.escolhido{
+    background-color: white;
+    color: #ffcc01;
+    border: 1px solid #ffcc01;
+    
+}
+label.files:hover{
+    
+    background-color: white;
+    color: #ffcc01;
+    border: 1px solid #ffcc01;
 } 
+input[type='file']{
+    display: none;
+}
 .coluna{
     display: flex;
     flex-direction: column;
@@ -499,14 +542,19 @@ i.left:hover, i.right:hover{
     justify-content: center;
     flex-direction: column;
 }
-.button-estilo{
+.button-filtro{
     background-color: #ffcc01;
+    border: 1px solid #ffcc01;
     width: 35%;
-    font-weight: bold;
     padding: 10px;
     border-radius: 10px;
-    margin: 10px;
-    font-size: 1em;
+    margin: auto;
+    transition: 0.5s;
+}
+.button-filtro:hover{
+    background-color: white;
+    color: #ffcc01;
+    border: 1px solid #ffcc01;
 }
 .align-form select{
     width: 90%;
@@ -530,23 +578,4 @@ textarea:focus, input:focus, select:focus {
     outline: 0;
 }
 
-.atualizar{
-    border: 1px solid rgb(124, 123, 123);
-    background-color: #ccc;
-    
-    width: 10%;
-    border-radius: 10px;
-    padding: 10px;
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-weight: bold;
-    transition: 0.8s;
-}
-.atualizar:hover{
-    border: 1px solid rgb(124, 123, 123);
-    background-color: white;
-    color: #606060;
-    
-}
 
