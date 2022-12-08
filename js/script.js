@@ -99,7 +99,7 @@ function resgatarProdutoEditar(id = ''){
         requisitarPagina("containerEdicao", "editar_produto_admin.php?acao=recuperarProdutoEditar&area=editar&id_produto="+ valorEscolhido.value)
     }
 }
-function requisitarPaginaEdicao(metodo, id_produto, id_container){ // PRECISO VER ESSA QUESTÃO DOS DADOS VIM PRA CA PARA QUE EU POSSA TRATAR CORRETAMENTE FIZ NA PRESSA E FICOU CONFUSO
+function requisitarPaginaEdicao(metodo, id_produto, id_container, acao){ // PRECISO VER ESSA QUESTÃO DOS DADOS VIM PRA CA PARA QUE EU POSSA TRATAR CORRETAMENTE FIZ NA PRESSA E FICOU CONFUSO
 
     let  inputArquivo = document.getElementById("inputArquivo"); //ARQUIVO IMAGEM DO PRODUTO
     let descricao = document.querySelector("#descricao").value // DESCRIÇÃO DO PRODUTO
@@ -109,7 +109,42 @@ function requisitarPaginaEdicao(metodo, id_produto, id_container){ // PRECISO VE
     let quantidade = document.querySelector("#quantidade").value //QUANTIDADE DO PRODUTO
     let arquivo = inputArquivo.files[0]; //AQUI JA É O ARQUIVO TIPO ( FILES )
     
-    url = "editar_produto_admin.php?acao=editarProduto&id_produto="+id_produto
+    url = `editar_produto_admin.php?acao=${acao}&id_produto=${id_produto}`
+    
+    let fd = new FormData();
+    fd.append("arquivo", arquivo)
+    fd.append("descricao", descricao)
+    fd.append("nome", nome)
+    fd.append("categoria", categoria)
+    fd.append("preco", valor)
+    fd.append("estoque", quantidade)
+    fd.append("metodo", metodo)
+    fd.append("id_produto", id_produto)
+    let conteudo = document.querySelector(`#${id_container}`)
+    let ajax = new XMLHttpRequest();
+    ajax.open('POST', url)
+    ajax.onreadystatechange = () =>{
+        if(ajax.readyState == 4 && ajax.status == 200){
+            conteudo.innerHTML = ajax.responseText
+            
+            // console.log(ajax.responseText)
+        }else if(ajax.readyState == 4 && ajax.status == 404){
+            alert("ocorreu algum erro, por favor recarregue")
+        }   
+    }
+    ajax.send(fd)
+}
+function salvarProduto(metodo, id_container, acao){ // PRECISO VER ESSA QUESTÃO DOS DADOS VIM PRA CA PARA QUE EU POSSA TRATAR CORRETAMENTE FIZ NA PRESSA E FICOU CONFUSO
+
+    let  inputArquivo = document.getElementById("inputArquivo"); //ARQUIVO IMAGEM DO PRODUTO
+    let descricao = document.querySelector("#descricao").value // DESCRIÇÃO DO PRODUTO
+    let nome = document.querySelector("#nome").value // NOME DO PRODUTO
+    let categoria = document.querySelector("#categoria").value // CATEGORIA DO PRODUTO
+    let valor = document.querySelector("#valor").value // VALOR DO PRODUTO
+    let quantidade = document.querySelector("#quantidade").value //QUANTIDADE DO PRODUTO
+    let arquivo = inputArquivo.files[0]; //AQUI JA É O ARQUIVO TIPO ( FILES )
+    
+    url = `editar_produto_admin.php?acao=${acao}`
     
     let fd = new FormData();
     fd.append("arquivo", arquivo)
@@ -139,15 +174,25 @@ function requisitarPaginaEdicao(metodo, id_produto, id_container){ // PRECISO VE
  
 function editarCategoria(id, metodo){
     
-    let categoria = ''
+    let valorAtual  = '';
     if(metodo == 'salvar'){
-        categoria = document.querySelector("#categoria-nova").value
+        categoria = document.querySelector("#categoria-nova")
+        valorAtual = categoria.value //AQUI EU ATRIBUIR O VALOR DO INPUT PARA OUTRA VARIAVEL PARA DEPOIS EU LIMPAR O INPUT PARA UMA PROXIMA VALIDAÇÃO
+        categoria.value = '';
+        // NO CASO TEM QUE SER SO AQUI QUE NA PARTE DA REMOÇÃO ELE TEM SUA PROPRIA LOGICA PARA RECUPERAR AS CATEGORIAS ATUALIZADAS
+        requisitarPagina(`${id}`, `categorias.php?acao=editar-categoria&categoria=${valorAtual}&metodo=${metodo}`) 
+        atualizarCategorias('form-remover-categoria') // GRAÇAS AO BOTAO ATUALIZAR DESCOBRI QUE CHAMANDO UMA FUNÇÃO RESOLVE O MEU PROBLEMA
+
     }else if(metodo == 'remover'){
-        categoria = document.querySelector("#categoria_remover").value
-        
+        categoria = document.querySelector("#categoria_remover")
+        valorAtual = categoria.value
+        requisitarPagina(`${id}`, `categorias.php?acao=editar-categoria&categoria=${valorAtual}&metodo=${metodo}`) 
     }
-    console.log(categoria)
-    // 
-   requisitarPagina(`${id}`, `categorias.php?acao=salvar-categoria&categoria=${categoria}&metodo=${metodo}`)
+    
+    
+}
+function atualizarCategorias(id){
+    
+    requisitarPagina(`${id}`, `categorias.php?acao=atualizarCategorias`) 
 }
 

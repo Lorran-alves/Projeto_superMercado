@@ -13,7 +13,7 @@ require "area_controle.php";
 ?>
 
 <!-- FEEDBACK PARA O USUARIO -->
-<?php if(isset($_SESSION['alteracao'])){?>       
+<?php if(isset($_SESSION['alteracao']) && $_SESSION['area'] != 'adicionar'){?>       
     
         <?php if($_SESSION['alteracao'] == 'invalida'){?>
             <h2 class="produto-erro borda-bottom">Verifique se voce selecionou um produto</h2>
@@ -25,11 +25,24 @@ require "area_controle.php";
             <h2 class="produto-erro borda-bottom">Verifique se você preencheu os dados corretamente e tente novamente</h2>
         <?}?>   
 <?}?> 
-
+<?php if(isset($_SESSION['area']) && $_SESSION['area'] == 'adicionar'){?>       
+    
+    <?php if($_SESSION['alteracao'] == 'invalida'){?>
+        <h2 class="produto-erro borda-bottom">Verifique se voce selecionou um produto</h2>
+    <?}?>
+    <?php if($_SESSION['alteracao'] == 'sucesso'){?>
+        <h2 class="produto-salvo borda-bottom">Alteração realizada com sucesso!</h2>
+    <?}?>
+    <?php if($_SESSION['alteracao'] == 'falso'){?>            
+        <h2 class="produto-erro borda-bottom">Verifique se você preencheu os dados corretamente e tente novamente</h2>
+    <?}?>   
+<?}?> 
 
 
 <!-- area odne o produto irá ser editado -->
 <?php if(isset($_SESSION['area']) && $_SESSION['area'] == "editar"){?>
+    <?echo 'caiu aqui';?>
+    <?echo $_SESSION['area'];?>
     <section class="row">
         <form class="form-admin" enctype="multipart/form-data" method="POST">
             <section class="row">
@@ -69,9 +82,9 @@ require "area_controle.php";
         </form> 
     </section>
     <section class="row">
-            <input type="submit" value="Salvar" class="botao-salvar" name= 'button' onclick="requisitarPaginaEdicao('Salvar', <?=$_GET['id_produto']?>, 'containerEdicao')">
-            <input type="submit" value="Remover" class="botao-remover" name= 'button' onclick="requisitarPaginaEdicao('Remover', <?=$_GET['id_produto']?>, 'containerEdicao')">
-             <input type="submit" value="Cancelar" class="botao-cancelar" name= 'button'  onclick="requisitarPaginaEdicao('Cancelar', <?=$_GET['id_produto']?>, 'containerEdicao')">
+            <input type="submit" value="Salvar" class="botao-salvar" name= 'button' onclick="requisitarPaginaEdicao('Salvar', <?=$_GET['id_produto']?>, 'containerEdicao', 'editarProduto')">
+            <input type="submit" value="Remover" class="botao-remover" name= 'button' onclick="requisitarPaginaEdicao('Remover', <?=$_GET['id_produto']?>, 'containerEdicao', 'editarProduto')">
+             <input type="submit" value="Cancelar" class="botao-cancelar" name= 'button'  onclick="requisitarPaginaEdicao('Cancelar', <?=$_GET['id_produto']?>, 'containerEdicao', 'editarProduto')">
     </section>
        
        

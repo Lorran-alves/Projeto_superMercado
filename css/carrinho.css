@@ -14,6 +14,10 @@
     border-bottom: 1px solid rgb(172, 170, 170);
     padding: 10px;
 }
+.borda-top{
+    border-top: 1px solid rgb(172, 170, 170);
+    padding: 10px;
+}
 h2{
     font-size: 2em;
     color: #ffcc01;
