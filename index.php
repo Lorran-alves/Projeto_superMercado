@@ -25,7 +25,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="js/script.js"></script>
         <!-- script carousel -->
-        <!-- <script src="js/carousel.js" defer></script> -->
+        <script src="js/carousel.js"></script>
         <!-- FONT AWESOME -->
         <script src="https://kit.fontawesome.com/f29238e7e8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/estilo.css">
@@ -110,7 +110,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
             
             <section id="container">
             <?php if(!isset($_GET['acao']) && $_GET['acao'] != 'busca' && $_GET['acao'] != 'carrinho'){?>?>
-                <script>requisitarPagina('container', 'admin.php')</script>
+                <script>requisitarPagina('container', 'conteudo_principal.php')</script>
                 <!-- <script src="js/carousel.js" defer></script> -->
             <?} if(isset($_GET['pagina']) && $_GET['pagina'] == 'carrinho'){?>
                 
