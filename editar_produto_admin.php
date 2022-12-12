@@ -10,9 +10,12 @@ require "area_controle.php";
         
 ?>
 
+
+<script> </script>
+
 <!-- FEEDBACK PARA O USUARIO -->
 <?php if(isset($_SESSION['alteracao']) && $_SESSION['area'] != 'adicionar'){?>       
-    
+    <script>atualizaDadosAdmin()</script>
         <?php if($_SESSION['alteracao'] == 'invalida'){?>
             <h2 class="produto-erro">Verifique se voce selecionou um produto</h2>
         <?}?>
@@ -24,7 +27,7 @@ require "area_controle.php";
         <?}?>   
 <?}?> 
 <?php if(isset($_SESSION['area']) && $_SESSION['area'] == 'adicionar'){?>       
-    
+    <script>atualizaDadosAdmin()</script>
     <?php if($_SESSION['alteracao'] == 'invalida'){?>
         <h2 class="produto-erro">Verifique se voce selecionou um produto</h2>
     <?}?>
@@ -41,19 +44,19 @@ require "area_controle.php";
 <?php if(isset($_SESSION['area']) && $_SESSION['area'] == "editar"){?>
     <section class="row">
         <form class="form-admin" enctype="multipart/form-data" method="POST">
-            <section class="row">
+            <section class="row-form">
                 <section class="form-campo1 coluna">
                     <h4>Escolha a imagem do produto:</h4>
-                    <label for="inputArquivo" class='files' id='labelEdicao'>enviar arquivo</label>
-                    <input type="file" name="arquivo" id="inputArquivo">
-                    <label for="">Digite a descrição do produto:</label>
+                    <label for="inputArquivo" class='files' id='labelEdicao' >enviar arquivo</label>
+                    <input type="file" name="arquivo" id="inputArquivo" oninput="verificaImagem('inputArquivo', 'labelEdicao')">
+                    <h4>Digite a descrição do produto:</h4>
                     <textarea id="descricao" name="descricao" cols="45" rows="10"  placeholder="<?=$produtoEditar[0]['descricao']?>"></textarea>
                 </section>
                     <section class="form-campo2 coluna">  
-                        <label for="">Digite o nome do produto:</label>
+                        <h4>Digite o nome do produto:</h4>
                         <input id='nome' type="text" placeholder="nome do produto" name="nome" value="<?=$produtoEditar[0]['nome']?>">
 
-                        <label for="">Digite a categoria do produto:</label>              
+                        <h4>Digite a categoria do produto:</h4>              
                         <select name="categoria" id="categoria" >
                             <optgroup>
                                 <option value="vazio" disabled selected>Selecione a categoria</option>
@@ -69,10 +72,10 @@ require "area_controle.php";
                     </section>
                     <section class="form-campo3">
 
-                        <label for="">Digite a quantidade em estoque do produto:</label>
+                        <h4>Digite a quantidade em estoque:</h4>
                         <input id='quantidade' type="number" placeholder="Quantidade do estoque" name="estoque" min="1" value="<?=$produtoEditar[0]['estoque']?>"> 
 
-                        <label for="">Digite a valor do produto:</label>
+                        <h4>Digite a valor do produto:</h4>
                         <input id='valor' type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="Digite o valor do produto" name="preco" value="<?=$produtoEditar[0]['preco']?>">
                     </section>
             </section>

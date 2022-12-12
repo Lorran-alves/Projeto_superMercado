@@ -286,15 +286,14 @@ input{
     font-size: 1em;
 
 }
- /* .form-admin form{
-    width: 90%;
-    border: 1px solid black;
+.form-admin{
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-} */
+} 
 .form-config{
     width: 100%;
 }
@@ -308,6 +307,7 @@ input{
     border: 1px solid #ccc;
 }
 .form-config button, button.button-editar{
+    text-transform: uppercase;
     background-color: #ffcc01;
     border: 1px solid #ffcc01;
     color: black;
@@ -372,6 +372,9 @@ label.escolhido{
     border: 1px solid #ffcc01;
     
 }
+.buttonTodosProdutos{
+width: 70%;
+}
 label.files:hover{
     
     background-color: white;
@@ -405,21 +408,26 @@ input[type='file']{
 }
 
 .form-campo1{
-    width: 30%;
-    /* border: 1px solid red; */
-    
+    width: 35%;
+    text-align: center;
 }
 .form-campo2{
-    width: 40%;
-    /* border: 1px solid black; */
-    display: flex;
-    align-items:center;
+    width: 35%;
+    text-align: center;
 }
 .form-campo3{
-    width: 30%;
+    width: 35%;
     text-align: center;
-    /* border: 1px solid yellow; */
 } 
+.row-form{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 1%;
+}
+.row-form h4{
+    font-size: 1.2em;
+}
 .container-resultado h4{
     font-size: 1.5em;
 }
@@ -542,7 +550,7 @@ i.left:hover, i.right:hover{
     justify-content: center;
     flex-direction: column;
 }
-.button-filtro{
+.button-filtro, .buttonTodosProdutos{
     background-color: #ffcc01;
     border: 1px solid #ffcc01;
     width: 35%;
@@ -550,11 +558,15 @@ i.left:hover, i.right:hover{
     border-radius: 10px;
     margin: auto;
     transition: 0.5s;
+    
 }
-.button-filtro:hover{
+.button-filtro:hover, .buttonTodosProdutos:hover, .iconFechaPesquisa:hover{
     background-color: white;
     color: #ffcc01;
     border: 1px solid #ffcc01;
+}
+.buttonTodosProdutos{
+    width: 50%;
 }
 .align-form select{
     width: 90%;
@@ -576,6 +588,19 @@ button{
 textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     outline: 0;
+}
+.iconFechaPesquisa{
+    font-size: 1.5em;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    background-color: #ffcc01;
+    border: 1px solid #ffcc01;
+    padding: 0 5px;
+    border-radius: 50%;
+    color:#333;
+    transition: 0.5s;
+    cursor:pointer;
 }
 
 

@@ -17,16 +17,16 @@ function requisitarPagina(id, url){
 function verificaFiltro(id){ // pesquisa admin 
     let parametro = document.querySelector('#'+id)
 
-    if(id == 'categoria'){
+    if(id == 'categoria'){ //CASO SEJA UM FILTRO POR CATEGORIA
         requisitarPagina("pesquisa_admin", `pesquisa_admin.php?filtro=categoria&categoria=${parametro.value}`)
         parametro.value= 'vazio'; // fica no inicio depois de clicado
-    }else{
+    }else if(id == 'busca'){ // CASO SEJA UM FILTRO POR BUSCA DE ALGUMA PALAVRA ESPECIFICA
         requisitarPagina("pesquisa_admin", `pesquisa_admin.php?filtro=busca&busca=${parametro.value}`)
         parametro.value = '';// fica no inicio depois de clicado
+    }else if(id == 'todos'){ //TODOS OS PRODUTOS
+        requisitarPagina('pesquisa_admin', 'pesquisa_admin.php?filtro=todos')
     }
-   
-    // 
-    // 
+    fechaDadosProduto()
 }
 function requisitarProdutos(id, url, url2){
     let conteudo_form = document.querySelector(`#${id}`)
@@ -49,22 +49,6 @@ function requisitarProdutos(id, url, url2){
     }
     ajax.send()
 }
-function requisitarGif(id, url){
-    let conteudo_form = document.querySelector(`#${id}`)
-    let ajax = new XMLHttpRequest();
-    ajax.open('GET', url)
-    ajax.onreadystatechange = () =>{
-        if(ajax.readyState == 4 && ajax.status == 200){
-            conteudo_form.innerHTML = ajax.responseText
-            return false
-        }
-        else if(ajax.readyState == 4 && ajax.status == 404){
-            alert("ocorreu algum erro, por favor recarregue")
-        }   
-    }
-    ajax.send()
-}
-
 function produtosRight(pagina, total_paginas){
     // alert('clicou aqui right')
     pagina += 1
@@ -93,14 +77,21 @@ function calculaPedido(estoque, idProduto, indece){
     }
     window.location = "area_controle.php?acao=verificarQuantidadePedido&id_produto="+idProduto+"&quantidade="+ qtd
 }
-function resgatarProdutoEditar(id = ''){
+function resgatarProdutoEditar(id){
+    // OBS: ESSE ID É O ID DO INPUT E O INPUT SELECIONADO VAI RETORNAR O VALOR DO ID DO PRODUTO SELECIONADO
     let valorEscolhido = document.querySelector(`#${id}`)
-    if(id != ''){
-        requisitarPagina("containerEdicao", "editar_produto_admin.php?acao=recuperarProdutoEditar&area=editar&id_produto="+ valorEscolhido.value)
-    }
+    requisitarPagina("containerEdicao", "editar_produto_admin.php?acao=recuperarProdutoEditar&area=editar&id_produto="+ valorEscolhido.value)
+} 
+function fechaResultadoPesquisaAdmin(){ //fecha pagina de pesquisa do usuario / filtro
+    requisitarPagina('pesquisa_admin', 'pesquisa_admin.php')
+    fechaDadosProduto()
+} 
+function fechaDadosProduto(){ // FUNÇÃO PARA FECHAR A AREA ONDE OS DADOS DOS PRODUTOS É APRESENTADO
+    requisitarPagina('dados_produto', 'dados_produtos.php')
 }
-function requisitarPaginaEdicao(metodo, id_produto, id_container, acao, labelEdicao){ // PRECISO VER ESSA QUESTÃO DOS DADOS VIM PRA CA PARA QUE EU POSSA TRATAR CORRETAMENTE FIZ NA PRESSA E FICOU CONFUSO
-    let label = document.querySelector(`#${labelEdicao}`)
+
+function requisitarPaginaEdicao(metodo, id_produto, id_container, acao){ 
+
     let  inputArquivo = document.getElementById("inputArquivo"); //ARQUIVO IMAGEM DO PRODUTO
     let descricao = document.querySelector("#descricao").value // DESCRIÇÃO DO PRODUTO
     let nome = document.querySelector("#nome").value // NOME DO PRODUTO
@@ -108,6 +99,11 @@ function requisitarPaginaEdicao(metodo, id_produto, id_container, acao, labelEdi
     let valor = document.querySelector("#valor").value // VALOR DO PRODUTO
     let quantidade = document.querySelector("#quantidade").value //QUANTIDADE DO PRODUTO
     let arquivo = inputArquivo.files[0]; //AQUI JA É O ARQUIVO TIPO ( FILES )
+
+    if(metodo != 'Cancelar'){// faço issso para que se tiver alguma pesquisa aberta ela possa ser fechada para recarregar os produtos pra não ficar desatualizado
+        fechaResultadoPesquisaAdmin() //pagina de pesquisa é zerada 
+        
+    }
     
     url = `editar_produto_admin.php?acao=${acao}&id_produto=${id_produto}`
     
@@ -134,6 +130,7 @@ function requisitarPaginaEdicao(metodo, id_produto, id_container, acao, labelEdi
         }   
     }
     ajax.send(fd)
+    atualizaDadosAdmin();
 }
 
 function salvarProduto(metodo, id_container, acao, id_label){
@@ -169,7 +166,9 @@ function salvarProduto(metodo, id_container, acao, id_label){
         quantidade.value = '';
         label.innerHTML = 'Escolher arquivo'
         label.classList.remove('escolhido')
-        
+        fechaResultadoPesquisaAdmin()
+      
+        fechaResultadoPesquisaAdmin()
     }
     
    
@@ -186,12 +185,24 @@ function salvarProduto(metodo, id_container, acao, id_label){
         }   
     }
     ajax.send(fd)
+    atualizaDadosAdmin()
+    
 }
-
-
+function atualizaDadosAdmin(){// ATUALZIAR OS DADOS ADMIN PARA QUE POSSA SER NOTAVEL A MUDANÇA FEITAS 
+   
+     let x = 0;
+     setInterval(()=>{ // FIZ ISSO PARA RECARREGAR OS DADOS APENAS UMA VEZ POR CHAMADA
+        x++
+        if(x <= 1){
+            console.log('chegou na area de recarregar os dados')
+            requisitarPagina(`containerDadosDosProdutos`, `detalhesDadosAdmin.php?acao=recuperaDadosAdmin`)
+            requisitarPagina(`containerEdicao`, `escolhaProdutoEditar.php?acao=recuperaDadosAdmin`)
+        }
+     },100)
+}
  
 function editarCategoria(id, metodo){
-    
+   
     let valorAtual  = '';
     if(metodo == 'salvar'){
         categoria = document.querySelector("#categoria-nova")
@@ -200,17 +211,18 @@ function editarCategoria(id, metodo){
         // NO CASO TEM QUE SER SO AQUI QUE NA PARTE DA REMOÇÃO ELE TEM SUA PROPRIA LOGICA PARA RECUPERAR AS CATEGORIAS ATUALIZADAS
         requisitarPagina(`${id}`, `categorias.php?acao=editar-categoria&categoria=${valorAtual}&metodo=${metodo}`) 
         atualizarCategorias('form-remover-categoria') // GRAÇAS AO BOTAO ATUALIZAR DESCOBRI QUE CHAMANDO UMA FUNÇÃO RESOLVE O MEU PROBLEMA
+        
 
     }else if(metodo == 'remover'){
         categoria = document.querySelector("#categoria_remover")
         valorAtual = categoria.value
         requisitarPagina(`${id}`, `categorias.php?acao=editar-categoria&categoria=${valorAtual}&metodo=${metodo}`) 
     }
-    
+    atualizaDadosAdmin()
+    fechaResultadoPesquisaAdmin()
     
 }
 function atualizarCategorias(id){
-    
     requisitarPagina(`${id}`, `categorias.php?acao=atualizarCategorias`) 
 }
 function verificaImagem(id_input, id_label){
