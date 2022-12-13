@@ -1,5 +1,8 @@
 // AQUI ESTÁ SENDO FEITO A VERIFICAÇÃO SE É LOGIN OU CADASTRO
 function requisitarPagina(id, url){
+    if(url == 'conteudo_principal.php'){
+        carregaProdutos()//CARREGANDO OS PRODUTOS PARA MOSTRAR AO USUARIO
+    }
     let conteudo_form = document.querySelector(`#${id}`)
     let ajax = new XMLHttpRequest();
     ajax.open('GET', url)
@@ -28,44 +31,7 @@ function verificaFiltro(id){ // pesquisa admin
     }
     fechaDadosProduto()
 }
-function requisitarProdutos(id, url, url2){
-    let conteudo_form = document.querySelector(`#${id}`)
-    let img = document.createElement('img')
-    img.src= "//img/loading.gif"
-    let ajax = new XMLHttpRequest();
-    ajax.open('GET', url)
-    ajax.onreadystatechange = () =>{
-        if(ajax.readyState != 4){
 
-            // requisitarGif(id,url2)
-        }
-        else if(ajax.readyState == 4 && ajax.status == 200){
-            conteudo_form.innerHTML = ajax.responseText
-           
-        }
-        else if(ajax.readyState == 4 && ajax.status == 404){
-            alert("ocorreu algum erro, por favor recarregue")
-        }   
-    }
-    ajax.send()
-}
-function produtosRight(pagina, total_paginas){
-    // alert('clicou aqui right')
-    pagina += 1
-    if(pagina > total_paginas){
-        pagina = 1;
-    }
-    console.log('linha right clicada: '+pagina)
-    return pagina
-}
-function produtosLeft(pagina, total_paginas){
-    // alert('clicou aqui left')
-    pagina -= 1
-    if(pagina < 1){
-        pagina = total_paginas;
-    }
-    return pagina
-}
 function adicionarCarrinho(id_usuario, id_produto){
     alert ('id Usuario: '+ id_usuario +', '+ 'id produto: ' + id_produto);
 }
@@ -233,5 +199,18 @@ function verificaImagem(id_input, id_label){
         label.innerHTML= "Arquivo Escolhido"
         label.classList.add("escolhido")
     }
+}
+function pesquisaCliente(id_container, url){
+    let valor = document.getElementById('pesquisaUsuario').value
+    console.log(valor)
+    console.log(id_container)
+    console.log(url)
+    requisitarPagina(id_container, `${url}?acao=buscaProdutosClientes&pesquisa=${valor}`)
+
+}
+function carregaProdutos(){
+    requisitarPagina("containerLimpeza", "categoriaLimpeza.php?acao=recuperarProdutosPorCategoria&categoria=Higiene")
+    requisitarPagina("containerNovidades", "categoriaNovidade.php?acao=recuperarProdutosPorCategoria&categoria=novidades")
+    requisitarPagina("containerAlimentos", "categoriaAlimentos.php?acao=recuperarProdutosPorCategoria&categoria=Alimentos");
 }
 

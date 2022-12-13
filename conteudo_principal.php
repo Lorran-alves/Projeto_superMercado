@@ -96,60 +96,25 @@
 
                 <!-- fim do conteudo do menu carousel -->
                 
-                <h1 class="titulos-produtos">Confira</h1>
-                <section class="row" >
-                    <i class="fa-solid fa-caret-left left"  onclick="requisitarProdutos('produtos-confira', 'produtos-carregados.php?lado=left', 'gif_produtos.php')"></i>
-                    <i class="fa-solid fa-caret-right right" onclick="requisitarProdutos('produtos-confira', 'produtos-carregados.php?lado=right', 'gif_produtos.php')"></i>
-                    <section id='produtos-confira' class="row row-produtos">
-                    <?php foreach($produtos as $indece => $produto){?>
-                        <section class="container-produto sombra">
-                            <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
-                            <h4><?= $produto['nome']?></h4>
-                            
-                            <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
-                            <i class="fa-solid fa-star icon-star"></i>
-                            
-                            <i class="fa-solid fa-cart-plus icon-buy" onclick="requisitarPagina('container', 'carrinho.php?id_produto=<?=$produto['id_produto']?>')" ></i>
-                        </section>
-                    <?}?>
-                    </section>
-                </section>
+                
 
                 <!-- SEÇÃO NOVIDADES -->
                 <h1 class="titulos-produtos">Novidades</h1>
 
-                <section class="row" >
-                    <i class="fa-solid fa-caret-left left"  onclick="requisitarProdutos('produtos-novidades', 'produtos-carregados.php?lado=left', 'gif_produtos.php')"></i>
-                    <i class="fa-solid fa-caret-right right" onclick="requisitarProdutos('produtos-novidades', 'produtos-carregados.php?lado=right', 'gif_produtos.php')"></i>
-                    <section id='produtos-novidades' class="row row-produtos">
-                    <?php foreach($produtos as $indece => $produto){?>
-                        <section class="container-produto sombra">
-                            <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
-                            <h4><?= $produto['nome']?></h4>
-                            <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
-                            <i class="fa-solid fa-star icon-star"></i>
-                            <i class="fa-solid fa-cart-plus icon-buy" onclick="requisitarPagina('container', 'carrinho.php?id_produto=<?=$produto['id_produto']?>')" ></i>
-                        </section>
-                    <?}?>
-                    </section>
+                <section class="row" id="containerNovidades">
+                   
                 </section>
                 
                 <h1 class="titulos-produtos">Tudo de limpeza</h1>
                 
-                <section class="row" >
-                    <i class="fa-solid fa-caret-left left"  onclick="requisitarProdutos('produtos-limpeza', 'produtos-carregados.php?lado=left', 'gif_produtos.php')"></i>
-                    <i class="fa-solid fa-caret-right right" onclick="requisitarProdutos('produtos-limpeza', 'produtos-carregados.php?lado=right', 'gif_produtos.php')"></i>
-                    <section id='produtos-limpeza' class="row row-produtos">
-                    <?php foreach($produtos as $indece => $produto){?>
-                        <section class="container-produto sombra">
-                            <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
-                            <h4><?= $produto['nome']?></h4>
-                            <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
-                            <i class="fa-solid fa-star icon-star"></i>
-                            <i class="fa-solid fa-cart-plus icon-buy" onclick="requisitarPagina('container', 'carrinho.php?id_produto=<?=$produto['id_produto']?>')" ></i>
-                        </section>
-                    <?}?>
-                    </section>
+                <section class="row" id='containerLimpeza' >
+                   <!-- container limpeza -->
+                </section>
+
+                <!-- conteudo Alimentos -->
+                <h1 class="titulos-produtos">Alimentos</h1>
+                <section class="row" id='containerAlimentos'>
+                    
                 </section>
 
                 

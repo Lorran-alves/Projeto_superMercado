@@ -35,21 +35,15 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
         <link rel="shortcut icon" href="img/icone_titulo.jpg" type="image/x-icon">
         <title>Super Nunes</title>
     </head>
-    <body > 
+    <body onload="carregaProdutos()"> 
         
         <main>
             <header>  
                 <a><img src="img/logo_2.jpg" width="500px" alt=""></a>
                 <ul>
-                    <?php if(isset($_GET['acao']) && $_GET['acao'] == 'busca' || isset($_GET['pagina'])){?>
-                        <li>
-                            <a href="index.php">Home</a>
-                        </li>    
-                    <?}else{?>
-                        <li>
-                            <a href="#" onclick="requisitarPagina('container', 'conteudo_principal.php')">Home</a>
-                        </li>
-                    <?}?>
+                    <li>
+                        <a href="#" onclick="requisitarPagina('container', 'conteudo_principal.php')">Home</a>
+                    </li>                
                     <li>
                         <a href="#">Alimentos</a>
                     </li>
@@ -62,15 +56,11 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                     <li>
                         <a href="#">Outros</a>
                     </li>
-                    <?php if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){?>
-                        <li>
-                            <a href="admin.php">Admin</a>
-                        </li>
-                    <?}else{?>
+                   
                         <li>
                             <a href="#" onclick="requisitarPagina('container', 'admin.php')">Admin</a>
                         </li>
-                    <?}?>
+                 
                 </ul>
 
                 <section>
@@ -99,13 +89,13 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                     <?}?> 
                     </ul>
                 </section>
-               
-                <form action="index.php" method="GET" class="form-pesquisa">
-                    <input type="text" name="acao" value="busca" class="busca">
-                    <input type="text" placeholder="Pesquisar" name='pesquisa'>
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>    
-                </form>
-           
+               <section class="form-pesquisa">
+                    <form>
+                        <input type="text" placeholder="Pesquisar" name='pesquisa' id='pesquisaUsuario'>                        
+                    </form>
+                    <button onclick="pesquisaCliente('container', 'pesquisaProdutosClientes.php')"><i class="fa-solid fa-magnifying-glass"></i></button>    
+               </section>
+                
             </header>
             
             <section id="container">
@@ -117,30 +107,6 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                 <script>requisitarPagina('container', 'carrinho.php')</script>
                
             <?}?>
-                
-               <?php 
-                if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){?>
-                    <h1 class="titulos-produtos">Resultado da pesquisa</h1>
-                    <section class="row"  >
-                    
-                        <?php if(sizeof($resultado_pesquisa) == 0){?>
-                            <h4>Nenhum resultado decorrente da sua pesquisa</h4>                                    
-                        <?} ?>
-                      
-                        <section id='produtos-confira' class="row row-produtos">
-                        <?php foreach($resultado_pesquisa as $indece => $produto){?>
-                            <section class="container-resultado sombra">
-                                <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
-                                <h4><?= $produto['nome']?></h4>
-                                <p><?= $produto['descricao']?></p>
-                                <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
-                                <i class="fa-solid fa-star icon-star"></i>
-                                <i class="fa-solid fa-cart-plus icon-buy"></i>
-                            </section>
-                        <?}?>
-                        </section>
-                    </section>
-               <?}?>
             </section>
             <footer class="sombra">
                 <section class="row voltar-inicio">

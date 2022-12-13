@@ -115,8 +115,8 @@ a:hover i {
 
 }
 .container-resultado{
-    width: 310px;
-    height: 400px;
+    width: 250px;
+    height: 320px;
     font-size: 0.8em;
     background-color: white;
     padding: 10px;
@@ -129,14 +129,15 @@ a:hover i {
 }
 .container-produto img, .container-resultado img{
     width: 80%;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     max-height: 60%;
+    height: 55%;
 }
 h3{
  font-size: 2em;
  color: #ffcc01;
  position: absolute;
- bottom: 25px;
+ bottom: 5px;
 
 }
 h1.titulos-produtos{
@@ -162,8 +163,10 @@ h1.titulos-produtos{
     z-index: 2;
 }
 .container-resultado:hover{
-height: 420px;
+    width: 270px;
+    height: 350px;
 }
+
 .container-resultado:hover p{
     display: block;
     transition: all 1s ease-in;
@@ -443,6 +446,7 @@ input[type='file']{
 }
 .container-resultado h4{
     font-size: 1.5em;
+    
 }
 .form-admin select, input{
     width: 90%;
