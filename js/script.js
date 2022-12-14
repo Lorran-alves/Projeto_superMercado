@@ -1,21 +1,22 @@
 // AQUI ESTÁ SENDO FEITO A VERIFICAÇÃO SE É LOGIN OU CADASTRO
 function requisitarPagina(id, url){
-    if(url == 'conteudo_principal.php'){
-        carregaProdutos()//CARREGANDO OS PRODUTOS PARA MOSTRAR AO USUARIO
-    }
+   
     let conteudo_form = document.querySelector(`#${id}`)
     let ajax = new XMLHttpRequest();
     ajax.open('GET', url)
     ajax.onreadystatechange = () =>{
         if(ajax.readyState == 4 && ajax.status == 200){
             conteudo_form.innerHTML = ajax.responseText
-            
+            if(url == 'conteudo_principal.php'){
+                carregaProdutos()//CARREGANDO OS PRODUTOS PARA MOSTRAR AO USUARIO
+            }
             // console.log(ajax.responseText)
         }else if(ajax.readyState == 4 && ajax.status == 404){
             alert("ocorreu algum erro, por favor recarregue")
         }   
     }
     ajax.send()
+   
 }
 function verificaFiltro(id){ // pesquisa admin 
     let parametro = document.querySelector('#'+id)
@@ -41,7 +42,8 @@ function calculaPedido(estoque, idProduto, indece){
     if(qtd > estoque ){
         qtd = estoque
     }
-    window.location = "area_controle.php?acao=verificarQuantidadePedido&id_produto="+idProduto+"&quantidade="+ qtd
+    requisitarPagina("container", "carrinho.php?acao=verificarQuantidadePedido&id_produto="+idProduto+"&quantidade="+ qtd)
+    //window.location = "area_controle.php?acao=verificarQuantidadePedido&id_produto="+idProduto+"&quantidade="+ qtd
 }
 function resgatarProdutoEditar(id){
     // OBS: ESSE ID É O ID DO INPUT E O INPUT SELECIONADO VAI RETORNAR O VALOR DO ID DO PRODUTO SELECIONADO
@@ -209,8 +211,10 @@ function pesquisaCliente(id_container, url){
 
 }
 function carregaProdutos(){
-    requisitarPagina("containerLimpeza", "categoriaLimpeza.php?acao=recuperarProdutosPorCategoria&categoria=Higiene")
-    requisitarPagina("containerNovidades", "categoriaNovidade.php?acao=recuperarProdutosPorCategoria&categoria=novidades")
-    requisitarPagina("containerAlimentos", "categoriaAlimentos.php?acao=recuperarProdutosPorCategoria&categoria=Alimentos");
+    console.log('chegou aqui');
+    requisitarPagina("containerLimpeza", "filtroCategorias.php?acao=recuperarProdutosPorCategoria&categoria=Higiene")
+    requisitarPagina("containerNovidades", "filtroCategorias.php?acao=recuperarProdutosPorCategoria&categoria=Novidades")
+    requisitarPagina("containerAlimentos", "filtroCategorias.php?acao=recuperarProdutosPorCategoria&categoria=Alimentos");
+    // COM APENAS UMA UNICA PAGINA EU CONSIGO FAZER FUNCIONAR A REQUISIÇÃO AJAX PARA FILTROS POR CATEGORIA
 }
 

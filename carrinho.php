@@ -9,6 +9,7 @@ $total_itens = 0;
 
 
 
+
 ?>
 
 
@@ -51,7 +52,7 @@ $total_itens = 0;
                                 
                                 
                             </section>
-                            <a href="area_controle.php?acao=removerProdutoCarrinho&id_produto=<?= $produto['id_produto']?>"><button class="button-remover">Remover</button></a>
+                            <button class="button-remover" onclick="requisitarPagina('container','carrinho.php?acao=removerProdutoCarrinho&id_produto=<?= $produto['id_produto']?>')">Remover</button>
                         </section>
                     </section>
                 </section>
