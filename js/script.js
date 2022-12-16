@@ -217,4 +217,8 @@ function carregaProdutos(){
     requisitarPagina("containerAlimentos", "filtroCategorias.php?acao=recuperarProdutosPorCategoria&categoria=Alimentos");
     // COM APENAS UMA UNICA PAGINA EU CONSIGO FAZER FUNCIONAR A REQUISIÇÃO AJAX PARA FILTROS POR CATEGORIA
 }
+function salvarProduto(id_produto){
+    console.log('salvou o produto de id: ' + id_produto);
+    requisitarPagina("container", `favoritos.php?acao=favoritarProduto&id_produto=${id_produto}`)
+}
 

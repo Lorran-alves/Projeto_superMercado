@@ -54,7 +54,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                         <a href="#">Gelados</a>
                     </li>
                     <li>
-                        <a href="#">Outros</a>
+                        <a onclick="requisitarPagina('container', 'favoritos.php?acao=resgatarFavoritos')">Favoritos</a>
                     </li>
                    
                         <li>
@@ -100,7 +100,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
             
             <section id="container">
             <?php if(!isset($_GET['acao']) && $_GET['acao'] != 'busca' && $_GET['acao'] != 'carrinho'){?>?>
-                <script>requisitarPagina('container', 'conteudo_principal.php')</script>
+                <script>requisitarPagina('container', 'favoritos.php')</script>
                 <!-- <script src="js/carousel.js" defer></script> -->
             <?} if(isset($_GET['pagina']) && $_GET['pagina'] == 'carrinho'){?>
                 

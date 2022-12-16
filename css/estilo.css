@@ -73,6 +73,7 @@ a{
     text-decoration: none;
     color: white;
     font-weight:bold ;
+    cursor: pointer;
 }
 a:hover{
     transition: 0.3s;
@@ -127,6 +128,7 @@ a:hover i {
     position: relative;
     transition: 0.4s;
 }
+
 .container-produto img, .container-resultado img{
     width: 80%;
     margin-bottom: 5px;
@@ -618,6 +620,10 @@ textarea:focus, input:focus, select:focus {
     color:#333;
     transition: 0.5s;
     cursor:pointer;
+}
+.tituloFavoritos{
+    color: #333;
+    text-align: left;
 }
 
 

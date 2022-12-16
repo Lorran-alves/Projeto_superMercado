@@ -1,8 +1,7 @@
 let count = 1;
 
 setInterval(function(){
-    nextSlide();
-    console.log('voltamos');    
+    nextSlide();  
 },10000)
 function nextSlide(){
     document.getElementById("radio"+count).checked //SELECIONO O ID DENTRO DA FUNÇÃO PARA QUE NÃO VENHA DAR ERRO
