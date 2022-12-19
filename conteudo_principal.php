@@ -107,7 +107,7 @@
                 
                 <h1 class="titulos-produtos">Tudo de limpeza</h1>
                 
-                <section class="row" id='containerLimpeza' >
+                <section class="row" id='containerHigiene' >
                    <!-- container limpeza -->
                 </section>
 

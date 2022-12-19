@@ -1,9 +1,6 @@
 <?php 
 $acao = 'resgatarFavoritos';
 require "area_controle.php";
-echo '<pre>';
-print_r($favoritos);
-echo '<pre>';
 
 ?>
 
@@ -18,7 +15,7 @@ echo '<pre>';
             <img src="arquivos/img_banco_dados/<?=$produto['imagem']?>"  alt="">
             <h4><?= $produto['nome']?></h4>
             <h3><?= number_format($produto['preco'], 2, ',', '.')?></h3>
-            <i class="fa-solid fa-star icon-star"></i>
+            <i class="fa-solid fa-star icon-star favorito"></i>
             <i class="fa-solid fa-cart-plus icon-buy" onclick="requisitarPagina('container', 'carrinho.php?id_produto=<?=$produto['id_produto']?>&estoque=<?=$produto['estoque']?>')" ></i>
 </section>
        

@@ -625,5 +625,19 @@ textarea:focus, input:focus, select:focus {
     color: #333;
     text-align: left;
 }
+i.favorito{
+    color: rgb(231, 231, 13);
+}
+.resultadoPesquisa{
+    margin: 20px;
+}
+.descricaoProduto{
+    font-size: 0.96em;
+}
+.row-produtos{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
 

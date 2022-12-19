@@ -1,7 +1,7 @@
 // AQUI ESTÁ SENDO FEITO A VERIFICAÇÃO SE É LOGIN OU CADASTRO
 function requisitarPagina(id, url){
-   
     let conteudo_form = document.querySelector(`#${id}`)
+    
     let ajax = new XMLHttpRequest();
     ajax.open('GET', url)
     ajax.onreadystatechange = () =>{
@@ -211,13 +211,13 @@ function pesquisaCliente(id_container, url){
 
 }
 function carregaProdutos(){
-    console.log('chegou aqui');
-    requisitarPagina("containerLimpeza", "filtroCategorias.php?acao=recuperarProdutosPorCategoria&categoria=Higiene")
+    
+    requisitarPagina("containerHigiene", "filtroCategorias.php?acao=recuperarProdutosPorCategoria&categoria=Higiene")
     requisitarPagina("containerNovidades", "filtroCategorias.php?acao=recuperarProdutosPorCategoria&categoria=Novidades")
     requisitarPagina("containerAlimentos", "filtroCategorias.php?acao=recuperarProdutosPorCategoria&categoria=Alimentos");
     // COM APENAS UMA UNICA PAGINA EU CONSIGO FAZER FUNCIONAR A REQUISIÇÃO AJAX PARA FILTROS POR CATEGORIA
 }
-function salvarProduto(id_produto){
+function favoritarProduto(id_produto){
     console.log('salvou o produto de id: ' + id_produto);
     requisitarPagina("container", `favoritos.php?acao=favoritarProduto&id_produto=${id_produto}`)
 }
