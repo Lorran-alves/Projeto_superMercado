@@ -31,11 +31,12 @@ form{
     justify-content: baseline;
     padding: 5px;
     width: 50%;
-    height: 90%;
+    height: 95%;
     margin: auto;
     font-size: 1em;
     text-align: center;
     align-items: center;
+    outline: 1px solid red;
 }
 input,button{
     padding:12px;
@@ -52,22 +53,27 @@ button{
     color: black;
     cursor: pointer;
     margin-top: 10px;
+    transition: 0.6s;
+    
 }
 p{
     font-size: 1.1em;
 
 }
-a{
+a.formularioUsuario{
     text-decoration: none;
     color:orange;
+    
 }
 a:hover{
     color:rgb(206, 136, 6);
 }
 button:hover{
-background-color: rgb(231, 154, 10);
+    background-color: white;
+    color: #ffcc01;
+    outline: 1px solid #ffcc01;
 }
-i{
+i.iconFormularioUsuario{
     position: absolute;
     top: 35%;
     right: 1%;
@@ -80,18 +86,42 @@ section.secao-inputs{
 }
 h1{
     color: #ffcc01 ;
-    font-size: 2em;
+    font-size: 1.5em;
+}
+
+
+#iconCadastro, #iconLogin{
+    position: absolute;
+    top: 35%;
+    right: 1%;
+    font-size: 1.5em;
+    color: #606060;
 }
 #iconCadastro:hover, #iconLogin:hover{
     color: #ccc;
     cursor: pointer;
- }
- .dados-errados{
+}
+ p.dados-errados{
+    font-size: 1em;
     color: red;
     font-weight: bold;
  }
- .dados-corretos{
+ p.dados-corretos{
+    font-size: 1em;
     color: green;
     font-weight: bold;
+ }
+ .perguntaLogin{
+    align-items: center;
+    justify-content: center;
+ }
+ .rowPerguntaLogin{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+ }
+ .rowPerguntaLogin button{
+    width: 45%;
  }
 

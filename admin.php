@@ -10,8 +10,6 @@ para que o admim possa estar por dentro de todos os detalhes
 
 
 // quando voltar irei tentar usar menos a açao recuperarCategorias // 
-
-
 -->
 <?php
 $acao = 'recuperarCategorias';

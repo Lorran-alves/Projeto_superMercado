@@ -57,7 +57,44 @@ function fechaResultadoPesquisaAdmin(){ //fecha pagina de pesquisa do usuario / 
 function fechaDadosProduto(){ // FUNÇÃO PARA FECHAR A AREA ONDE OS DADOS DOS PRODUTOS É APRESENTADO
     requisitarPagina('dados_produto', 'dados_produtos.php')
 }
+function loginOuCadastroUsuario(id_container, url, metodo, id_senha){
+    // É NECESSARIO O PARAMETRO METODO PARA SEPARAR ENTRE FAZER LOGIN E CADASTRAR
+    let fd = new FormData();//CRIEI AQUI PARA QUE SEJA POSSIVEL UTILIZAR AQUI TANTO PARA LOGIN COMO PARA CADASTRO
+    if(metodo == 'cadastro'){// CAI AQUI SE O METODO FOR CADASTRAR OBS: NO LOGIN NÃO PRECISA DO NOME
+        let nome = document.querySelector("#nome").value;
+        fd.append("nome", nome)
+    }
+    let email = document.querySelector("#email").value;
+    let senhaCadastro = document.querySelector(`#${id_senha}`).value;
+    fd.append("email", email)
+    fd.append("senha", senhaCadastro)
 
+    let conteudo = document.querySelector(`#${id_container}`)
+    let ajax = new XMLHttpRequest();
+    ajax.open('POST', url)
+    ajax.onreadystatechange = () =>{
+        if(ajax.readyState == 4 && ajax.status == 200){
+            conteudo.innerHTML = ajax.responseText
+            // console.log(ajax.responseText)
+        }else if(ajax.readyState == 4 && ajax.status == 404){
+            alert("ocorreu algum erro, por favor recarregue")
+        }   
+    }
+    ajax.send(fd)
+
+}
+function login(a, b){
+    requisitarPagina('containerTotal', 'index.php?acao=recuperarDados')
+    let x = 0;
+    setInterval(()=>{ // FIZ ISSO PARA RECARREGAR OS DADOS APENAS UMA VEZ POR CHAMADA
+       x++
+       if(x <= 1){
+         requisitarPagina('container', 'conteudo_principal.php')
+           console.log('chegou na area de carregar os produtos');
+           
+       }
+    },50)
+}
 function requisitarPaginaEdicao(metodo, id_produto, id_container, acao){ 
 
     let  inputArquivo = document.getElementById("inputArquivo"); //ARQUIVO IMAGEM DO PRODUTO
