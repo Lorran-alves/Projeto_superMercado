@@ -1,16 +1,18 @@
+<!-- PROXIMO É FAZER COM QUE O USUARIO POSSA SAIR DA SUA CONTA TAMBÉM -->
+
+
 <!DOCTYPE html>
 <?php 
  
 
-// $acao = 'recuperarDados';
-$acao = 'teste';
+$acao ='recuperarDados';
+// $acao = 'teste';
 
 if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){
     $acao = 'busca';
     
 }
 require "area_controle.php";
-
 $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
 // $_SESSION['login'] = '';//para que a mensagem de erro de login não seja exibido
 ?>
@@ -47,8 +49,8 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                 </section>
                 <section id="conteudo-form">
                     <!-- ESSE CONTEUDO DA SECTION É DINAMICO POREM EU TIVE QUE COLOCAR UM PARA QUE FOSSE POSSIVEL COMEÇAR -->
-                    <form>
-                        <h1>Login</h1>
+                    <form class='formulario-login'>
+                        <h1 class='autenticaoUsuario'>Login</h1>
                         <section class="secao-inputs">
                             <input type="text" placeholder="Digite o seu email" name="email" id='email'>
                             <i class="fa-solid fa-envelope iconFormularioUsuario"></i>
@@ -61,7 +63,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                         
                     </form>
 
-                    <button onclick="loginOuCadastroUsuario('conteudo-form', 'conteudo-login.php?acao=login', 'login', 'senhalogin')">Entrar</button>
+                    <button class='buttonFormularioUsuario' onclick="loginOuCadastroUsuario('conteudo-form', 'conteudo-login.php?acao=login&area=autenticar', 'login', 'senhalogin')">Entrar</button>
                     </section>
                 </section>
             
@@ -106,8 +108,8 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                     <section>
                         <ul id="ul-login">
                         <?php if(isset($_SESSION['login']) && $_SESSION['login'] == 'aceito' && isset($dadosUsuario)){?>
-                            <li>
-                                <a onclick="requisitarPagina('containerTotal', 'login.php?pagina=login')">Olá, <?=$dadosUsuario['nome']?><i class="fa-solid fa-user icon-login"></i></a>
+                            <li class='centralizar' onclick='menuHeader()'>
+                                <p class='p-header'>Olá, Lorran</p><br><i class="fa-solid fa-bars iconMenu"></i>
                             </li>       
                         <?}else{?>
                             <li>
@@ -120,7 +122,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                         <form>
                             <input type="text" placeholder="Pesquisar" name='pesquisa' id='pesquisaUsuario'>                        
                         </form>
-                        <button onclick="pesquisaCliente('container', 'pesquisaProdutosClientes.php')"><i class="fa-solid fa-magnifying-glass"></i></button>    
+                        <button class='pesquisaCliente' onclick="pesquisaCliente('container', 'pesquisaProdutosClientes.php')"><i class="fa-solid fa-magnifying-glass"></i></button>    
                 </section>
                     
                 </header>

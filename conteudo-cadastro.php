@@ -6,8 +6,8 @@
 
     
 ?>
-<form action="area_controle.php?acao=cadastro" method="post">
-    <h1>Cadastro</h1>
+<form action="area_controle.php?acao=cadastro" method="post" class='formulario-login'>
+    <h1 class='autenticaoUsuario'>Cadastro</h1>
     <?php if(isset($_SESSION['cadastro']) && $_SESSION['cadastro'] == 'cadastrado'){?>
         <p class="dados-corretos">Usuario cadastrado com sucesso!</p>
     <?}else if(isset($_SESSION['cadastro']) && $_SESSION['cadastro'] == 'erro'){?>
@@ -28,4 +28,4 @@
     <p>Já possui uma conta?<a class='formularioUsuario' onclick="requisitarPagina('conteudo-form','conteudo-login.php')">Entrar</a></p>
     
 </form>
-<button onclick='loginOuCadastroUsuario("conteudo-form", "conteudo-cadastro.php?acao=cadastro", "cadastro", "senhaCadastro")'>Cadastrar</button>
+<button class='buttonFormularioUsuario' onclick='loginOuCadastroUsuario("conteudo-form", "conteudo-cadastro.php?acao=cadastro", "cadastro", "senhaCadastro")'>Cadastrar</button>

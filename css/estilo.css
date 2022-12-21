@@ -268,7 +268,11 @@ footer{
     font-size: 1em;
     /* border:1px solid red; */
 }
-.form-pesquisa button{
+.form-pesquisa i {
+    padding: 0;
+    margin: 0;
+}
+.pesquisaCliente{
     height: 97%;
     width: 15%;
     position: absolute;
@@ -278,7 +282,7 @@ footer{
     transition: 0.5s;
     background-color: #ecebe5;
 }
-.form-pesquisa button:hover{
+.pesquisaCliente:hover{
 background-color: #c4c3c0;
 
 }
@@ -641,5 +645,23 @@ i.favorito{
     flex-direction: row;
     justify-content: space-between;
 }
+.centralizar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid red;
+}
+li.centralizar{
+    cursor: pointer;
+}
+.p-header{
+    font-size: 0.8em;
+    color: #606060;
+    font-weight: bold;
 
+}
+.iconMenu{
+    margin-left: 5px;
+    color: #606060;
+}
 

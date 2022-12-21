@@ -83,15 +83,13 @@ function loginOuCadastroUsuario(id_container, url, metodo, id_senha){
     ajax.send(fd)
 
 }
-function login(a, b){
+function login(){
     requisitarPagina('containerTotal', 'index.php?acao=recuperarDados')
     let x = 0;
     setInterval(()=>{ // FIZ ISSO PARA RECARREGAR OS DADOS APENAS UMA VEZ POR CHAMADA
        x++
        if(x <= 1){
          requisitarPagina('container', 'conteudo_principal.php')
-           console.log('chegou na area de carregar os produtos');
-           
        }
     },50)
 }
@@ -257,5 +255,8 @@ function carregaProdutos(){
 function favoritarProduto(id_produto){
     console.log('salvou o produto de id: ' + id_produto);
     requisitarPagina("container", `favoritos.php?acao=favoritarProduto&id_produto=${id_produto}`)
+}
+function menuHeader(){
+    console.log('msotrarMenu')
 }
 

@@ -2,23 +2,23 @@
     $acao = '';
     require "area_controle.php";
     $_SESSION['cadastro'] = '';
-    
     //FAZER A PARTE DE LOGIN E CADASTRO TUDO COM AJAX
-    
 ?>
-<?php if(isset($_SESSION['login']) && $_SESSION['login'] == 'aceito'){?>
-<form class='coluna perguntaLogin'>
-
-    <h4>Olá <?=ucfirst($dadosUsuario['nome'])?> deseja confirmar o login?</h5>
-    <h4></h4>
-    <section class='rowPerguntaLogin'>
-        <button onclick="login()">Sim</button>
-        <button onclick="requisitarPagina('conteudo-form', 'conteudo-cadastro.php')">Não</button>
+<?php if(isset($_SESSION['login']) && $_SESSION['login'] == 'aceito' && isset($_GET['area'])){?>
+    <!-- ESSA VERIFICAÇÃO SE EXISTE NO ARRAY O INDECE AREA É PARA VER CASO NÃO TENHA É PORQUE NÃO FOI MANDADO E SINAL QUE O USUARIO NÃO QUIS CONTINUAR COM O LOGIN E QUIS VOLTAR E CASO TENHA ELE CAI NESSA SEÇÃO PARA VERIFICAR SE QUER OU NÃO CONTINUAR -->
+<section class='perguntaLogin' >
+    <section class='coluna'>
+        <h4>Olá, <?=ucfirst($dadosUsuario['nome'])?> deseja confirmar o login?</h5>
+        <section class='rowPerguntaLogin'>
+            <button class='buttonFormularioUsuario' onclick="login()">Sim</button>
+            <button class='buttonFormularioUsuario' onclick="requisitarPagina('conteudo-form', 'conteudo-login.php')">Não</button>
+        </section>
     </section>
-</form>
+</section>
+    
 <?}else{?>
-    <form>
-        <h1>Login</h1>
+    <form class='formulario-login'>
+        <h1 class='autenticaoUsuario'>Login</h1>
         <?if(isset($_SESSION['login']) && $_SESSION['login'] == 'negado'){?>
             <p class="dados-errados">Email ou senha inválidos!</p>
         <? }?>
@@ -34,5 +34,5 @@
         
     </form>
 
-    <button onclick="loginOuCadastroUsuario('conteudo-form', 'conteudo-login.php?acao=login', 'login', 'senhalogin')">Entrar</button>
+    <button class='buttonFormularioUsuario' onclick="loginOuCadastroUsuario('conteudo-form', 'conteudo-login.php?acao=login&area=autenticacao', 'login', 'senhalogin')">Entrar</button>
 <?}?>
