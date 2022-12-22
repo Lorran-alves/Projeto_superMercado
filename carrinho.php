@@ -6,10 +6,6 @@ require "area_controle.php";
 
 $precoTotal = 0;
 $total_itens = 0;
-
-
-
-
 ?>
 
 
@@ -19,11 +15,9 @@ $total_itens = 0;
     </section>
    
         <!-- inicio de cada pedido -->
-
-
-        <?if(sizeof($carrinhoAtual) == 0){?><!--  array vazio  -->
-            
-        <?}else{?><!--  array não está vazia  -->
+        
+    <? if(isset($_SESSION['id_atual'])){?> <!-- FIZ ESSA VERIFICAÇÃO PARA SABER SE TEM ALGUM USUARIO LOGADO -->
+        <?if(sizeof($carrinhoAtual) != 0){?><!--  array não está vazio  -->
             <? foreach($carrinhoAtual as $indece => $produto){?>
                <?php 
                     $precoTotal += $produto['preco'] * $produto['quantidade'];
@@ -56,11 +50,7 @@ $total_itens = 0;
                         </section>
                     </section>
                 </section>
-        <?}}?>
- 
-        <!-- ate aquiii o fim do resumo do pedido -->
-        <?php if(sizeof($carrinhoAtual) > 0){?>
-            <section class="info-precos-carrinho">
+                <section class="info-precos-carrinho">
                 <h2>Resumo do pedido</h2>
 
                <section class="row linha-conteudo-duplo">
@@ -87,8 +77,11 @@ $total_itens = 0;
                     <button>Finalizar pedido</button>
                 </section>
             </section>
-        <?}else{?>
+        <?}}else{?>
             <h4>Carrinho vazio</h4>
         <?}?>
+    <?}else{?>
+        <h4>FAÇA LOGIN PARA QUE SEJA POSSIVEL ULTILIZAR O CARRINHO!</h1>
+    <?}?>
 </section>
    

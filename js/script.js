@@ -57,12 +57,14 @@ function fechaResultadoPesquisaAdmin(){ //fecha pagina de pesquisa do usuario / 
 function fechaDadosProduto(){ // FUNÇÃO PARA FECHAR A AREA ONDE OS DADOS DOS PRODUTOS É APRESENTADO
     requisitarPagina('dados_produto', 'dados_produtos.php')
 }
-function loginOuCadastroUsuario(id_container, url, metodo, id_senha){
+function loginOuCadastroUsuario(id_container, url, metodo, id_senha, id_usuario = ''){
     // É NECESSARIO O PARAMETRO METODO PARA SEPARAR ENTRE FAZER LOGIN E CADASTRAR
     let fd = new FormData();//CRIEI AQUI PARA QUE SEJA POSSIVEL UTILIZAR AQUI TANTO PARA LOGIN COMO PARA CADASTRO
-    if(metodo == 'cadastro'){// CAI AQUI SE O METODO FOR CADASTRAR OBS: NO LOGIN NÃO PRECISA DO NOME
+    if(metodo == 'cadastro' || metodo == 'editar'){// CAI AQUI SE O METODO FOR CADASTRAR OBS: NO LOGIN NÃO PRECISA DO NOME
         let nome = document.querySelector("#nome").value;
         fd.append("nome", nome)
+    }if(metodo == 'editar'){
+        url+='&id_usuario='+id_usuario
     }
     let email = document.querySelector("#email").value;
     let senhaCadastro = document.querySelector(`#${id_senha}`).value;
@@ -83,8 +85,8 @@ function loginOuCadastroUsuario(id_container, url, metodo, id_senha){
     ajax.send(fd)
 
 }
-function login(){
-    requisitarPagina('containerTotal', 'index.php?acao=recuperarDados')
+function loginOuLogouf(acao){
+    requisitarPagina('containerTotal', 'index.php?acao='+acao)
     let x = 0;
     setInterval(()=>{ // FIZ ISSO PARA RECARREGAR OS DADOS APENAS UMA VEZ POR CHAMADA
        x++
@@ -257,6 +259,23 @@ function favoritarProduto(id_produto){
     requisitarPagina("container", `favoritos.php?acao=favoritarProduto&id_produto=${id_produto}`)
 }
 function menuHeader(){
-    console.log('msotrarMenu')
+    let areaMenu = document.querySelector("#menuInterativo")
+    if(areaMenu.className == 'menuInterativo d-block'){ //CASO EXISTA ELE VAI REMOVER PARA QUE ELE SUMA NOVAMENTE
+        areaMenu.classList.remove('d-block');
+    }else{//CASO NÃO EXISTA ELE IRÁ PARA QUE APAREÇA
+        areaMenu.classList.add('d-block');
+    }
+    
+}
+function editarConta(id_usuario){
+    let x = 0;
+    requisitarPagina('containerTotal', 'index.php?area=login')
+    setInterval(()=>{ // FIZ ISSO PARA RECARREGAR OS DADOS APENAS UMA VEZ POR CHAMADA
+       x++
+       if(x <= 1){
+           
+           requisitarPagina('conteudo-form', 'conteudo-cadastro.php?area=editar')
+       }
+    },100)
 }
 

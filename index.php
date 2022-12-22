@@ -10,7 +10,6 @@ $acao ='recuperarDados';
 
 if(isset($_GET['acao']) && $_GET['acao'] == 'busca'){
     $acao = 'busca';
-    
 }
 require "area_controle.php";
 $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
@@ -59,7 +58,7 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                             <input type="password" placeholder="Digite a sua senha" id="senhalogin" name="senha">
                             <i class="fa-solid fa-eye iconFormularioUsuario" id="iconLogin" onclick="verSenha('senhalogin','iconLogin')"></i>
                         </section>
-                        <p>É novo por aqui?<a class='formularioUsuario' onclick="requisitarPagina('conteudo-form', 'conteudo-cadastro.php')">Criar conta</a></p>
+                        <p>É novo por aqui?<a class='formularioUsuario' onclick="requisitarPagina('conteudo-form', 'conteudo-cadastro.php?area=cadastro')">Criar conta</a></p>
                         
                     </form>
 
@@ -85,11 +84,11 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                         <li>
                             <a onclick="requisitarPagina('container', 'favoritos.php?acao=resgatarFavoritos')">Favoritos</a>
                         </li>
-                    
+                        <?php if(isset($dadosUsuario['id_usuario']) && $dadosUsuario['id_usuario'] == 6){?>
                             <li>
                                 <a onclick="requisitarPagina('container', 'admin.php')">Admin</a>
                             </li>
-                    
+                        <?}?>
                     </ul>
 
                     <section>
@@ -105,11 +104,21 @@ $_SESSION['pagina'] = isset($_GET['pagina'])? $_GET['pagina']:1;
                             </li>
                         </ul>
                     </section>
+                   
                     <section>
                         <ul id="ul-login">
                         <?php if(isset($_SESSION['login']) && $_SESSION['login'] == 'aceito' && isset($dadosUsuario)){?>
-                            <li class='centralizar' onclick='menuHeader()'>
-                                <p class='p-header'>Olá, Lorran</p><br><i class="fa-solid fa-bars iconMenu"></i>
+                            <li class=' coluna' >
+                                <section class='centralizar' onclick='menuHeader()'>
+                                    <p class='p-header'>Olá, <?= $dadosUsuario['nome']?></p><i class="fa-solid fa-bars iconMenu"></i>
+                                </section>
+                                <section class='menuInterativo' id='menuInterativo'>
+                                    <ul class='coluna'>
+                                        <li onclick='loginOuLogouf("logouf")'>Sair</li>
+                                        <li onclick="editarConta()">Editar</li>
+                                        <li>Ajuda</li>
+                                    </ul>
+                                </section>
                             </li>       
                         <?}else{?>
                             <li>

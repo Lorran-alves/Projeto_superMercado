@@ -10,7 +10,7 @@
     <section class='coluna'>
         <h4>Olá, <?=ucfirst($dadosUsuario['nome'])?> deseja confirmar o login?</h5>
         <section class='rowPerguntaLogin'>
-            <button class='buttonFormularioUsuario' onclick="login()">Sim</button>
+            <button class='buttonFormularioUsuario' onclick="loginOuLogouf('recuperarDados')">Sim</button>
             <button class='buttonFormularioUsuario' onclick="requisitarPagina('conteudo-form', 'conteudo-login.php')">Não</button>
         </section>
     </section>
@@ -30,7 +30,7 @@
             <input type="password" placeholder="Digite a sua senha" id="senhalogin" name="senha">
             <i class="fa-solid fa-eye iconFormularioUsuario" id="iconLogin" onclick="verSenha('senhalogin','iconLogin')"></i>
         </section>
-        <p>É novo por aqui?<a class='formularioUsuario' onclick="requisitarPagina('conteudo-form', 'conteudo-cadastro.php')">Criar conta</a></p>
+        <p>É novo por aqui?<a class='formularioUsuario' onclick="requisitarPagina('conteudo-form', 'conteudo-cadastro.php?area=cadastro')">Criar conta</a></p>
         
     </form>
 
