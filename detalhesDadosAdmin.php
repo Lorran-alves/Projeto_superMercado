@@ -1,9 +1,6 @@
 <?php
-    
     require 'area_controle.php';
-    
 ?>
-
 <section class="borda-bottom">
     <h2>Detalhes Produtos cadastrados</h2>
 </section>
@@ -29,8 +26,6 @@
         <section class ='row'>
             <button class="button-filtro" onclick="verificaFiltro('categoria')" >Verificar</button>
         </section>
-        
-        
     </section>
     <section class='form-campo3'><!-- estilo 3 -->
     <h4>filtro por nome/descrição (pesquisa)</h4>
@@ -40,10 +35,8 @@
         <section class='row'>
             <button class="button-filtro" onclick="verificaFiltro('busca')">Verificar</button>
         </section>
-        
     </section>
-    
 </section>
-    <section id='dados_produto'>
-        <!-- area dos dados dos produtos -->
-    </section>
+<section id='dados_produto'>
+    <!-- area dos dados dos produtos -->
+</section>

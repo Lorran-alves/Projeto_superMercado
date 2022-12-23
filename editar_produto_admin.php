@@ -1,20 +1,7 @@
 <?php 
-
-// $acao = 'editarProduto';
-
 require "area_controle.php"; 
-// echo $_GET['id_produto']
-//parei aqui pra fzer a requisção e recarrecar o produto que ira ser editado
-// echo $_GET['id_produto'];
-
-        
 ?>
-
-
-<script> </script>
-
-<!-- FEEDBACK PARA O USUARIO -->
-<?php if(isset($_SESSION['alteracao']) && $_SESSION['area'] != 'adicionar'){?>       
+<?php if(isset($_SESSION['alteracao']) && $_SESSION['area'] != 'adicionar'){?><!-- FEEDBACK PARA O USUARIO -->   
     <script>atualizaDadosAdmin()</script>
         <?php if($_SESSION['alteracao'] == 'invalida'){?>
             <h2 class="produto-erro">Verifique se voce selecionou um produto</h2>
@@ -38,10 +25,7 @@ require "area_controle.php";
         <h2 class="produto-erro">Verifique se você preencheu os dados corretamente e tente novamente</h2>
     <?}?>   
 <?}?> 
-
-
-<!-- area odne o produto irá ser editado -->
-<?php if(isset($_SESSION['area']) && $_SESSION['area'] == "editar"){?>
+<?php if(isset($_SESSION['area']) && $_SESSION['area'] == "editar"){?><!-- area odne o produto irá ser editado -->
     <section class="row">
         <form class="form-admin" enctype="multipart/form-data" method="POST">
             <section class="row-form">
@@ -71,7 +55,6 @@ require "area_controle.php";
                         </select>
                     </section>
                     <section class="form-campo3">
-
                         <h4>Digite a quantidade em estoque:</h4>
                         <input id='quantidade' type="number" placeholder="Quantidade do estoque" name="estoque" min="1" value="<?=$produtoEditar[0]['estoque']?>"> 
 
@@ -82,19 +65,13 @@ require "area_controle.php";
         </form> 
     </section>
     <section class="row">
-            <input type="submit" value="Salvar" class="botao-salvar" name= 'button' onclick="requisitarPaginaEdicao('Salvar', <?=$_GET['id_produto']?>, 'containerEdicao', 'editarProduto', 'labelEdicao')">
-            <input type="submit" value="Remover" class="botao-remover" name= 'button' onclick="requisitarPaginaEdicao('Remover', <?=$_GET['id_produto']?>, 'containerEdicao', 'editarProduto', 'labelEdicao')">
-             <input type="submit" value="Cancelar" class="botao-cancelar" name= 'button'  onclick="requisitarPaginaEdicao('Cancelar', <?=$_GET['id_produto']?>, 'containerEdicao', 'editarProduto', 'labelEdicao')">
+            <input type="submit" value="Salvar" class="botao-salvar" name= 'button' onclick="requisitarPaginaEdicao('Salvar', <?=$_GET['id_produto']?>, 'containerEdicao', 'editarProduto')">
+            <input type="submit" value="Remover" class="botao-remover" name= 'button' onclick="requisitarPaginaEdicao('Remover', <?=$_GET['id_produto']?>, 'containerEdicao', 'editarProduto')">
+             <input type="submit" value="Cancelar" class="botao-cancelar" name= 'button'  onclick="requisitarPaginaEdicao('Cancelar', <?=$_GET['id_produto']?>, 'containerEdicao', 'editarProduto')">
     </section>
-       
-       
-            
     <?}?>
-
-
-        
-<!-- area de escolher o produto a ser editado -->
-<?php if(isset($_SESSION['area']) && $_SESSION['area'] == "escolher" ){?>
+<?php if(isset($_SESSION['area']) && $_SESSION['area'] == "escolher" ){?><!-- area de escolher o produto a ser editado -->
+    
     <section class='row'>
         <form  class="form-config">
             <select name="id_produto"  class='categoria' id="editar">

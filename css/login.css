@@ -6,7 +6,6 @@
 body{
     background-color: #f0f0f0;
 }
-
 .caixa-formulario{
     display: flex;
     justify-content: flex-end;
@@ -36,7 +35,6 @@ body{
     font-size: 1em;
     text-align: center;
     align-items: center;
-    
 }
 .formulario-login input, .formulario-login button, .buttonFormularioUsuario{
     padding:12px;
@@ -57,12 +55,10 @@ button.buttonFormularioUsuario{
 }
 p{
     font-size: 1.1em;
-
 }
 a.formularioUsuario{
     text-decoration: none;
-    color:orange;
-    
+    color:orange; 
 }
 a:hover{
     color:rgb(206, 136, 6);
@@ -87,8 +83,6 @@ h1.autenticaoUsuario{
     color: #ffcc01 ;
     font-size: 1.5em;
 }
-
-
 #iconCadastro, #iconLogin{
     position: absolute;
     top: 35%;
@@ -123,4 +117,3 @@ h1.autenticaoUsuario{
  .rowPerguntaLogin button{
     width: 45%;
  }
-

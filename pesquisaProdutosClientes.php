@@ -1,15 +1,11 @@
 <?php
 require 'area_controle.php';
 ?>
-
-
 <h1 class="titulos-produtos">Resultado da pesquisa</h1>
 <section class="row"  >
-    
     <?php if(sizeof($resultado_pesquisa) == 0){?>
         <h4>Nenhum resultado decorrente da sua pesquisa</h4>                                    
     <?} ?>
-    
     <section id='produtos-confira' class="rowPesquisa row-produtos">
     <?php foreach($resultado_pesquisa as $indece => $produto){?>
         <section class="container-produto sombra resultadoPesquisa">
@@ -24,5 +20,4 @@ require 'area_controle.php';
         </section>
     <?}?>
     </section>
-        
 </section>

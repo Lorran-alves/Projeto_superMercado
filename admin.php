@@ -1,29 +1,12 @@
-<!-- 
-     criar uma area que mostre todos os detalhes dos produtos cadatrados tipo
-total produtos
-total produtos por categoria
-quantiade de estoque
-para que o admim possa estar por dentro de todos os detalhes 
-
-
-///apagar tudo que tiver a class categoria-nova//
-
-
-// quando voltar irei tentar usar menos a açao recuperarCategorias // 
--->
 <?php
 $acao = 'recuperarCategorias';
 require "area_controle.php";
 ?>
-
-<!-- MELHORARA AQUI A QUESTÃO DE ADICIONAR UM PRODUTO -->
 <section class="carrinho-caixa sombra">
     <section class="borda-bottom">
         <h2>Cadastrar novo produto</h2>
     </section>
-   <section id='feedback-resultado'> 
-        <!-- aqui é onde o feedback ao usuario é exibido -->
-   </section>
+   <section id='feedback-resultado'> <!-- aqui é onde o feedback ao usuario é exibido --></section>
     <section class="row">
         <form class="form-admin" enctype="multipart/form-data" method="POST" >
             <section class="row-form">
@@ -37,7 +20,6 @@ require "area_controle.php";
                     <section class="form-campo2 coluna">  
                         <h4>Digite o nome do produto:</h4>
                         <input id='nomeSalvar' type="text" placeholder="nome do produto" name="nome">
-
                         <h4>Digite a categoria do produto:</h4>              
                         <select name="categoria" id="categoriaSalvar" >
                             <optgroup>
@@ -53,10 +35,8 @@ require "area_controle.php";
                         </select>
                     </section>
                     <section class="form-campo3">
-
                         <h4>Digite a quantidade em estoque:</h4>
                         <input id='quantidadeSalvar' type="number" placeholder="Quantidade do estoque" name="estoque" min="1"> 
-
                         <h4>Digite a valor do produto:</h4>
                         <input id='valorSalvar' type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="Digite o valor do produto" name="preco">
                     </section>
@@ -67,11 +47,7 @@ require "area_controle.php";
         <input type="submit" value="Salvar" class="botao-salvar-cadastro" name= 'button' onclick="salvarProduto('Salvar', 'feedback-resultado', 'cadastrarProduto', 'labelCadastro')">
     </section>    
 </section>
-
- 
-
-<!-- cadastrar nova categoria -->
-<section class="carrinho-caixa sombra">
+<section class="carrinho-caixa sombra"> <!-- cadastrar nova categoria -->
     <section class="borda-bottom">
     <h2>Cadastrar nova Categoria</h2>
         <section id='categoria-salva'>
@@ -85,12 +61,8 @@ require "area_controle.php";
             </form>
             <button class='button-editar' onclick="editarCategoria('categoria-salva', 'salvar')">Salvar</button>
     </section>     
-</section>
-<!-- remover categoria -->
-<section class="carrinho-caixa sombra">
-       
-        
-       
+</section><!-- fim cadastrar nova categoria -->
+<section class="carrinho-caixa sombra"><!-- remover categoria -->
     <section class="borda-bottom">
         <h2>Remover Categoria</h2>
         <p>Obs: se  voce remover alguma categoria todos os produtos que possuirem essa categoria seram removidos juntamente</p>
@@ -114,15 +86,9 @@ require "area_controle.php";
             </form>
                 <button class='button-editar' onclick="editarCategoria('form-remover-categoria', 'remover')">Remover</button>
         </section>
-       
     </section>
-
-    
-            
-</section>
-<!-- Editar Produtos -->
-
-<section class="carrinho-caixa sombra" >
+</section><!-- fim remover categoria -->
+<section class="carrinho-caixa sombra" ><!-- Editar Produtos -->
     <section class="borda-bottom">
         <h2>Editar Produto</h2>
     </section>
@@ -142,8 +108,8 @@ require "area_controle.php";
             <button class='button-editar' onclick='resgatarProdutoEditar("editar")'>Editar</button>    
         </section>
     </section>                            
-</section>
-<section class="caixa sombra" id='containerDadosDosProdutos'>
+</section> <!-- fim Editar Produtos -->
+<section class="caixa sombra" id='containerDadosDosProdutos'> <!-- detalhes Produtos -->
     <section class="borda-bottom">
         <h2>Detalhes Produtos cadastrados</h2>
     </section>
@@ -168,9 +134,7 @@ require "area_controle.php";
             </form>
             <section class ='row'>
                 <button class="button-filtro" onclick="verificaFiltro('categoria')" >Verificar</button>
-            </section>
-            
-            
+            </section>            
         </section>
         <section class='form-campo3'><!-- estilo 3 -->
         <h4>filtro por nome/descrição (pesquisa)</h4>
@@ -180,21 +144,10 @@ require "area_controle.php";
             <section class='row'>
                 <button class="button-filtro" onclick="verificaFiltro('busca')">Verificar</button>
             </section>
-            
         </section>
-        
     </section>
     <section id='dados_produto'>
         <!-- area dos dados dos produtos -->
     </section>
-</section>
-        <section class="row" id="pesquisa_admin" > 
-            <!-- BOTÃO DE FEHCAR PESQUISA APRIMORAR ELE -->
-            
-            <!-- CONTEUDO PESQUISA ADMIN -->
-        </section>
-
-        <!-- criar aqui uma area em que ficará em alerta todos os pedidos que estiverem com o estoque a baixo de 20 -->
-
-
-        <!-- IREI MELHORAR AQUI A QUESTÃO DO RESULTADO DA PESQUISA CASO ALGO FOR ADICIONADO OU FOR  MODIFICADO PARA QUE POSSA SER ATUALIZADO -->
+</section><!-- fim detalhes Produtos -->
+<section class="row" id="pesquisa_admin" ><!-- CONTEUDO PESQUISA ADMIN --></section>

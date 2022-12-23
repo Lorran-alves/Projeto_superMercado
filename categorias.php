@@ -1,21 +1,16 @@
 <?php 
-
-require "area_controle.php"; 
-
+    require "area_controle.php"; 
 ?>
-
 <?php if(isset($_SESSION['categoria-alterada'])){?>
     <?php if($_SESSION['categoria-alterada'] == 'sim'){?>
         <section class='row'>
             <h2 class="produto-salvo">Alteração realizada com sucesso!</h2>
         </section>
-        
     <?}?>
     <?php if($_SESSION['categoria-alterada'] == 'nao'){?>
         <section class='row'>
              <h2 class="produto-erro">Verifique se os dados foram preenchidos corretamente e tente novamente!</h2> 
         </section>
-        
     <?}?>
 <?}?>
 <?if(isset($_SESSION['escolherCategoria'])){?>
@@ -33,4 +28,3 @@ require "area_controle.php";
         <button class='button-editar' onclick="editarCategoria('form-remover-categoria', 'remover')">Remover</button>
     </section>
 <?}?>
-

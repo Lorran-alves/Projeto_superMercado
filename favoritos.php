@@ -1,12 +1,8 @@
 <?php 
 $acao = 'resgatarFavoritos';
 require "area_controle.php";
-
 ?>
-
 <h4 class='tituloFavoritos'>Aqui estão os seus produtos favoritos</h4>
-<!-- vou trabalhar fazendo a parte de favoritar os produtos 
- -->
  <section class="row" id="container">
  <?php if(isset($_SESSION['id_atual'])){?>
     <section id='produtos-novidades' class="row row-produtos">

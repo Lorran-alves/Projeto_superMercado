@@ -1,12 +1,9 @@
 
 <?php
-    
-    
     $acao = 'retornaDadosProduto';
     require "area_controle.php";
 ?>
 <?php if(isset($dadosProduto)){?>
-
     <section class='row border-top'>
         <h4 class= ''>Detalhes do produto de id: <span class=''><?=$dadosProduto['id_produto']?></span></h4>
     </section>

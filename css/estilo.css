@@ -8,7 +8,6 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 body{
     overflow-x: hidden;
     background-color: #f0f0f0;
@@ -19,7 +18,6 @@ body{
    margin-top: 10px;
    padding: 10px;
 }
-
 header{
     background-color: #ffcc01;
     display: flex;
@@ -31,25 +29,22 @@ header{
 .icon-login{
     color: white;
 }
-
 #ul-rigth{
     position: absolute;
     right: 40px;
     top: 10px;
-
 }
 #ul-login{
     position: absolute;
     right: 200px;
     top:10px;
-
 }
 i{
    color:rgb(247, 58, 58);
    font-size: 1.3em;
    opacity: 1;
    cursor: pointer;
-    transition: 0.6s;
+   transition: 0.6s;
 }
 h1 {
     font-size: 2.3em;
@@ -67,7 +62,6 @@ ul li{
     list-style-type: none;
     padding: 10px;
     font-size: 1.5em;
-    
 }
 a{
     text-decoration: none;
@@ -79,14 +73,11 @@ a{
 a:hover{
     transition: 0.3s;
     color: rgb(247, 230, 230);
-   
 }
 a:hover i {
     transition: 0.3s;
     opacity: 0.5;
 }
-
-/* container produto */ 
 .sombra{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
@@ -95,15 +86,13 @@ a:hover i {
     flex-direction: row;
     padding: 10px;
     position: relative;
-    
 }
 .row-button-unico{
     display: flex;
     flex-direction: row;
 }
 .container-produto{
- 
-    width: 210px;
+     width: 210px;
     height: 280px;
     font-size: 0.8em;
     background-color: white;
@@ -114,7 +103,6 @@ a:hover i {
     flex-direction: column;
     position: relative;
     transition: 0.4s;
-
 }
 .container-resultado{
     width: 250px;
@@ -129,7 +117,6 @@ a:hover i {
     position: relative;
     transition: 0.4s;
 }
-
 .container-produto img, .container-resultado img{
     width: 80%;
     margin-bottom: 5px;
@@ -141,7 +128,6 @@ h3{
  color: #ffcc01;
  position: absolute;
  bottom: 5px;
-
 }
 h1.titulos-produtos{
     text-align: left;
@@ -169,7 +155,6 @@ h1.titulos-produtos{
     width: 270px;
     height: 350px;
 }
-
 .container-resultado:hover p{
     display: block;
     transition: all 1s ease-in;
@@ -244,9 +229,7 @@ footer{
     width: 100%;
     padding: 10px;
     display: flex;
-
     margin: 20px 0;
-
 }
 .img img{
    width: 98%;
@@ -266,7 +249,6 @@ footer{
     width: 30%;
     display: inline;
     font-size: 1em;
-    /* border:1px solid red; */
 }
 .form-pesquisa i {
     padding: 0;
@@ -307,7 +289,6 @@ input{
     border-radius: 5px;
     border-color: white;
     font-size: 1em;
-
 }
 .form-admin{
     width: 100%;
@@ -346,10 +327,6 @@ input{
     color: #ffcc01;
     outline: 1px solid #ffcc01;
 }
-
-
-
-
 .botao-salvar-cadastro{
     background-color: #ffcc01;
     cursor: pointer;
@@ -367,7 +344,6 @@ input{
 .form-admin input::placeholder{
     color: rgb(133, 122, 122);
 }
-
 label{
     font-weight: bold;
     font-size: 1.2em;
@@ -393,13 +369,11 @@ label.escolhido{
     background-color: white;
     color: #ffcc01;
     border: 1px solid #ffcc01;
-    
 }
 .buttonTodosProdutos{
 width: 70%;
 }
 label.files:hover{
-    
     background-color: white;
     color: #ffcc01;
     outline: 1px solid #ffcc01;
@@ -410,12 +384,9 @@ input[type='file']{
 .coluna{
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
 }
 .itens-left{
-        display: flex;
-        
+    display: flex; 
     text-align: left;
 }
 .padding{
@@ -429,7 +400,6 @@ input[type='file']{
 .border-top{
     border-top: 1px solid #ccc;
 }
-
 .form-campo1{
     width: 35%;
     text-align: center;
@@ -453,7 +423,6 @@ input[type='file']{
 }
 .container-resultado h4{
     font-size: 1.5em;
-    
 }
 .form-admin select, input{
     width: 90%;
@@ -486,7 +455,6 @@ textarea{
     max-width: 90%;
     max-height:130px;
     margin: auto;
-    
 }
 .produto-erro, .produto-salvo{
     font-size: 1.5em;
@@ -500,13 +468,6 @@ textarea{
 .produto-erro{
     color: red;
 }
-/* .produto-no-wrap{
-    display: flex;
-    flex-flow: row nowrap;
-} */
-
-/* ESTILO DO CAROUSEL DO PRODUTO SLIDE */
-
 i.left{
     left: 5px;
 }
@@ -536,37 +497,14 @@ i.left:hover, i.right:hover{
     width: 100%;
     display: flex;
     flex-flow: wrap;
-    /* border: 1px solid red; */
 }
 
-.categoria-nova button{
-    background-color: orange;
-    color: black;
-    padding:10px;
-    border-radius: 10px;
-    width: 50%;
-    margin: 10px;
-    cursor: pointer;
-}
-.categoria-nova form select#remover{
-    color: black;
-    padding:10px;
-    border-radius: 10px;
-    width: 800px;
-    margin: 10px;
-}
-.categoria-nova input{
-    padding: 15px;
-    width: 100%;
-    
-}
 .busca{
     display: none;
 }
 .coluna{
     display: flex;
     flex-direction: column;
-    
 }
 .align-form{
     display: flex;
@@ -582,7 +520,6 @@ i.left:hover, i.right:hover{
     border-radius: 10px;
     margin: auto;
     transition: 0.5s;
-    
 }
 .button-filtro:hover, .buttonTodosProdutos:hover, .iconFechaPesquisa:hover{
     background-color: white;
@@ -595,7 +532,6 @@ i.left:hover, i.right:hover{
 .align-form select{
     width: 90%;
     border-radius: 10px;
-    /* background-color: red; */
 }
 .titulo_pesquisa{
     font-size: 1.2em;
@@ -609,7 +545,6 @@ button{
     cursor: pointer;
     border: 0;
 }
-
 textarea:focus, input:focus, select:focus {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     outline: 0;
@@ -649,8 +584,6 @@ i.favorito{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* outline: 1px solid red;
-      */
 }
 li.centralizar{
     cursor: pointer;
@@ -660,12 +593,10 @@ li.centralizar{
     color: #606060;
     font-weight: bold;
 }
-
 .iconMenu{
     margin-left: 5px;
     color: #606060;
 }
-
 .menuInterativo{
     color: white;
     font-weight: bold;
@@ -682,14 +613,11 @@ li.centralizar{
     text-align: center;
     padding: 10px;
     transition: 1s;
-
 }
 .menuInterativo ul li:hover{
     color: #4e4a4a;
-    background-color:white ;
-   
+    background-color:white ; 
 }
 .d-block{
     display: block;
 }
-

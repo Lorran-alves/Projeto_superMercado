@@ -1,14 +1,11 @@
 <?php
    $acao = 'pesquisa-admin';
-   
    require "area_controle.php";
 ?>
-<!-- ICON PARA FECHAR A AREA DO RESULTADO DA PESQUISA -->
-
 <?php if(isset($_SESSION['resultado']) && isset($resultado) && sizeof($resultado) == 0 ){?>
-    <i class="fa-solid fa-xmark iconFechaPesquisa" onclick="fechaResultadoPesquisaAdmin()"></i> 
+    <i class="fa-solid fa-xmark iconFechaPesquisa" onclick="fechaResultadoPesquisaAdmin()"></i> <!-- ICON PARA FECHAR A AREA DO RESULTADO DA PESQUISA -->
         <section class="coluna">
-        <h4>Nenhum resultado decorrente da sua pesquisa</h4>
+            <h4>Nenhum resultado decorrente da sua pesquisa</h4>
             <?if(isset($busca)){?>
                 <h4 class='titulo_pesquisa'>Palavra chave ultilizada: <?=$busca?></h4>
             <?}else if($filtro == "categoria"){?>
@@ -34,7 +31,5 @@
                 <i class="fa-solid fa-pen-to-square icon-edit" onclick="requisitarPagina('containerEdicao', 'editar_produto_admin.php?acao=recuperarProdutoEditar&area=editar&id_produto=<?=$produto['id_produto']?>')"></i>
             </section>
         <?}?>
-    </section>
-
     </section>
 <?}?>
