@@ -15,17 +15,8 @@ $total_itens = 0;
         <?if(sizeof($carrinhoAtual) != 0){?><!--  array não está vazio  -->
             <? foreach($carrinhoAtual as $indece => $produto){?>
                <?php 
-               // VERIFICAR OQUE ACOTECENDO AQUI NESSSA PARTE ONDE O PRODUTO É EXIBIDO O SEU PREÇO POIS ESTÁ BORRADO
-            //    echo $produto['preco'];
-            //    echo '<br>';
-            //    echo $produto['quantidade'];
-            //    echo '<br>';
-            //    echo $produto['preco'] * $produto['quantidade'];
-            //    echo '<br>';
-            //    echo '<br>';
-               
-                    $precoTotal += $produto['preco'] * $produto['quantidade'];
-                    $total_itens += $produto['quantidade'];
+                $precoTotal += $produto['preco'] * $produto['quantidade'];
+                $total_itens += $produto['quantidade'];
                ?>
                 <section class="row">
                     <section class="img-carrinho borda-bottom">
@@ -50,29 +41,30 @@ $total_itens = 0;
                         </section>
                     </section>
                 </section>
-                <section class="info-precos-carrinho">
-                <h2>Resumo do pedido</h2>
-               <section class="row linha-conteudo-duplo">
-                    <h4 class="">Total</h4>
-                    <h4 class="">R$ <?=number_format($precoTotal, 2,',', '.')?></h4>
-               </section>
-                <section class="row linha-conteudo-duplo">
-                    <h4>Total de itens</h4>
-                    <h4 class=""><?=$total_itens?></h4>
-                </section>
-                <section class="row linha-conteudo-duplo borda-bottom">
-                    <h4 class="">Frete</h4>
-                    <h4 class="">Grátis</h4>
-                </section>
-                <section class="row linha-conteudo-duplo total-pedido">
-                    <h4 class="">Total</h4>
-                    <h4 class=""><?=number_format($precoTotal, 2,',', '.')?></h4>
-                </section>
-                <section class="row button-finalizar">
-                    <button>Finalizar pedido</button>
-                </section>
-            </section>
-        <?}}else{?>
+            <?}?>
+            <section class="info-precos-carrinho">
+                    <h2>Resumo do pedido</h2>
+                    <section class="row linha-conteudo-duplo">
+                            <h4 class="">Total</h4>
+                            <h4 class="">R$ <?=number_format($precoTotal, 2,',', '.')?></h4>
+                    </section>
+                    <section class="row linha-conteudo-duplo">
+                        <h4>Total de itens</h4>
+                        <h4 class=""><?=$total_itens?></h4>
+                    </section>
+                    <section class="row linha-conteudo-duplo borda-bottom">
+                        <h4 class="">Frete</h4>
+                        <h4 class="">Grátis</h4>
+                    </section>
+                    <section class="row linha-conteudo-duplo total-pedido">
+                        <h4 class="">Total</h4>
+                        <h4 class=""><?=number_format($precoTotal, 2,',', '.')?></h4>
+                    </section>
+                    <section class="row button-finalizar">
+                        <button>Finalizar pedido</button>
+                    </section>
+                 </section>
+        <?}else{?>
             <h4>Carrinho vazio</h4>
         <?}?>
     <?}else{?>
