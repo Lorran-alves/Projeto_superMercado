@@ -4,16 +4,15 @@ $acao = 'recuperarCarrinho';
 require "area_controle.php";
 $precoTotal = 0;
 $total_itens = 0;
-
 ?>
 <section class="carrinho-caixa sombra">
     <section class="borda-bottom">
         <h2>Meu carrinho</h2>
     </section>
         <!-- inicio de cada pedido -->
-    <? if(isset($_SESSION['id_atual'])){?> <!-- FIZ ESSA VERIFICAÇÃO PARA SABER SE TEM ALGUM USUARIO LOGADO -->
-        <?if(sizeof($carrinhoAtual) != 0){?><!--  array não está vazio  -->
-            <? foreach($carrinhoAtual as $indece => $produto){?>
+    <?php if(isset($_SESSION['id_atual'])){?> <!-- FIZ ESSA VERIFICAÇÃO PARA SABER SE TEM ALGUM USUARIO LOGADO -->
+        <?php if(sizeof($carrinhoAtual) != 0){?><!--  array não está vazio  -->
+            <?php foreach($carrinhoAtual as $indece => $produto){?>
                <?php 
                 $precoTotal += $produto['preco'] * $produto['quantidade'];
                 $total_itens += $produto['quantidade'];
@@ -41,7 +40,7 @@ $total_itens = 0;
                         </section>
                     </section>
                 </section>
-            <?}?>
+            <?php }?>
             <section class="info-precos-carrinho">
                     <h2>Resumo do pedido</h2>
                     <section class="row linha-conteudo-duplo">
@@ -64,11 +63,11 @@ $total_itens = 0;
                         <button>Finalizar pedido</button>
                     </section>
                  </section>
-        <?}else{?>
+        <?php }else{?>
             <h4>Carrinho vazio</h4>
-        <?}?>
-    <?}else{?>
+        <?php }?>
+    <?php }else{?>
         <h4>FAÇA LOGIN PARA QUE SEJA POSSIVEL ULTILIZAR O CARRINHO!</h1>
-    <?}?>
+    <?php }?>
     
 </section>

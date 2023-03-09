@@ -1,6 +1,6 @@
 let count = 1;
 setInterval(function(){
-    nextSlide()
+   // nextSlide()
 },10000)
 function resgataIndece(indece){
     count = indece   

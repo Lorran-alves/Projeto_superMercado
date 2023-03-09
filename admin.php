@@ -25,12 +25,12 @@ require "area_controle.php";
                             <optgroup>
                                 <option value="vazio" disabled selected>Selecione a categoria</option>
                                 <?php foreach($categorias as $indece => $categoria){?>
-                                    <?if($categoria['nome_categoria'] == $produtoEditar[0]['categoria']){?>
+                                    <?php if($categoria['nome_categoria'] == $produtoEditar[0]['categoria']){?>
                                         <option value="<?=$categoria['nome_categoria']?>" selected><?=$categoria['nome_categoria']?></option>
-                                    <?}else{?>
+                                    <?php }else{?>
                                         <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
-                                    <?}?>
-                                <?}?>
+                                    <?php }?>
+                                <?php }?>
                             </optgroup>
                         </select>
                     </section>
@@ -80,7 +80,7 @@ require "area_controle.php";
                         <option value="vazio" disabled selected>Selecione a categoria</option>
                         <?php foreach($categorias as $indece => $categoria){?>
                         <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
-                        <?}?>
+                        <?php }?>
                     </optgroup>
                 </select>             
             </form>
@@ -101,7 +101,7 @@ require "area_controle.php";
                         <option value="vazio" disabled selected>Selecione o produto que deseja editar</option>
                         <?php foreach($produtosCadastrados as $indece => $produto){?>
                             <option value="<?=$produto['id_produto']?>" class="teste"><?=$produto['nome']?></option>
-                        <?}?>
+                        <?php }?>
                     </optgroup>
                 </select>
             </form>
@@ -128,7 +128,7 @@ require "area_controle.php";
                     <option value="vazio" disabled selected>Selecione a categoria</option>
                     <?php foreach($categorias as $indece => $categoria){?>
                     <option value="<?=$categoria['nome_categoria']?>" onclick="teste('teste')" id="<?=$categoria['nome_categoria']?>" ><?=$categoria['nome_categoria']?></option>
-                    <?}?>
+                    <?php }?>
                 </optgroup>
             </select>            
             </form>

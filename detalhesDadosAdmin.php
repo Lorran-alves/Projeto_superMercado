@@ -19,7 +19,7 @@
                 <option value="vazio" disabled selected>Selecione a categoria</option>
                 <?php foreach($categorias as $indece => $categoria){?>
                 <option value="<?=$categoria['nome_categoria']?>" onclick="teste('teste')" id="<?=$categoria['nome_categoria']?>" ><?=$categoria['nome_categoria']?></option>
-                <?}?>
+                <?php }?>
             </optgroup>
         </select>            
         </form>

@@ -5,26 +5,26 @@ require "area_controle.php";
     <script>atualizaDadosAdmin()</script>
         <?php if($_SESSION['alteracao'] == 'invalida'){?>
             <h2 class="produto-erro">Verifique se voce selecionou um produto</h2>
-        <?}?>
+        <?php }?>
         <?php if($_SESSION['alteracao'] == 'sucesso'){?>
             <h2 class="produto-salvo">Alteração realizada com sucesso!</h2>
-        <?}?>
+        <?php }?>
         <?php if($_SESSION['alteracao'] == 'falso'){?>            
             <h2 class="produto-erro">Verifique se você preencheu os dados corretamente e tente novamente</h2>
-        <?}?>   
-<?}?> 
+        <?php }?>   
+<?php }?> 
 <?php if(isset($_SESSION['area']) && $_SESSION['area'] == 'adicionar'){?>       
     <script>atualizaDadosAdmin()</script>
     <?php if($_SESSION['alteracao'] == 'invalida'){?>
         <h2 class="produto-erro">Verifique se voce selecionou um produto</h2>
-    <?}?>
+    <?php }?>
     <?php if($_SESSION['alteracao'] == 'sucesso'){?>
         <h2 class="produto-salvo">Alteração realizada com sucesso!</h2>
-    <?}?>
+    <?php }?>
     <?php if($_SESSION['alteracao'] == 'falso'){?>            
         <h2 class="produto-erro">Verifique se você preencheu os dados corretamente e tente novamente</h2>
-    <?}?>   
-<?}?> 
+    <?php }?>   
+<?php }?> 
 <?php if(isset($_SESSION['area']) && $_SESSION['area'] == "editar"){?><!-- area odne o produto irá ser editado -->
     <section class="row">
         <form class="form-admin" enctype="multipart/form-data" method="POST">
@@ -45,12 +45,12 @@ require "area_controle.php";
                             <optgroup>
                                 <option value="vazio" disabled selected>Selecione a categoria</option>
                                 <?php foreach($categorias as $indece => $categoria){?>
-                                    <?if($categoria['nome_categoria'] == $produtoEditar[0]['categoria']){?>
+                                    <?php if($categoria['nome_categoria'] == $produtoEditar[0]['categoria']){?>
                                         <option value="<?=$categoria['nome_categoria']?>" selected><?=$categoria['nome_categoria']?></option>
-                                    <?}else{?>
+                                    <?php }else{?>
                                         <option value="<?=$categoria['nome_categoria']?>"><?=$categoria['nome_categoria']?></option>
-                                    <?}?>
-                                <?}?>
+                                    <?php }?>
+                                <?php }?>
                             </optgroup>
                         </select>
                     </section>
@@ -69,7 +69,7 @@ require "area_controle.php";
             <input type="submit" value="Remover" class="botao-remover" name= 'button' onclick="requisitarPaginaEdicao('Remover', <?=$_GET['id_produto']?>, 'containerEdicao', 'editarProduto')">
              <input type="submit" value="Cancelar" class="botao-cancelar" name= 'button'  onclick="requisitarPaginaEdicao('Cancelar', <?=$_GET['id_produto']?>, 'containerEdicao', 'editarProduto')">
     </section>
-    <?}?>
+    <?php }?>
 <?php if(isset($_SESSION['area']) && $_SESSION['area'] == "escolher" ){?><!-- area de escolher o produto a ser editado -->
     
     <section class='row'>
@@ -79,11 +79,11 @@ require "area_controle.php";
                     <option value="vazio" disabled selected>Selecione o produto que deseja editar</option>
                     <?php foreach($produtosCadastrados as $indece => $produto){?>
                         <option value="<?=$produto['id_produto']?>" class="teste"><?=$produto['nome']?></option>
-                    <?}?>
+                    <?php }?>
                 </optgroup>
             </select>
         </form>
     <button class='button-editar' onclick='resgatarProdutoEditar("editar")'>Editar</button>           
     </section>
-<?}?>
+<?php }?>
 

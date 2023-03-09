@@ -1,0 +1,41 @@
+
+@media(max-width: 1200px){
+   
+    .form-pesquisa{
+        width: 50%;
+    }
+}
+@media(max-width: 1000px){
+    #ul-login, #ul-rigth{
+        display: none;
+    }
+    .form-pesquisa{
+        width: 60%;
+    }
+    .form-pesquisa input{
+     /* padding: 5% 2% 5% 10%; */
+     font-size: 1.6em;
+    }
+    .slider, .slides{
+        width: 100%;
+        height: 800px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+      
+       
+    }
+    .slide{
+
+        border: 2px solid red;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+
+    }
+   .img-slide{
+        /* width: 70%;
+        height: 250px; */
+   }
+}

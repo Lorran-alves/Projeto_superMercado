@@ -19,4 +19,4 @@
             <h4 class= 'padding'>Ultima atualização: <span class='conteudo-produto-span'><?=$data_brasileira?></span></h4>
         </section>
     </section>
-<?}?>
+<?php }?>

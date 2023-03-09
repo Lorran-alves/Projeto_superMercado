@@ -14,12 +14,12 @@
         </section>
     </section>
 </section>
-<?}else{?>
+<?php }else{?>
     <form class='formulario-login'>
         <h1 class='autenticaoUsuario'>Login</h1>
-        <?if(isset($_SESSION['login']) && $_SESSION['login'] == 'negado'){?>
+        <?php if(isset($_SESSION['login']) && $_SESSION['login'] == 'negado'){?>
             <p class="dados-errados">Email ou senha inválidos!</p>
-        <? }?>
+        <?php }?>
         <section class="secao-inputs">
             <input type="text" placeholder="Digite o seu email" name="email" id='email'>
             <i class="fa-solid fa-envelope iconFormularioUsuario"></i>
@@ -31,4 +31,4 @@
         <p>É novo por aqui?<a class='formularioUsuario' onclick="requisitarPagina('conteudo-form', 'conteudo-cadastro.php?area=cadastro')">Criar conta</a></p>
     </form>
     <button class='buttonFormularioUsuario' onclick="loginOuCadastroUsuario('conteudo-form', 'conteudo-login.php?acao=login&area=autenticacao', 'login', 'senhalogin')">Entrar</button>
-<?}?>
+<?php }?>

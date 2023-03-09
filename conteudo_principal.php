@@ -10,7 +10,7 @@
         <input type="radio" name="radio-btn" id="radio4" onclick="resgataIndece(4)">
         <div class="slide first">
             <section>
-                <img src="img/dia_da_carne.jpg" width="500px" height="350px" alt="">
+                <img class="img-slide" src="img/dia_da_carne.jpg" width="500px" height="350px" alt="">
             </section>
             <section class="conteudo_menu">
                 <h1> Dia da carne</h1>
@@ -23,7 +23,7 @@
         </div>
         <div class="slide">
             <section>
-                <img src="img/dia_verde.jpg" width="500px" height="350px" alt="">
+                <img class="img-slide" src="img/dia_verde.jpg" width="500px" height="350px" alt="">
             </section>
             <section class="conteudo_menu">
                 <h1> Dia da Verdura</h1>
@@ -36,7 +36,7 @@
         </div>
         <div class="slide">
             <section>
-                <img src="img/natal.jpg" width="500px" height="350px" alt="">
+                <img class="img-slide" src="img/natal.jpg" width="500px" height="350px" alt="">
             </section>
             <section class="conteudo_menu">
                 <h1> O Natal já chegou para o Super Nunes</h1>
@@ -49,7 +49,7 @@
         </div>
         <div class="slide">
             <section>
-                <img src="img/trocar-moedas.jpg" width="500px" height="350px" alt="">
+                <img class="img-slide" src="img/trocar-moedas.jpg" width="500px" height="350px" alt="">
             </section>
             <section class="conteudo_menu">
                 <h1> Venha trocar suas moedas</h1>
@@ -78,7 +78,7 @@
 </section> <!-- fim do conteudo do menu carousel -->
 <section class="img row"><!-- BEM VINDO AO SITE -->
     <section class="area_img">
-        <img src="img/bem_vindo.jpg"  alt="">
+        <img class="img-slide" src="img/bem_vindo.jpg"  alt="">
     </section>
     <section class="conteudo_da_img sombra">
         <h1>Olá, seja muito bem vindo ao nosso site</h1>

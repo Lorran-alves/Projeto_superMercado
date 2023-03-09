@@ -381,10 +381,6 @@ label.files:hover{
 input[type='file']{
     display: none;
 }
-.coluna{
-    display: flex;
-    flex-direction: column;
-}
 .itens-left{
     display: flex; 
     text-align: left;

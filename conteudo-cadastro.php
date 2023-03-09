@@ -11,9 +11,9 @@
         <h1 class='autenticaoUsuario'>Cadastro</h1>
         <?php if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'cadastrado'){?>
             <p class="dados-corretos">Usuario cadastrado com sucesso!</p>
-        <?}else if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'erro'){?>
+        <?php }else if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'erro'){?>
             <p class="dados-errados">usuario já existente ou dados inválidos!</p>
-        <? }?>
+        <?php }?>
         <section class="secao-inputs">
             <input type="text" placeholder="Digite o seu nome" name="nome" id='nome'>
             <i class="fa-solid fa-user iconFormularioUsuario"></i>
@@ -29,14 +29,14 @@
         <p>Já possui uma conta?<a class='formularioUsuario' onclick="requisitarPagina('conteudo-form','conteudo-login.php')">Entrar</a></p>
     </form>
     <button class='buttonFormularioUsuario' onclick='loginOuCadastroUsuario("conteudo-form", "conteudo-cadastro.php?acao=cadastro&area=cadastro", "cadastro", "senhaCadastro")'>Cadastrar</button>
-<?}else{?>
+<?php }else{?>
     <form action="area_controle.php?acao=cadastro" method="post" class='formulario-login'>
         <h1 class='autenticaoUsuario'>EDITAR</h1>
         <?php if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'cadastrado'){?>
             <p class="dados-corretos">Dados alterados com sucesso!</p>
-        <?}else if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'erro'){?>
+        <?php }else if(isset($_SESSION['alteracao']) && $_SESSION['alteracao'] == 'erro'){?>
             <p class="dados-errados">Verifique os dados e tente novamente!</p>
-        <? }?>
+        <?php }?>
         <section class="secao-inputs">
             <input type="text" placeholder="Digite o seu nome" name="nome" id='nome' value='<?=$dadosUsuario['nome']?>'>
             <i class="fa-solid fa-user iconFormularioUsuario"></i>
@@ -52,4 +52,4 @@
         <p>Já possui uma conta?<a class='formularioUsuario' onclick="requisitarPagina('conteudo-form','conteudo-login.php')">Entrar</a></p>
     </form>
     <button class='buttonFormularioUsuario' onclick='loginOuCadastroUsuario("conteudo-form", "conteudo-cadastro.php?acao=editar&area=editar", "editar", "senhaCadastro", "<?=$dadosUsuario["id_usuario"]?>")'>Editar</button>    
-<?}?>
+<?php }?>
