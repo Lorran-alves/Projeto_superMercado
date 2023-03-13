@@ -97,7 +97,7 @@
     <h1 class="titulos-produtos">Alimentos</h1>
     <section class="row" id='containerAlimentos'> <!-- conteudo Alimentos --></section>
 <!-- inicio conteudo pre-rodape -->
-<section class="img row ">
+<section class="img row conteudo-acima-footer">
     <section class="area_img">
         <img src="img/pagar_contas.jpg"  alt="">
     </section>

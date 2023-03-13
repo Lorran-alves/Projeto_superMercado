@@ -2,7 +2,7 @@
     <section class="row voltar-inicio">
         <h2><a href="#" Target="_top">voltar ao inicio</a></h2>
     </section>
-    <section class="row">
+    <section class="row" id="footer_contuedo">
         <section class="conteudo-footer">
             <h1>Sobre Nós</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos doloremque accusamus sunt non doloribus in at dicta, temporibus, iste aliquam minus harum, t inventore?</p>
